@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('components/layouts/master_1/main');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('components/layouts/master_1/main');
+    });
 });
