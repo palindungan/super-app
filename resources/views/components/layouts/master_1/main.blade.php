@@ -22,6 +22,7 @@
         </div>
     </div>
 
+    @include('components.layouts.master_1.modal.main')
     @include('components.layouts.master_1.script.main')
 </body>
 

@@ -6,7 +6,7 @@
             <h3 class="text-center">Sign In</h3>
             <div class="login-form">
 
-                <form action="{{ url('login') }}" method="POST" onsubmit="onSubmitButton(this)">
+                <form action="{{ route('login') }}" method="POST" onsubmit="formOnSubmitButton(this)">
                     @include('components.form.data', ['method' => 'POST'])
 
                     <div class="form-sub">
