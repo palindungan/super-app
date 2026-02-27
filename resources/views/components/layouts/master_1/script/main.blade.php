@@ -7,4 +7,6 @@
 </script>
 <script src="{{ asset('components/layouts/master_1/assets/js/kaiadmin.min.js') }}"></script>
 
+@include('components.form.script')
+
 @stack('scripts')

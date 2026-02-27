@@ -54,7 +54,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    @include('components.form.script')
-@endpush
