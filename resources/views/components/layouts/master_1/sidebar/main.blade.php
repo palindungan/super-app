@@ -26,45 +26,121 @@
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
-                <li class="nav-item active">
+                <li class="nav-item @yield('sidebar.home.active')">
                     <a href="">
-                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-home"></i>
                         <p>Beranda</p>
                     </a>
                 </li>
+                <li class="nav-item @yield('sidebar.cashier.active')">
+                    <a href="">
+                        <i class="fas fa-cart-plus"></i>
+                        <p>Kasir</p>
+                    </a>
+                </li>
+
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
-                    <h4 class="text-section">Data</h4>
+                    <h4 class="text-section">Laporan</h4>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item @yield('sidebar.report.transactions.active')">
                     <a href="">
-                        <i class="fas fa-desktop"></i>
-                        <p>Perusahaan</p>
+                        <i class="fas fa-clipboard-list"></i>
+                        <p>Transaksi</p>
                     </a>
                 </li>
-                <li class="nav-item active">
+
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Data Barang</h4>
+                </li>
+                <li class="nav-item @yield('sidebar.data_item.items.active')">
                     <a href="">
-                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-boxes"></i>
+                        <p>Barang</p>
+                    </a>
+                </li>
+                <li class="nav-item @yield('sidebar.data_item.items.active')">
+                    <a href="">
+                        <i class="fas fa-balance-scale"></i>
+                        <p>Satuan</p>
+                    </a>
+                </li>
+                <li class="nav-item @yield('sidebar.data_item.items.active')">
+                    <a href="">
+                        <i class="fas fa-th-large"></i>
+                        <p>Kategori</p>
+                    </a>
+                </li>
+
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Data Master</h4>
+                </li>
+                <li class="nav-item @yield('sidebar.data_master.branches.active')">
+                    <a href="">
+                        <i class="fas fa-store-alt"></i>
+                        <p>Cabang</p>
+                    </a>
+                </li>
+                <li class="nav-item @yield('sidebar.data_master.users.active')">
+                    <a href="">
+                        <i class="fas fa-user-friends"></i>
+                        <p>Pengguna</p>
+                    </a>
+                </li>
+                <li class="nav-item @yield('sidebar.data_master.customers.active')">
+                    <a href="">
+                        <i class="fas fa-address-card"></i>
+                        <p>Pelanggan</p>
+                    </a>
+                </li>
+                <li class="nav-item @yield('sidebar.data_master.balances.active')">
+                    <a href="">
+                        <i class="fas fa-money-check-alt"></i>
                         <p>Saldo</p>
                     </a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item @yield('sidebar.data_master.currencies.active')">
                     <a href="">
-                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-money-bill-wave"></i>
                         <p>Mata Uang</p>
                     </a>
                 </li>
+
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
-                    <h4 class="text-section">Keamanan</h4>
+                    <h4 class="text-section">Data Admin</h4>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item @yield('sidebar.data_admin.companies.active')">
                     <a href="">
-                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-building"></i>
+                        <p>Perusahaan</p>
+                    </a>
+                </li>
+                <li class="nav-item @yield('sidebar.data_admin.balances.active')">
+                    <a href="">
+                        <i class="fas fa-money-check-alt"></i>
+                        <p>Saldo</p>
+                    </a>
+                </li>
+                <li class="nav-item @yield('sidebar.data_admin.currencies.active')">
+                    <a href="">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <p>Mata Uang</p>
+                    </a>
+                </li>
+                <li class="nav-item @yield('sidebar.data_admin.roles.active')">
+                    <a href="">
+                        <i class="fas fa-user-shield"></i>
                         <p>Peran dan Izin</p>
                     </a>
                 </li>
