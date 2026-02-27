@@ -3,7 +3,7 @@
 @section('content')
     <div class="wrapper wrapper-login">
         <div class="container container-login animated fadeIn">
-            <h3 class="text-center">Sign In</h3>
+            <h3 class="text-center">Masuk</h3>
             <div class="login-form">
 
                 <form action="{{ route('login') }}" method="POST" onsubmit="formOnSubmitButton(this)">
@@ -40,7 +40,7 @@
                     </div> 
                     --}}
                     <div class="form-action mb-3">
-                        <button type="submit" class="btn btn-primary w-100 btn-login">Sign In</button>
+                        <button type="submit" class="btn btn-primary w-100 btn-login">Masuk</button>
                     </div>
                     {{-- 
                     <div class="login-account">
