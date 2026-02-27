@@ -123,4 +123,9 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    #################################################################
+    # custom environment variables can be added below this line.
+    #################################################################
+
+    'password' => env('APP_PASSWORD', '12345678'),
 ];
