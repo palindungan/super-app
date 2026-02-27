@@ -3,10 +3,12 @@
     <div class="sidebar-logo">
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
+            {{--
             <a href="" class="logo">
                 <img src="{{ asset('components/layouts/master_1/assets/img/kaiadmin/logo_light.svg') }}"
                     alt="navbar brand" class="navbar-brand" height="20" />
             </a>
+            --}}
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
                     <i class="gg-menu-right"></i>
@@ -27,7 +29,43 @@
                 <li class="nav-item active">
                     <a href="">
                         <i class="fas fa-desktop"></i>
-                        <p>Widgets</p>
+                        <p>Beranda</p>
+                    </a>
+                </li>
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Data</h4>
+                </li>
+                <li class="nav-item active">
+                    <a href="">
+                        <i class="fas fa-desktop"></i>
+                        <p>Perusahaan</p>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="">
+                        <i class="fas fa-desktop"></i>
+                        <p>Saldo</p>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="">
+                        <i class="fas fa-desktop"></i>
+                        <p>Mata Uang</p>
+                    </a>
+                </li>
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Keamanan</h4>
+                </li>
+                <li class="nav-item active">
+                    <a href="">
+                        <i class="fas fa-desktop"></i>
+                        <p>Peran dan Izin</p>
                     </a>
                 </li>
             </ul>
