@@ -34,7 +34,7 @@
                 </li>
                 <li class="nav-item @yield('sidebar.cashier.active')">
                     <a href="">
-                        <i class="fas fa-cart-plus"></i>
+                        <i class="fas fa-tv"></i>
                         <p>Kasir</p>
                     </a>
                 </li>
@@ -56,21 +56,21 @@
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
-                    <h4 class="text-section">Data Barang</h4>
+                    <h4 class="text-section">Data Produk</h4>
                 </li>
-                <li class="nav-item @yield('sidebar.data_item.items.active')">
+                <li class="nav-item @yield('sidebar.data_product.products.active')">
                     <a href="">
-                        <i class="fas fa-boxes"></i>
-                        <p>Barang</p>
+                        <i class="fas fa-shopping-bag"></i>
+                        <p>Produk</p>
                     </a>
                 </li>
-                <li class="nav-item @yield('sidebar.data_item.items.active')">
+                <li class="nav-item @yield('sidebar.data_product.units.active')">
                     <a href="">
                         <i class="fas fa-balance-scale"></i>
                         <p>Satuan</p>
                     </a>
                 </li>
-                <li class="nav-item @yield('sidebar.data_item.items.active')">
+                <li class="nav-item @yield('sidebar.data_product.categories.active')">
                     <a href="">
                         <i class="fas fa-th-large"></i>
                         <p>Kategori</p>
