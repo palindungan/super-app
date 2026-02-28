@@ -60,7 +60,7 @@
                 </li>
                 <li class="nav-item @yield('sidebar.data_product.products.active')">
                     <a href="">
-                        <i class="fas fa-shopping-bag"></i>
+                        <i class="fas fa-shopping-basket"></i>
                         <p>Produk</p>
                     </a>
                 </li>
