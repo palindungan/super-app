@@ -64,13 +64,13 @@
                         <p>Produk</p>
                     </a>
                 </li>
-                <li class="nav-item @yield('sidebar.data_product.units.active')">
+                <li class="nav-item @yield('sidebar.data_product.product_units.active')">
                     <a href="">
                         <i class="fas fa-balance-scale"></i>
                         <p>Satuan</p>
                     </a>
                 </li>
-                <li class="nav-item @yield('sidebar.data_product.categories.active')">
+                <li class="nav-item @yield('sidebar.data_product.product_categories.active')">
                     <a href="">
                         <i class="fas fa-th-large"></i>
                         <p>Kategori</p>
@@ -101,16 +101,23 @@
                         <p>Pelanggan</p>
                     </a>
                 </li>
+                <li class="nav-item @yield('sidebar.data_master.currency_exchange_rates.active')">
+                    <a href="">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <p>Kurs Mata Uang</p>
+                    </a>
+                </li>
+
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Lain-Lain</h4>
+                </li>
                 <li class="nav-item @yield('sidebar.data_master.balances.active')">
                     <a href="">
                         <i class="fas fa-money-check-alt"></i>
                         <p>Saldo</p>
-                    </a>
-                </li>
-                <li class="nav-item @yield('sidebar.data_master.currencies.active')">
-                    <a href="">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <p>Mata Uang</p>
                     </a>
                 </li>
 
@@ -134,7 +141,7 @@
                 </li>
                 <li class="nav-item @yield('sidebar.data_admin.currencies.active')">
                     <a href="">
-                        <i class="fas fa-money-bill-wave"></i>
+                        <i class="fas fa-money-bill-wave-alt"></i>
                         <p>Mata Uang</p>
                     </a>
                 </li>
