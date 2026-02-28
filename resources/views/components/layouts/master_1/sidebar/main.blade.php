@@ -125,27 +125,27 @@
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
-                    <h4 class="text-section">Data Admin</h4>
+                    <h4 class="text-section">Administrator</h4>
                 </li>
-                <li class="nav-item @yield('sidebar.data_admin.companies.active')">
+                <li class="nav-item @yield('sidebar.administrator.companies.active')">
                     <a href="">
                         <i class="fas fa-building"></i>
                         <p>Perusahaan</p>
                     </a>
                 </li>
-                <li class="nav-item @yield('sidebar.data_admin.balances.active')">
+                <li class="nav-item @yield('sidebar.administrator.balances.active')">
                     <a href="">
                         <i class="fas fa-money-check-alt"></i>
                         <p>Saldo</p>
                     </a>
                 </li>
-                <li class="nav-item @yield('sidebar.data_admin.currencies.active')">
+                <li class="nav-item @yield('sidebar.administrator.currencies.active')">
                     <a href="">
                         <i class="fas fa-money-bill-wave-alt"></i>
                         <p>Mata Uang</p>
                     </a>
                 </li>
-                <li class="nav-item @yield('sidebar.data_admin.roles.active')">
+                <li class="nav-item @yield('sidebar.administrator.roles.active')">
                     <a href="">
                         <i class="fas fa-user-shield"></i>
                         <p>Peran dan Izin</p>
