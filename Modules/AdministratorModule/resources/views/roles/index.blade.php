@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="page-header">
-        <h3 class="fw-bold mb-3">DataTables.Net</h3>
+        <h3 class="fw-bold mb-3">Peran</h3>
         @include('components.layouts.master_1.breadcrumb.main', [
             'breadcrumbs' => [['label' => 'Peran', 'url' => route('roles.index')], ['label' => 'Daftar']],
         ])
