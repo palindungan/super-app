@@ -146,7 +146,7 @@
                     </a>
                 </li>
                 <li class="nav-item @yield('sidebar.administrator.roles.active')">
-                    <a href="">
+                    <a href="{{ route('roles.index') }}">
                         <i class="fas fa-user-shield"></i>
                         <p>Peran dan Izin</p>
                     </a>
