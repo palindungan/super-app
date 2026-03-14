@@ -1,3 +1,4 @@
 {
-    "AdministratorModule": true
+    "AdministratorModule": true,
+    "MasterModule": true
 }
