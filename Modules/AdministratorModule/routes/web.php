@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\AdministratorModule\Http\Controllers\AdministratorModuleController;
+use Modules\AdministratorModule\Http\Controllers\RoleController;
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('administratormodules', AdministratorModuleController::class)->names('administratormodule');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('roles', RoleController::class)->names('roles');
 });
