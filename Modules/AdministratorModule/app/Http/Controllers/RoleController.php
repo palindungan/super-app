@@ -14,7 +14,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        return view('administratormodule::roles.index');
     }
 
     /**
@@ -22,7 +22,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('administratormodule::roles.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        return view('administratormodule::roles.show');
     }
 
     /**
@@ -46,7 +46,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        return view('administratormodule::roles.edit');
     }
 
     /**
