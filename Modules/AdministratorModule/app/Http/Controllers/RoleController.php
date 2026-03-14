@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Modules\AdministratorModule\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Role;
-use App\Http\Requests\StoreRoleRequest;
-use App\Http\Requests\UpdateRoleRequest;
+use Modules\AdministratorModule\Http\Requests\StoreRoleRequest;
+use Modules\AdministratorModule\Http\Requests\UpdateRoleRequest;
 
 class RoleController extends Controller
 {
