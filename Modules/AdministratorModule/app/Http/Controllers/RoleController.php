@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Modules\AdministratorModule\Http\Requests\StoreRoleRequest;
 use Modules\AdministratorModule\Http\Requests\UpdateRoleRequest;
 use Spatie\Permission\Models\Role;
+use Yajra\DataTables\Facades\DataTables;
 
 class RoleController extends Controller
 {
