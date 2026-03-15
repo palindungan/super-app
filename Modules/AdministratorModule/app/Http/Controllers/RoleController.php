@@ -3,6 +3,7 @@
 namespace Modules\AdministratorModule\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Modules\AdministratorModule\Http\Requests\StoreRoleRequest;
 use Modules\AdministratorModule\Http\Requests\UpdateRoleRequest;
 use Spatie\Permission\Models\Role;
@@ -27,10 +28,20 @@ class RoleController extends Controller
         $request = request();
         if ($request->ajax()) {
             if ($request->datatables == 'main') {
-                $eloquent = Role::query()->select(
-                    'roles.*',
-                );
-                $dataTable = DataTables::of($eloquent);
+                $permission_count = DB::table('role_has_permissions')
+                    ->select('role_id', DB::raw('COUNT(permission_id) as permissions_count'))
+                    ->groupBy('role_id');
+
+                $query = Role::query()
+                    ->select(
+                        'roles.*',
+                        DB::raw('COALESCE(permission_counts.permissions_count,0) as permissions_count'),
+                    )
+                    ->leftJoinSub($permission_count, 'permission_counts', function ($join) {
+                        $join->on('roles.id', '=', 'permission_counts.role_id');
+                    });
+
+                $dataTable = DataTables::of($query);
                 $dataTable->editColumn('action', function ($row) {
                     $result = view('administratormodule::roles.table_action', compact('row'))->render();
                     if ($result) {
@@ -39,6 +50,7 @@ class RoleController extends Controller
                     return null;
                 });
                 $dataTable->rawColumns(['action']);
+
                 return $dataTable->make(true);
             }
         }

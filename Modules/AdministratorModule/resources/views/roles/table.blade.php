@@ -48,8 +48,8 @@
                         defaultContent: '-'
                     },
                     {
-                        data: 'id',
-                        name: 'roles.id',
+                        data: 'permissions_count',
+                        name: 'permission_counts.permissions_count',
                         className: '',
                         defaultContent: '-'
                     },
