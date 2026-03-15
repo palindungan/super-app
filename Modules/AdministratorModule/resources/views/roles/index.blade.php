@@ -2,6 +2,10 @@
 
 @section('sidebar.administrator.roles.active', 'active')
 
+@push('scripts')
+    <script src="{{ asset('components/layouts/master_1/assets/js/plugin/datatables/datatables.min.js') }}"></script>
+@endpush
+
 @section('content')
     <div class="page-header">
         <h3 class="fw-bold mb-3">Peran</h3>
@@ -23,7 +27,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script src="{{ asset('components/layouts/master_1/assets/js/plugin/datatables/datatables.min.js') }}"></script>
-@endpush
