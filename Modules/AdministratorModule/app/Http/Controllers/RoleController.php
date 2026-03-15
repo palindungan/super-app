@@ -9,6 +9,15 @@ use Modules\AdministratorModule\Http\Requests\UpdateRoleRequest;
 
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('can:administratormodule-role.index')->only('index');
+        // $this->middleware('can:administratormodule-role.create')->only(['create', 'store']);
+        // $this->middleware('can:administratormodule-role.show')->only('show');
+        // $this->middleware('can:administratormodule-role.edit')->only(['edit', 'update']);
+        // $this->middleware('can:administratormodule-role.destroy')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */
