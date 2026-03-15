@@ -5,6 +5,7 @@
                 <th>Nama</th>
                 <th>Nama Penjaga</th>
                 <th>Izin</th>
+                <th>Dirubah</th>
                 <th></th>
             </tr>
         </thead>
@@ -50,6 +51,12 @@
                     {
                         data: 'permissions_count',
                         name: 'permission_counts.permissions_count',
+                        className: '',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'updated_at',
+                        name: 'roles.updated_at',
                         className: '',
                         defaultContent: '-'
                     },

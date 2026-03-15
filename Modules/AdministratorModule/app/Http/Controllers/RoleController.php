@@ -42,6 +42,9 @@ class RoleController extends Controller
                     });
 
                 $dataTable = DataTables::of($query);
+                $dataTable->editColumn('updated_at', function ($row) {
+                    return !empty($row->updated_at) ? $row->updated_at->format('Y-m-d H:i:s') : '-';
+                });
                 $dataTable->editColumn('action', function ($row) {
                     $result = view('administratormodule::roles.table_action', compact('row'))->render();
                     if ($result) {
