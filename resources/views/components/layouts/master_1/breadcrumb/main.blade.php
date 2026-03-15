@@ -1,7 +1,7 @@
 <ul class="breadcrumbs mb-3">
     <li class="nav-home">
         <a href="{{ url('/') }}">
-            <i class="icon-home"></i>
+            <i class="fas fa-home"></i>
         </a>
     </li>
 
