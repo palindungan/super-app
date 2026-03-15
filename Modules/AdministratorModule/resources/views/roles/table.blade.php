@@ -23,12 +23,28 @@
                     "url": "{{ url()->current() }}?datatables=main",
                     "type": "GET",
                 },
+                "columnDefs": [{
+                    "orderable": false,
+                    "targets": [3] // Disable sorting for the first (0) and third (2) columns
+                }],
                 order: [
                     [0, 'asc'],
                 ],
                 columns: [{
                         data: 'name',
                         name: 'roles.name',
+                        className: '',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'guard_name',
+                        name: 'roles.guard_name',
+                        className: '',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'id',
+                        name: 'roles.id',
                         className: '',
                         defaultContent: '-'
                     },

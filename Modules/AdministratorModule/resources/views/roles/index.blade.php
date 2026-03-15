@@ -23,3 +23,7 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('components/layouts/master_1/assets/js/plugin/datatables/datatables.min.js') }}"></script>
+@endpush
