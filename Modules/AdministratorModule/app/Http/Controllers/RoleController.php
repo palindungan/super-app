@@ -3,9 +3,9 @@
 namespace Modules\AdministratorModule\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Role;
 use Modules\AdministratorModule\Http\Requests\StoreRoleRequest;
 use Modules\AdministratorModule\Http\Requests\UpdateRoleRequest;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -23,6 +23,23 @@ class RoleController extends Controller
      */
     public function index()
     {
+        $request = request();
+        if ($request->ajax()) {
+            if ($request->datatables == 'main') {
+                $eloquent = Role::query();
+                $dataTable = DataTables::of($eloquent);
+                $dataTable->editColumn('action', function ($row) {
+                    $result = view('administratormodule::roles.table_action', compact('row'))->render();
+                    if ($result) {
+                        return $result;
+                    }
+                    return null;
+                });
+                $dataTable->rawColumns(['action']);
+                return $dataTable->make(true);
+            }
+        }
+
         return view('administratormodule::roles.index');
     }
 
