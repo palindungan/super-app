@@ -27,7 +27,9 @@ class RoleController extends Controller
         $request = request();
         if ($request->ajax()) {
             if ($request->datatables == 'main') {
-                $eloquent = Role::query();
+                $eloquent = Role::query()->select(
+                    'roles.*',
+                );
                 $dataTable = DataTables::of($eloquent);
                 $dataTable->editColumn('action', function ($row) {
                     $result = view('administratormodule::roles.table_action', compact('row'))->render();
