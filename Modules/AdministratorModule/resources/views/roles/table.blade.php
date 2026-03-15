@@ -56,7 +56,7 @@
                     {
                         data: 'action',
                         name: 'roles.id',
-                        className: '',
+                        className: 'text-end',
                         defaultContent: '-'
                     },
                 ],
