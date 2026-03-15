@@ -18,7 +18,13 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Peran</h4>
+                    <div class="d-flex align-items-center">
+                        <h4 class="card-title">Peran</h4>
+                        <button class="btn btn-primary btn-round ms-auto">
+                            <i class="fa fa-plus"></i>
+                            Buat Peran
+                        </button>
+                    </div>
                 </div>
                 <div class="card-body">
                     @include('administratormodule::roles.table')

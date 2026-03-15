@@ -16,16 +16,21 @@
     <script>
         $(document).ready(function() {
             basic_datatables = $('#basic_datatables').DataTable({
+                autoWidth: false,
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/2.3.7/i18n/id.json',
+                },
+
                 processing: true,
                 serverSide: true,
-                autoWidth: false,
                 ajax: {
-                    "url": "{{ url()->current() }}?datatables=main",
-                    "type": "GET",
+                    url: '{{ url()->current() }}?datatables=main',
+                    type: 'GET',
                 },
-                "columnDefs": [{
-                    "orderable": false,
-                    "targets": [3],
+
+                columnDefs: [{
+                    orderable: false,
+                    targets: [3],
                 }],
                 order: [
                     [0, 'asc'],
