@@ -25,7 +25,7 @@
                 },
                 "columnDefs": [{
                     "orderable": false,
-                    "targets": [3] // Disable sorting for the first (0) and third (2) columns
+                    "targets": [3],
                 }],
                 order: [
                     [0, 'asc'],
