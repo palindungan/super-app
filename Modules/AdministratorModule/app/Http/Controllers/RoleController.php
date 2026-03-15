@@ -42,8 +42,19 @@ class RoleController extends Controller
                     });
 
                 $dataTable = DataTables::of($query);
+                $dataTable->editColumn('guard_name', function ($row) {
+                    return $row->guard_name
+                        ? "<span class='badge bg-warning'>{$row->guard_name}</span>"
+                        : null;
+                });
+
+                $dataTable->editColumn('permissions_count', function ($row) {
+                    return $row->permissions_count
+                        ? "<span class='badge bg-warning'>{$row->permissions_count}</span>"
+                        : null;
+                });
                 $dataTable->editColumn('updated_at', function ($row) {
-                    return !empty($row->updated_at) ? $row->updated_at->format('Y-m-d H:i:s') : '-';
+                    return !empty($row->updated_at) ? $row->updated_at->format('Y-m-d H:i:s') : null;
                 });
                 $dataTable->editColumn('action', function ($row) {
                     $result = view('administratormodule::roles.table_action', compact('row'))->render();
@@ -52,7 +63,7 @@ class RoleController extends Controller
                     }
                     return null;
                 });
-                $dataTable->rawColumns(['action']);
+                $dataTable->rawColumns(['guard_name', 'permissions_count', 'action']);
 
                 return $dataTable->make(true);
             }
