@@ -18,7 +18,7 @@
             basic_datatables = $('#basic_datatables').DataTable({
                 autoWidth: false,
                 language: {
-                    url: 'https://cdn.datatables.net/plug-ins/2.3.7/i18n/id.json',
+                    url: 'https://cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json',
                 },
 
                 processing: true,
