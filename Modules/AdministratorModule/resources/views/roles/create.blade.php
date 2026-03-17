@@ -60,10 +60,6 @@
                                 <a class="nav-link" id="line-profile-tab" data-bs-toggle="pill" href="#line-profile"
                                     role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="line-contact-tab" data-bs-toggle="pill" href="#line-contact"
-                                    role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
-                            </li>
                         </ul>
                         <div class="tab-content mt-3 mb-3" id="line-tabContent">
                             <div class="tab-pane fade show active" id="line-home" role="tabpanel"
@@ -90,22 +86,6 @@
                                     packed
                                     her seven versalia, put her initial into the belt and made herself on the way.
                                 </p>
-                            </div>
-                            <div class="tab-pane fade" id="line-contact" role="tabpanel" aria-labelledby="line-contact-tab">
-                                <p>Pityful a rethoric question ran over her cheek, then she continued her way. On her
-                                    way she
-                                    met a copy. The copy warned the Little Blind Text, that where it came from it would
-                                    have
-                                    been rewritten a thousand times and everything that was left from its origin would
-                                    be the
-                                    word "and" and the Little Blind Text should turn around and return to its own, safe
-                                    country.
-                                </p>
-                                <p> But nothing the copy said could convince her and so it didnâ€™t take long until a
-                                    few
-                                    insidious Copy Writers ambushed her, made her drunk with Longe and Parole and
-                                    dragged her
-                                    into their agency, where they abused her for their</p>
                             </div>
                         </div>
                     </div>
