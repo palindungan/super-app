@@ -8,7 +8,7 @@
             </ul>
         </nav>
         <div class="copyright ms-auto">
-            2026, made by <a href="">Palindungan</a>
+            2026, dibuat oleh <a href="">Palindungan</a>
         </div>
     </div>
 </footer>
