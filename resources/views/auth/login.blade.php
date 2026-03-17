@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="wrapper wrapper-login">
-        <div class="container container-login animated fadeIn">
+        <div class="container container-login animated fadeIn" style="width: 425px;">
             <h3 class="text-center">Masuk</h3>
             <div class="login-form">
                 <form action="{{ route('login') }}" method="POST" onsubmit="formOnSubmitButton(this)">
