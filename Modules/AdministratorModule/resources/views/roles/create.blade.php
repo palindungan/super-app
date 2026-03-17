@@ -60,6 +60,10 @@
                                 <a class="nav-link" id="line-2-tab" data-bs-toggle="pill" href="#line-2" role="tab"
                                     aria-controls="pills-2" aria-selected="false">Laporan</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="line-3-tab" data-bs-toggle="pill" href="#line-3" role="tab"
+                                    aria-controls="pills-3" aria-selected="false">Data Produk</a>
+                            </li>
                         </ul>
                         <div class="tab-content mt-3 mb-3" id="line-tabContent">
                             <div class="tab-pane fade show active" id="line-1" role="tabpanel"
@@ -68,6 +72,9 @@
                             </div>
                             <div class="tab-pane fade" id="line-2" role="tabpanel" aria-labelledby="line-2-tab">
                                 <p>Laporan</p>
+                            </div>
+                            <div class="tab-pane fade" id="line-3" role="tabpanel" aria-labelledby="line-3-tab">
+                                <p>Data Produk</p>
                             </div>
                         </div>
                     </div>
