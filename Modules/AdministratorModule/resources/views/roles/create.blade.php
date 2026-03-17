@@ -68,6 +68,14 @@
                                 <a class="nav-link" id="line-4-tab" data-bs-toggle="pill" href="#line-4" role="tab"
                                     aria-controls="pills-4" aria-selected="false">Data Master</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="line-5-tab" data-bs-toggle="pill" href="#line-5" role="tab"
+                                    aria-controls="pills-5" aria-selected="false">Lain-Lain</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="line-6-tab" data-bs-toggle="pill" href="#line-6" role="tab"
+                                    aria-controls="pills-6" aria-selected="false">Administrator</a>
+                            </li>
                         </ul>
                         <div class="tab-content mt-3 mb-3" id="line-tabContent">
                             <div class="tab-pane fade show active" id="line-1" role="tabpanel"
@@ -82,6 +90,12 @@
                             </div>
                             <div class="tab-pane fade" id="line-4" role="tabpanel" aria-labelledby="line-4-tab">
                                 <p>Data Master</p>
+                            </div>
+                            <div class="tab-pane fade" id="line-5" role="tabpanel" aria-labelledby="line-5-tab">
+                                <p>Lain-Lain</p>
+                            </div>
+                            <div class="tab-pane fade" id="line-6" role="tabpanel" aria-labelledby="line-6-tab">
+                                <p>Administrator</p>
                             </div>
                         </div>
                     </div>
