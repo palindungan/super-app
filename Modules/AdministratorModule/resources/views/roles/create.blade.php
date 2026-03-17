@@ -21,15 +21,13 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="largeInput">Nama</label>
-                                <input type="text" class="form-control form-control" id="defaultInput"
-                                    placeholder="Nama" />
+                                <input type="text" class="form-control form-control" id="name" name="name" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="largeInput">Nama Penjaga</label>
-                                <input type="text" class="form-control form-control" id="defaultInput"
-                                    placeholder="Nama Penjaga" />
+                                <input type="text" class="form-control form-control" id="guard_name" name="guard_name" />
                             </div>
                         </div>
                         <div class="col-md-4">
