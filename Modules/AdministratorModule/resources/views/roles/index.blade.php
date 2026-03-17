@@ -10,7 +10,10 @@
     <div class="page-header">
         <h3 class="fw-bold mb-3">Peran</h3>
         @include('components.layouts.master_1.breadcrumb.main', [
-            'breadcrumbs' => [['label' => 'Peran', 'url' => route('administrator-roles.index')], ['label' => 'Daftar']],
+            'breadcrumbs' => [
+                ['label' => 'Peran', 'url' => route('administrator-roles.index')],
+                ['label' => 'Daftar'],
+            ],
         ])
     </div>
 
@@ -20,10 +23,10 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Peran</h4>
-                        <button class="btn btn-primary btn-round ms-auto">
+                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('administrator-roles.create') }}">
                             <i class="fa fa-plus"></i>
                             Buat Peran
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="card-body">
