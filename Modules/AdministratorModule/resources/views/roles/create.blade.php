@@ -49,8 +49,8 @@
         </div>
         <div class="col-md-12">
             <div class="card">
-                <div class="card-body" style="padding-top: 0px;">
-                    <div class="col-md-12" style="padding: 10px;">
+                <div class="card-body pb-0" style="padding-top: 0px;">
+                    <div class="col-md-12 pb-0" style="padding: 10px;">
                         <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="line-1-tab" data-bs-toggle="pill" href="#line-1"
