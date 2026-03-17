@@ -53,20 +53,20 @@
                     <div class="col-md-12" style="padding: 10px;">
                         <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="line-home-tab" data-bs-toggle="pill" href="#line-home"
-                                    role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+                                <a class="nav-link active" id="line-1-tab" data-bs-toggle="pill" href="#line-1"
+                                    role="tab" aria-controls="pills-1" aria-selected="true">1</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="line-profile-tab" data-bs-toggle="pill" href="#line-profile"
-                                    role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+                                <a class="nav-link" id="line-2-tab" data-bs-toggle="pill" href="#line-2" role="tab"
+                                    aria-controls="pills-2" aria-selected="false">2</a>
                             </li>
                         </ul>
                         <div class="tab-content mt-3 mb-3" id="line-tabContent">
-                            <div class="tab-pane fade show active" id="line-home" role="tabpanel"
-                                aria-labelledby="line-home-tab">
+                            <div class="tab-pane fade show active" id="line-1" role="tabpanel"
+                                aria-labelledby="line-1-tab">
                                 <p>1</p>
                             </div>
-                            <div class="tab-pane fade" id="line-profile" role="tabpanel" aria-labelledby="line-profile-tab">
+                            <div class="tab-pane fade" id="line-2" role="tabpanel" aria-labelledby="line-2-tab">
                                 <p>2</p>
                             </div>
                         </div>
