@@ -10,7 +10,7 @@
     <div class="page-header">
         <h3 class="fw-bold mb-3">Peran</h3>
         @include('components.layouts.master_1.breadcrumb.main', [
-            'breadcrumbs' => [['label' => 'Peran', 'url' => route('roles.index')], ['label' => 'Daftar']],
+            'breadcrumbs' => [['label' => 'Peran', 'url' => route('administrator-roles.index')], ['label' => 'Daftar']],
         ])
     </div>
 
