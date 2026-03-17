@@ -54,7 +54,7 @@
                         <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="line-1-tab" data-bs-toggle="pill" href="#line-1"
-                                    role="tab" aria-controls="pills-1" aria-selected="true">Aplikasi</a>
+                                    role="tab" aria-controls="pills-1" aria-selected="true">Utama</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="line-2-tab" data-bs-toggle="pill" href="#line-2" role="tab"
@@ -68,7 +68,7 @@
                         <div class="tab-content mt-3 mb-3" id="line-tabContent">
                             <div class="tab-pane fade show active" id="line-1" role="tabpanel"
                                 aria-labelledby="line-1-tab">
-                                <p>Aplikasi</p>
+                                <p>Utama</p>
                             </div>
                             <div class="tab-pane fade" id="line-2" role="tabpanel" aria-labelledby="line-2-tab">
                                 <p>Laporan</p>
