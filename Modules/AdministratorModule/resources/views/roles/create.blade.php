@@ -103,6 +103,53 @@
             </div>
         </div>
         <div class="col-md-12">
+
+            <div class="accordion accordion-secondary">
+                <div class="card">
+                    <div class="card-header" id="heading1" data-bs-toggle="collapse" data-bs-target="#collapse1"
+                        aria-expanded="true" aria-controls="collapse1">
+                        <div class="span-title">
+                            Lorem Ipsum #1
+                        </div>
+                        <div class="span-mode"></div>
+                    </div>
+
+                    <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordion">
+                        <div class="card-body">
+                            1111111111111111111111
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header collapsed" id="heading2" data-bs-toggle="collapse"
+                        data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        <div class="span-title">
+                            Lorem Ipsum #2
+                        </div>
+                        <div class="span-mode"></div>
+                    </div>
+                    <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+                        <div class="card-body">
+                            2222222222222222222222
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header collapsed" id="heading3" data-bs-toggle="collapse"
+                        data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                        <div class="span-title">
+                            Lorem Ipsum #3
+                        </div>
+                        <div class="span-mode"></div>
+                    </div>
+                    <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+                        <div class="card-body">
+                            3333333333333333333333
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <button class="btn btn-success">Buat</button>
             <button class="btn btn-danger">Batal</button>
         </div>
