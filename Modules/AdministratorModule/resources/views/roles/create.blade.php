@@ -64,28 +64,10 @@
                         <div class="tab-content mt-3 mb-3" id="line-tabContent">
                             <div class="tab-pane fade show active" id="line-home" role="tabpanel"
                                 aria-labelledby="line-home-tab">
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                    Consonantia,
-                                    there live the blind texts. Separated they live in Bookmarksgrove right at the coast
-                                    of the
-                                    Semantics, a large language ocean.</p>
-
-                                <p>A small river named Duden flows by their place and supplies it with the necessary
-                                    regelialia.
-                                    It is a paradisematic country, in which roasted parts of sentences fly into your
-                                    mouth.</p>
+                                <p>1</p>
                             </div>
                             <div class="tab-pane fade" id="line-profile" role="tabpanel" aria-labelledby="line-profile-tab">
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                                    unorthographic life One day however a small line of blind text by the name of Lorem
-                                    Ipsum
-                                    decided to leave for the far World of Grammar.</p>
-                                <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas,
-                                    wild
-                                    Question Marks and devious Semikoli, but the Little Blind Text didnâ€™t listen. She
-                                    packed
-                                    her seven versalia, put her initial into the belt and made herself on the way.
-                                </p>
+                                <p>2</p>
                             </div>
                         </div>
                     </div>
