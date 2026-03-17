@@ -51,7 +51,7 @@
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
-                                <button data-bs-toggle="modal" data-bs-target="#modal-logout" class="dropdown-item">Logout</button>
+                                <button data-bs-toggle="modal" data-bs-target="#modal-logout" class="dropdown-item">Keluar</button>
                             </li>
                         </div>
                     </ul>
