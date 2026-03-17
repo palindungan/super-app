@@ -49,7 +49,7 @@
         </div>
         <div class="col-md-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" style="padding-top: 0px;">
                     <div class="row" style="padding: 10px;">
                         <div class="col-md-12">
                             <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
