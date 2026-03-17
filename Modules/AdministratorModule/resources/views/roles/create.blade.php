@@ -94,7 +94,12 @@
                                         <div id="collapse1" class="collapse show" aria-labelledby="heading1"
                                             data-parent="#accordion">
                                             <div class="card-body">
-                                                ----------
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                    <label class="form-check-label" for="exampleCheck1">
+                                                        Check me out
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
