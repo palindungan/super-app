@@ -48,7 +48,7 @@
                             }
                         @endphp
                         <li class="nav-item">
-                            <a class="nav-link {{ $link_active }}" data-bs-toggle="pill" role="tab"
+                            <a data-bs-toggle="pill" role="tab" class="nav-link {{ $link_active }}"
                                 aria-selected="{{ $aria_selected }}" id="line-{{ $index }}-tab"
                                 href="#line-{{ $index }}" aria-controls="pills-{{ $index }}">
                                 {{ $item['label'] }}
@@ -128,36 +128,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="line-2" role="tabpanel" aria-labelledby="line-2-tab">
-                        <p>Laporan</p>
-                        <div class="accordion accordion-secondary">
-                            <div class="card">
-                                <div class="card-header" id="heading1" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                    <div class="span-title">
-                                        Lorem Ipsum #1
-                                    </div>
-                                    <div class="span-mode"></div>
-                                </div>
-                                <div id="collapse1" class="collapse show" aria-labelledby="heading1"
-                                    data-parent="#accordion">
-                                    <div class="card-body">
-                                        ----------
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="line-3" role="tabpanel" aria-labelledby="line-3-tab">
-                        <p>Data Produk</p>
-                    </div>
-                    <div class="tab-pane fade" id="line-4" role="tabpanel" aria-labelledby="line-4-tab">
-                        <p>Data Master</p>
-                    </div>
-                    <div class="tab-pane fade" id="line-5" role="tabpanel" aria-labelledby="line-5-tab">
-                        <p>Lain-Lain</p>
-                    </div>
-                    <div class="tab-pane fade" id="line-6" role="tabpanel" aria-labelledby="line-6-tab">
+                    <div role="tabpanel" class="tab-pane fade" id="line-6" aria-labelledby="line-6-tab">
                         <p>Administrator</p>
                     </div>
                 </div>
