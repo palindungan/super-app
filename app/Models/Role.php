@@ -45,6 +45,27 @@ class Role extends Model
                         ],
                     ],
                 ],
+                [
+                    'label' => 'Mata Uang',
+                    'permissions' => [
+                        [
+                            'label' => 'Lihat Apa Saja',
+                            'name' => 'administrator-currencies.index',
+                        ],
+                        [
+                            'label' => 'Buat',
+                            'name' => 'administrator-currencies.create',
+                        ],
+                        [
+                            'label' => 'Perbarui',
+                            'name' => 'administrator-currencies.edit',
+                        ],
+                        [
+                            'label' => 'Hapus',
+                            'name' => 'administrator-currencies.destroy',
+                        ],
+                    ],
+                ],
             ],
         ],
     ];
