@@ -57,6 +57,7 @@
                     @endforeach
                 </ul>
                 <div class="tab-content mt-3 mb-3" id="line-tabContent">
+                    {{-- 
                     <div class="tab-pane fade show active" id="line-1" role="tabpanel" aria-labelledby="line-1-tab">
                         <p>Utama</p>
                         <div class="accordion accordion-secondary">
@@ -127,7 +128,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
+                    --}}
                     <div role="tabpanel" class="tab-pane fade" id="line-6" aria-labelledby="line-6-tab">
                         <p>Administrator</p>
                     </div>
