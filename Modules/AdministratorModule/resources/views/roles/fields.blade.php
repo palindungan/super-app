@@ -66,7 +66,7 @@
                         @endphp
                         <div role="tabpanel" class="tab-pane fade {{ $link_active }}" id="line-{{ $index }}"
                             aria-labelledby="line-{{ $index }}-tab">
-                            <div class="accordion accordion-secondary">
+                            <div class="accordion accordion-secondary" style="padding-top: 10px;">
                                 <div class="card">
                                     <div class="card-header" id="heading1" data-bs-toggle="collapse"
                                         data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
