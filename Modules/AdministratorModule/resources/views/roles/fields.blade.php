@@ -38,42 +38,23 @@
         <div class="card-body pb-0" style="padding-top: 0px;">
             <div class="col-md-12 pb-0" style="padding: 10px;">
                 <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="line-1-tab" data-bs-toggle="pill" href="#line-1" role="tab"
-                            aria-controls="pills-1" aria-selected="true">
-                            Utama
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="line-2-tab" data-bs-toggle="pill" href="#line-2" role="tab"
-                            aria-controls="pills-2" aria-selected="false">
-                            Laporan
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="line-3-tab" data-bs-toggle="pill" href="#line-3" role="tab"
-                            aria-controls="pills-3" aria-selected="false">
-                            Data Produk
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="line-4-tab" data-bs-toggle="pill" href="#line-4" role="tab"
-                            aria-controls="pills-4" aria-selected="false">
-                            Data Master
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="line-5-tab" data-bs-toggle="pill" href="#line-5" role="tab"
-                            aria-controls="pills-5" aria-selected="false">
-                            Lain-Lain
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="line-6-tab" data-bs-toggle="pill" href="#line-6" role="tab"
-                            aria-controls="pills-6" aria-selected="false">
-                            Administrator
-                        </a>
-                    </li>
+                    @foreach ($roles_data as $index => $item)
+                        @php
+                            $link_active = '';
+                            $aria_selected = 'false';
+                            if ($index == 0) {
+                                $link_active = 'active';
+                                $aria_selected = 'true';
+                            }
+                        @endphp
+                        <li class="nav-item">
+                            <a class="nav-link {{ $link_active }}" data-bs-toggle="pill" role="tab"
+                                aria-selected="{{ $aria_selected }}" id="line-{{ $index }}-tab"
+                                href="#line-{{ $index }}" aria-controls="pills-{{ $index }}">
+                                {{ $item['label'] }}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
                 <div class="tab-content mt-3 mb-3" id="line-tabContent">
                     <div class="tab-pane fade show active" id="line-1" role="tabpanel" aria-labelledby="line-1-tab">
@@ -93,8 +74,7 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="exampleCheck1">
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                                     <label class="form-check-label" for="exampleCheck1">
                                                         Check me out
                                                     </label>
@@ -102,8 +82,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="exampleCheck1">
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                                     <label class="form-check-label" for="exampleCheck1">
                                                         Check me out
                                                     </label>
@@ -111,8 +90,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="exampleCheck1">
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                                     <label class="form-check-label" for="exampleCheck1">
                                                         Check me out
                                                     </label>
@@ -120,8 +98,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="exampleCheck1">
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                                     <label class="form-check-label" for="exampleCheck1">
                                                         Check me out
                                                     </label>

@@ -3,6 +3,7 @@
 namespace Modules\AdministratorModule\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role as ModelsRole;
 use Illuminate\Support\Facades\DB;
 use Modules\AdministratorModule\Http\Requests\StoreRoleRequest;
 use Modules\AdministratorModule\Http\Requests\UpdateRoleRequest;
@@ -77,7 +78,14 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('administratormodule::roles.create');
+        $roles_data = ModelsRole::$data;
+
+        return view(
+            'administratormodule::roles.create',
+            compact(
+                'roles_data',
+            )
+        );
     }
 
     /**
