@@ -65,79 +65,81 @@
                             }
                         @endphp
                         <div role="tabpanel" class="tab-pane fade {{ $link_active }}" id="line-{{ $index }}"
-                            aria-labelledby="line-{{ $index }}-tab">
-                            <div class="accordion accordion-secondary" style="padding-top: 10px;">
-                                <div class="card">
-                                    <div class="card-header" id="heading1" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                        <div class="span-title">
-                                            Lorem Ipsum #1
+                            aria-labelledby="line-{{ $index }}-tab" style="padding-top: 15px;">
+                            @foreach ($item['data'] as $data)
+                                <div class="accordion accordion-secondary">
+                                    <div class="card">
+                                        <div class="card-header" id="heading1" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                            <div class="span-title">
+                                                Lorem Ipsum #1
+                                            </div>
+                                            <div class="span-mode"></div>
                                         </div>
-                                        <div class="span-mode"></div>
-                                    </div>
-                                    <div id="collapse1" class="collapse show" aria-labelledby="heading1"
-                                        data-parent="#accordion">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input"
-                                                            id="exampleCheck1">
-                                                        <label class="form-check-label" for="exampleCheck1">
-                                                            Check me out
-                                                        </label>
+                                        <div id="collapse1" class="collapse show" aria-labelledby="heading1"
+                                            data-parent="#accordion">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="exampleCheck1">
+                                                            <label class="form-check-label" for="exampleCheck1">
+                                                                Check me out
+                                                            </label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input"
-                                                            id="exampleCheck1">
-                                                        <label class="form-check-label" for="exampleCheck1">
-                                                            Check me out
-                                                        </label>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="exampleCheck1">
+                                                            <label class="form-check-label" for="exampleCheck1">
+                                                                Check me out
+                                                            </label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input"
-                                                            id="exampleCheck1">
-                                                        <label class="form-check-label" for="exampleCheck1">
-                                                            Check me out
-                                                        </label>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="exampleCheck1">
+                                                            <label class="form-check-label" for="exampleCheck1">
+                                                                Check me out
+                                                            </label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input"
-                                                            id="exampleCheck1">
-                                                        <label class="form-check-label" for="exampleCheck1">
-                                                            Check me out
-                                                        </label>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="exampleCheck1">
+                                                            <label class="form-check-label" for="exampleCheck1">
+                                                                Check me out
+                                                            </label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input"
-                                                            id="exampleCheck1">
-                                                        <label class="form-check-label" for="exampleCheck1">
-                                                            Check me out
-                                                        </label>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="exampleCheck1">
+                                                            <label class="form-check-label" for="exampleCheck1">
+                                                                Check me out
+                                                            </label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input"
-                                                            id="exampleCheck1">
-                                                        <label class="form-check-label" for="exampleCheck1">
-                                                            Check me out
-                                                        </label>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="exampleCheck1">
+                                                            <label class="form-check-label" for="exampleCheck1">
+                                                                Check me out
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
                     @endforeach
                 </div>
