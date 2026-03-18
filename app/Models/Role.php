@@ -32,15 +32,15 @@ class Role extends Model
                             'name' => 'administrator-roles.index',
                         ],
                         [
-                            'label' => 'Lihat Apa Saja',
+                            'label' => 'Buat',
                             'name' => 'administrator-roles.create',
                         ],
                         [
-                            'label' => 'Lihat Apa Saja',
+                            'label' => 'Perbarui',
                             'name' => 'administrator-roles.edit',
                         ],
                         [
-                            'label' => 'Lihat Apa Saja',
+                            'label' => 'Hapus',
                             'name' => 'administrator-roles.destroy',
                         ],
                     ],
