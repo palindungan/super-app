@@ -38,46 +38,47 @@
         <div class="card-body pb-0" style="padding-top: 0px;">
             <div class="col-md-12 pb-0" style="padding: 10px;">
                 <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
-                    @foreach ($roles_data as $index => $item)
+                    @foreach ($roles_data as $item_idx => $item)
                         @php
                             $link_active = '';
                             $aria_selected = 'false';
-                            if ($index == 0) {
+                            if ($item_idx == 0) {
                                 $link_active = 'active';
                                 $aria_selected = 'true';
                             }
                         @endphp
                         <li class="nav-item">
                             <a data-bs-toggle="pill" role="tab" class="nav-link {{ $link_active }}"
-                                aria-selected="{{ $aria_selected }}" id="line-{{ $index }}-tab"
-                                href="#line-{{ $index }}" aria-controls="pills-{{ $index }}">
+                                aria-selected="{{ $aria_selected }}" id="line-{{ $item_idx }}-tab"
+                                href="#line-{{ $item_idx }}" aria-controls="pills-{{ $item_idx }}">
                                 {{ $item['label'] }}
                             </a>
                         </li>
                     @endforeach
                 </ul>
                 <div class="tab-content mt-3 mb-3" id="line-tabContent">
-                    @foreach ($roles_data as $index => $item)
+                    @foreach ($roles_data as $item_idx => $item)
                         @php
                             $link_active = '';
-                            if ($index == 0) {
+                            if ($item_idx == 0) {
                                 $link_active = 'show active';
                             }
                         @endphp
-                        <div role="tabpanel" class="tab-pane fade {{ $link_active }}" id="line-{{ $index }}"
-                            aria-labelledby="line-{{ $index }}-tab" style="padding-top: 15px;">
-                            @foreach ($item['data'] as $data)
+                        <div role="tabpanel" class="tab-pane fade {{ $link_active }}" id="line-{{ $item_idx }}"
+                            aria-labelledby="line-{{ $item_idx }}-tab" style="padding-top: 15px;">
+                            @foreach ($item['data'] as $data_idx => $data_item)
                                 <div class="accordion accordion-secondary">
                                     <div class="card">
-                                        <div class="card-header" id="heading1" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        <div class="card-header" id="heading{{ $data_idx }}"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse{{ $data_idx }}"
+                                            aria-expanded="true" aria-controls="collapse{{ $data_idx }}">
                                             <div class="span-title">
-                                                Lorem Ipsum #1
+                                                {{ $data_item['label'] }}
                                             </div>
                                             <div class="span-mode"></div>
                                         </div>
-                                        <div id="collapse1" class="collapse show" aria-labelledby="heading1"
-                                            data-parent="#accordion">
+                                        <div id="collapse{{ $data_idx }}" class="collapse show"
+                                            aria-labelledby="heading{{ $data_idx }}" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-3">
