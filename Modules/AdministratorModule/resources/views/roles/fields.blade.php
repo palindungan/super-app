@@ -67,18 +67,21 @@
                         <div role="tabpanel" class="tab-pane fade {{ $link_active }}" id="line-{{ $item_idx }}"
                             aria-labelledby="line-{{ $item_idx }}-tab" style="padding-top: 15px;">
                             @foreach ($item['data'] as $data_idx => $data_item)
+                                @php
+                                    $index = "$item_idx-$data_idx";
+                                @endphp
                                 <div class="accordion accordion-secondary">
                                     <div class="card">
-                                        <div class="card-header" id="heading{{ $data_idx }}"
-                                            data-bs-toggle="collapse" data-bs-target="#collapse{{ $data_idx }}"
-                                            aria-expanded="true" aria-controls="collapse{{ $data_idx }}">
+                                        <div class="card-header" id="heading{{ $index }}"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}"
+                                            aria-expanded="true" aria-controls="collapse{{ $index }}">
                                             <div class="span-title">
                                                 {{ $data_item['label'] }}
                                             </div>
                                             <div class="span-mode"></div>
                                         </div>
-                                        <div id="collapse{{ $data_idx }}" class="collapse show"
-                                            aria-labelledby="heading{{ $data_idx }}" data-parent="#accordion">
+                                        <div id="collapse{{ $index }}" class="collapse show"
+                                            aria-labelledby="heading{{ $index }}" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-3">
