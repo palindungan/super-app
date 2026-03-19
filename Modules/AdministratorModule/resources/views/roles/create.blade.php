@@ -17,7 +17,7 @@
         @include('administratormodule::roles.fields')
         <div class="col-md-12">
             <button class="btn btn-success">Buat</button>
-            <button class="btn btn-danger">Batal</button>
+            <a class="btn btn-danger" href="{{ route('administrator-roles.index') }}">Batal</a>
         </div>
     </div>
 @endsection

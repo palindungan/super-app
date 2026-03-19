@@ -48,12 +48,18 @@
                                 $link_active = 'active';
                                 $aria_selected = 'true';
                             }
+
+                            $permissions = [];
+                            foreach ($item['data'] as $data_idx => $data) {
+                                $permissions = array_merge($permissions, $data['permissions']);
+                            }
                         @endphp
                         <li class="nav-item">
                             <a data-bs-toggle="pill" role="tab" class="nav-link {{ $link_active }}"
                                 aria-selected="{{ $aria_selected }}" id="line-{{ $item_idx }}-tab"
                                 href="#line-{{ $item_idx }}" aria-controls="pills-{{ $item_idx }}">
                                 {{ $item['label'] }}
+                                <span class="badge badge-secondary">{{ count($permissions) }}</span>
                             </a>
                         </li>
                     @endforeach
