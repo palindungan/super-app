@@ -3,17 +3,27 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('name') ? 'has-error has-feedback' : '' }}">
                         <label for="name">Nama</label>
-                        <input type="text" class="form-control form-control" id="name" name="name"
-                            autocomplete="off" />
+                        <input type="text" class="form-control form-control" autocomplete="off" id="name"
+                            name="name" />
+                        @error('name')
+                            <small class="form-text text-muted text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('guard_name') ? 'has-error has-feedback' : '' }}">
                         <label for="guard_name">Nama Penjaga</label>
-                        <input type="text" class="form-control form-control" id="guard_name" name="guard_name"
-                            autocomplete="off" />
+                        <input type="text" class="form-control form-control" autocomplete="off" id="guard_name"
+                            name="guard_name" />
+                        @error('guard_name')
+                            <small class="form-text text-muted text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-md-4">
