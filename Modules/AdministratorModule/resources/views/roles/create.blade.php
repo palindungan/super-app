@@ -13,11 +13,14 @@
         ])
     </div>
 
-    <div class="row">
-        @include('administratormodule::roles.fields')
-        <div class="col-md-12">
-            <button type="submit" class="btn btn-success">Buat</button>
-            <a class="btn btn-danger" href="{{ route('administrator-roles.index') }}">Batal</a>
+    <form action="{{ route('administrator-roles.store') }}" method="POST" onsubmit="formOnSubmitButton(this)">
+        @include('components.form.data', ['method' => 'POST'])
+        <div class="row">
+            @include('administratormodule::roles.fields')
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-success">Buat</button>
+                <a class="btn btn-danger" href="{{ route('administrator-roles.index') }}">Batal</a>
+            </div>
         </div>
-    </div>
+    </form>
 @endsection

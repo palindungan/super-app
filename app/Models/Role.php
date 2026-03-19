@@ -25,27 +25,6 @@ class Role extends Model
             'label' => 'Administrator',
             'data' => [
                 [
-                    'label' => 'Peran dan Izin',
-                    'permissions' => [
-                        [
-                            'label' => 'Lihat Apa Saja',
-                            'name' => 'administrator-roles.index',
-                        ],
-                        [
-                            'label' => 'Buat',
-                            'name' => 'administrator-roles.create',
-                        ],
-                        [
-                            'label' => 'Perbarui',
-                            'name' => 'administrator-roles.edit',
-                        ],
-                        [
-                            'label' => 'Hapus',
-                            'name' => 'administrator-roles.destroy',
-                        ],
-                    ],
-                ],
-                [
                     'label' => 'Mata Uang',
                     'permissions' => [
                         [
@@ -63,6 +42,27 @@ class Role extends Model
                         [
                             'label' => 'Hapus',
                             'name' => 'administrator-currencies.destroy',
+                        ],
+                    ],
+                ],
+                [
+                    'label' => 'Peran dan Izin',
+                    'permissions' => [
+                        [
+                            'label' => 'Lihat Apa Saja',
+                            'name' => 'administrator-roles.index',
+                        ],
+                        [
+                            'label' => 'Buat',
+                            'name' => 'administrator-roles.create',
+                        ],
+                        [
+                            'label' => 'Perbarui',
+                            'name' => 'administrator-roles.edit',
+                        ],
+                        [
+                            'label' => 'Hapus',
+                            'name' => 'administrator-roles.destroy',
                         ],
                     ],
                 ],
