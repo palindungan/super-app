@@ -4,14 +4,16 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="largeInput">Nama</label>
-                        <input type="text" class="form-control form-control" id="name" name="name" />
+                        <label for="name">Nama</label>
+                        <input type="text" class="form-control form-control" id="name" name="name"
+                            autocomplete="off" />
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="largeInput">Nama Penjaga</label>
-                        <input type="text" class="form-control form-control" id="guard_name" name="guard_name" />
+                        <label for="guard_name">Nama Penjaga</label>
+                        <input type="text" class="form-control form-control" id="guard_name" name="guard_name"
+                            autocomplete="off" />
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -91,8 +93,10 @@
                                                         <div class="col-md-3">
                                                             <div class="form-check">
                                                                 <input type="checkbox" class="form-check-input"
-                                                                    id="permissions{{ $index }}" name="permissions[]">
-                                                                <label class="form-check-label" for="permissions{{ $index }}">
+                                                                    id="permissions{{ $index }}"
+                                                                    name="permissions[]">
+                                                                <label class="form-check-label"
+                                                                    for="permissions{{ $index }}">
                                                                     {{ $permission['label'] }}
                                                                 </label>
                                                             </div>
