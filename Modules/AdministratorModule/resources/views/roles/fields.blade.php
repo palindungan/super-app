@@ -91,8 +91,8 @@
                                                         <div class="col-md-3">
                                                             <div class="form-check">
                                                                 <input type="checkbox" class="form-check-input"
-                                                                    id="exampleCheck{{ $index }}">
-                                                                <label class="form-check-label" for="exampleCheck{{ $index }}">
+                                                                    id="permissions{{ $index }}" name="permissions[]">
+                                                                <label class="form-check-label" for="permissions{{ $index }}">
                                                                     {{ $permission['label'] }}
                                                                 </label>
                                                             </div>
