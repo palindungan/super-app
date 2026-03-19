@@ -6,7 +6,7 @@
                     <div class="form-group {{ $errors->has('name') ? 'has-error has-feedback' : '' }}">
                         <label for="name">Nama</label>
                         <input type="text" class="form-control form-control" autocomplete="off" id="name"
-                            name="name" />
+                            name="name" value="{{ old('name', $role->name ?? '') }}" />
                         @error('name')
                             <small class="form-text text-muted text-danger">
                                 {{ $message }}
@@ -18,7 +18,7 @@
                     <div class="form-group {{ $errors->has('guard_name') ? 'has-error has-feedback' : '' }}">
                         <label for="guard_name">Nama Penjaga</label>
                         <input type="text" class="form-control form-control" autocomplete="off" id="guard_name"
-                            name="guard_name" />
+                            name="guard_name" value="{{ old('guard_name', $role->guard_name ?? '') }}" />
                         @error('guard_name')
                             <small class="form-text text-muted text-danger">
                                 {{ $message }}
