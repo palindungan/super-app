@@ -84,24 +84,20 @@
                                             aria-labelledby="heading{{ $index }}" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-md-3">
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="exampleCheck1">
-                                                            <label class="form-check-label" for="exampleCheck1">
-                                                                Check me out
-                                                            </label>
+                                                    @foreach ($data['permissions'] as $permission_idx => $permission)
+                                                        @php
+                                                            $index = "$item_idx-$data_idx-$permission_idx";
+                                                        @endphp
+                                                        <div class="col-md-3">
+                                                            <div class="form-check">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    id="exampleCheck{{ $index }}">
+                                                                <label class="form-check-label" for="exampleCheck{{ $index }}">
+                                                                    {{ $permission['label'] }}
+                                                                </label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="exampleCheck1">
-                                                            <label class="form-check-label" for="exampleCheck1">
-                                                                Check me out
-                                                            </label>
-                                                        </div>
-                                                    </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
