@@ -66,7 +66,7 @@
                         @endphp
                         <div role="tabpanel" class="tab-pane fade {{ $link_active }}" id="line-{{ $item_idx }}"
                             aria-labelledby="line-{{ $item_idx }}-tab" style="padding-top: 15px;">
-                            @foreach ($item['data'] as $data_idx => $data_item)
+                            @foreach ($item['data'] as $data_idx => $data)
                                 @php
                                     $index = "$item_idx-$data_idx";
                                 @endphp
@@ -76,7 +76,7 @@
                                             data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}"
                                             aria-expanded="true" aria-controls="collapse{{ $index }}">
                                             <div class="span-title">
-                                                {{ $data_item['label'] }}
+                                                {{ $data['label'] }}
                                             </div>
                                             <div class="span-mode"></div>
                                         </div>
