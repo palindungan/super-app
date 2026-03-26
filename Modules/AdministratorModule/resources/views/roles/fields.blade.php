@@ -110,7 +110,7 @@
                                                             <div class="form-check">
                                                                 <input type="checkbox" class="form-check-input"
                                                                     id="permissions{{ $index }}"
-                                                                    name="permissions['{{ $permission['name'] }}']"
+                                                                    name="permissions[]"
                                                                     value="{{ $permission['name'] }}">
                                                                 <label class="form-check-label"
                                                                     for="permissions{{ $index }}">
