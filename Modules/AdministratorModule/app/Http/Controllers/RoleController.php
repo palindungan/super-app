@@ -93,7 +93,14 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        //
+        $role = Role::create([
+            "name" => $request->name,
+            "guard_name" => $request->guard_name,
+        ]);
+
+        $role->syncPermissions($request->permissions ?? []);
+
+        return redirect(route('administrator-roles.index'))->with('success', "Data berhasil dibuat");
     }
 
     /**
