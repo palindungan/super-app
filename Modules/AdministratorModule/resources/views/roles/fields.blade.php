@@ -58,7 +58,6 @@
                                 $link_active = 'active';
                                 $aria_selected = 'true';
                             }
-
                             $permissions = [];
                             foreach ($item['menu'] as $menu_idx => $menu) {
                                 $permissions = array_merge($permissions, $menu['permissions']);
