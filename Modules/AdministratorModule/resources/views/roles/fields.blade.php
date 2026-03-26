@@ -60,8 +60,8 @@
                             }
 
                             $permissions = [];
-                            foreach ($item['data'] as $data_idx => $data) {
-                                $permissions = array_merge($permissions, $data['permissions']);
+                            foreach ($item['menu'] as $menu_idx => $menu) {
+                                $permissions = array_merge($permissions, $menu['permissions']);
                             }
                         @endphp
                         <li class="nav-item">
@@ -84,9 +84,9 @@
                         @endphp
                         <div role="tabpanel" class="tab-pane fade {{ $link_active }}" id="line-{{ $item_idx }}"
                             aria-labelledby="line-{{ $item_idx }}-tab" style="padding-top: 15px;">
-                            @foreach ($item['data'] as $data_idx => $data)
+                            @foreach ($item['menu'] as $menu_idx => $menu)
                                 @php
-                                    $index = "$item_idx-$data_idx";
+                                    $index = "$item_idx-$menu_idx";
                                 @endphp
                                 <div class="accordion accordion-secondary">
                                     <div class="card">
@@ -94,7 +94,7 @@
                                             data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}"
                                             aria-expanded="true" aria-controls="collapse{{ $index }}">
                                             <div class="span-title">
-                                                {{ $data['label'] }}
+                                                {{ $menu['label'] }}
                                             </div>
                                             <div class="span-mode"></div>
                                         </div>
@@ -102,9 +102,9 @@
                                             aria-labelledby="heading{{ $index }}" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    @foreach ($data['permissions'] as $permission_idx => $permission)
+                                                    @foreach ($menu['permissions'] as $permission_idx => $permission)
                                                         @php
-                                                            $index = "$item_idx-$data_idx-$permission_idx";
+                                                            $index = "$item_idx-$menu_idx-$permission_idx";
                                                         @endphp
                                                         <div class="col-md-3">
                                                             <div class="form-check">

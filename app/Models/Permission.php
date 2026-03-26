@@ -9,7 +9,7 @@ class Permission extends Model
     public static array $data = [
         [
             'label' => 'Utama',
-            'data' => [
+            'menu' => [
                 [
                     'label' => 'Beranda',
                     'permissions' => [
@@ -24,7 +24,7 @@ class Permission extends Model
         ],
         [
             'label' => 'Administrator',
-            'data' => [
+            'menu' => [
                 [
                     'label' => 'Mata Uang',
                     'permissions' => [

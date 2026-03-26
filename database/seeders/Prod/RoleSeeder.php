@@ -19,8 +19,8 @@ class RoleSeeder extends Seeder
         $permissions_data = ModelsPermission::$data;
         foreach ($permissions_data as $item_idx => $item) {
             $permissions = [];
-            foreach ($item['data'] as $data_idx => $data) {
-                $permissions = array_merge($permissions, $data['permissions']);
+            foreach ($item['menu'] as $menu_idx => $menu) {
+                $permissions = array_merge($permissions, $menu['permissions']);
             }
             foreach ($permissions as $permission_idx => $permission) {
                 Permission::updateOrCreate(
