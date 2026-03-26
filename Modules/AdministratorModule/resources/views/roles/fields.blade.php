@@ -64,10 +64,13 @@
                                 $permissions = array_merge($permissions, $menu['permissions']);
                             }
                         @endphp
+                        @php
+                            $index = "$item_idx";
+                        @endphp
                         <li class="nav-item">
                             <a data-bs-toggle="pill" role="tab" class="nav-link {{ $link_active }}"
-                                aria-selected="{{ $aria_selected }}" id="line-{{ $item_idx }}-tab"
-                                href="#line-{{ $item_idx }}" aria-controls="pills-{{ $item_idx }}">
+                                aria-selected="{{ $aria_selected }}" id="line-{{ $index }}-tab"
+                                href="#line-{{ $index }}" aria-controls="pills-{{ $index }}">
                                 {{ $item['label'] }}
                                 <span class="badge badge-secondary">{{ count($permissions) }}</span>
                             </a>
@@ -82,8 +85,11 @@
                                 $link_active = 'show active';
                             }
                         @endphp
-                        <div role="tabpanel" class="tab-pane fade {{ $link_active }}" id="line-{{ $item_idx }}"
-                            aria-labelledby="line-{{ $item_idx }}-tab" style="padding-top: 15px;">
+                        @php
+                            $index = "$item_idx";
+                        @endphp
+                        <div role="tabpanel" class="tab-pane fade {{ $link_active }}" id="line-{{ $index }}"
+                            aria-labelledby="line-{{ $index }}-tab" style="padding-top: 15px;">
                             @foreach ($item['menu'] as $menu_idx => $menu)
                                 @php
                                     $index = "$item_idx-$menu_idx";
