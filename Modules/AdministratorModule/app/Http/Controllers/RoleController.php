@@ -3,10 +3,11 @@
 namespace Modules\AdministratorModule\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Role as ModelsRole;
+use App\Models\Permission as ModelsPermission;
 use Illuminate\Support\Facades\DB;
 use Modules\AdministratorModule\Http\Requests\StoreRoleRequest;
 use Modules\AdministratorModule\Http\Requests\UpdateRoleRequest;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -78,12 +79,12 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $roles_data = ModelsRole::$data;
+        $permissions_data = ModelsPermission::$data;
 
         return view(
             'administratormodule::roles.create',
             compact(
-                'roles_data',
+                'permissions_data',
             )
         );
     }

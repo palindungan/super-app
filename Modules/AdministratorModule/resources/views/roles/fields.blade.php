@@ -50,7 +50,7 @@
         <div class="card-body pb-0" style="padding-top: 0px;">
             <div class="col-md-12 pb-0" style="padding: 10px;">
                 <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
-                    @foreach ($roles_data as $item_idx => $item)
+                    @foreach ($permissions_data as $item_idx => $item)
                         @php
                             $link_active = '';
                             $aria_selected = 'false';
@@ -75,7 +75,7 @@
                     @endforeach
                 </ul>
                 <div class="tab-content mt-3 mb-3" id="line-tabContent">
-                    @foreach ($roles_data as $item_idx => $item)
+                    @foreach ($permissions_data as $item_idx => $item)
                         @php
                             $link_active = '';
                             if ($item_idx == 0) {
