@@ -19,11 +19,13 @@ class DatabaseSeeder extends Seeder
         if (App::environment(['local', 'staging'])) {
             $this->call([
                 \Database\Seeders\Prod\UserSeeder::class,
+                \Database\Seeders\Prod\RoleSeeder::class,
             ]);
         }
         if (App::environment(['production'])) {
             $this->call([
                 \Database\Seeders\Prod\UserSeeder::class,
+                \Database\Seeders\Prod\RoleSeeder::class,
             ]);
         }
     }
