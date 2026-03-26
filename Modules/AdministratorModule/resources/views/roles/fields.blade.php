@@ -35,7 +35,7 @@
                                 Pilih Semua
                             </label>
                             <br>
-                            <small id="emailHelp2" class="form-text text-muted">
+                            <small class="form-text text-muted">
                                 Aktifkan semua izin yang Tersedia untuk Peran ini.
                             </small>
                         </div>
