@@ -16,6 +16,7 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         // permissions
+        $permissions_name = [];
         $permissions_data = ModelsPermission::$data;
         foreach ($permissions_data as $item_idx => $item) {
             $permissions = [];
@@ -33,6 +34,9 @@ class RoleSeeder extends Seeder
                         'guard_name' => $permission['guard_name'],
                     ]
                 );
+                if (!in_array($permission['name'], $permissions_name)) {
+                    $permissions_name[] = $permission['name'];
+                }
             }
         }
 
@@ -44,7 +48,7 @@ class RoleSeeder extends Seeder
             ],
         ];
         foreach ($data as $key => $value) {
-            $user = Role::updateOrCreate(
+            $role = Role::updateOrCreate(
                 [
                     'name' => $value['name'],
                     'guard_name' => $value['guard_name'],
@@ -54,6 +58,7 @@ class RoleSeeder extends Seeder
                     'guard_name' => $value['guard_name'],
                 ]
             );
+            $role->syncPermissions($permissions_name ?? []);
         }
     }
 }
