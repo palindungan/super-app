@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Prod;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -12,6 +12,8 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        // permissions
+
+        // roles
     }
 }
