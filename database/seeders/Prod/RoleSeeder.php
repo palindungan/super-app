@@ -43,7 +43,6 @@ class RoleSeeder extends Seeder
                 'guard_name' => 'web',
             ],
         ];
-
         foreach ($data as $key => $value) {
             $user = Role::updateOrCreate(
                 [
