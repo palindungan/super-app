@@ -99,7 +99,11 @@ class RoleController extends Controller
             "guard_name" => $request->guard_name,
         ]);
 
-        $role->syncPermissions($request->permissions ?? []);
+        $permissions = [];
+        if ($request->permissions) {
+            $permissions = array_unique($request->permissions);
+        }
+        $role->syncPermissions($permissions);
 
         return redirect(route('administrator-roles.index'))->with('success', "Data berhasil dibuat");
     }

@@ -34,11 +34,10 @@ class RoleSeeder extends Seeder
                         'guard_name' => $permission['guard_name'],
                     ]
                 );
-                if (!in_array($permission['name'], $permissions_name)) {
-                    $permissions_name[] = $permission['name'];
-                }
+                $permissions_name[] = $permission['name'];
             }
         }
+        $permissions_name = array_unique($permissions_name);
 
         // roles
         $data = [
