@@ -168,8 +168,8 @@ class RoleController extends Controller
             return response()->json([
                 'success' => true,
                 'message' => 'Data berhasil dihapus',
-                'data' => null,
-                'errors' => null
+                // 'data' => null,
+                // 'errors' => null,
             ], 200);
         }
 
