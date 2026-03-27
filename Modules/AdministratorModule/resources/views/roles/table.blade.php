@@ -90,6 +90,15 @@
                 dangerMode: true,
             }).then((confirm) => {
                 if (confirm) {
+                    // 🔥 tampilkan loading
+                    swal({
+                        title: "Menghapus...",
+                        text: "Mohon tunggu",
+                        buttons: false,
+                        closeOnClickOutside: false,
+                        closeOnEsc: false,
+                    });
+
                     // Lakukan request penghapusan data
                     $.ajax({
                         url: url,
@@ -98,6 +107,9 @@
                             _token: $('meta[name="csrf-token"]').attr('content')
                         },
                         success: function(response) {
+                            // tutup loading
+                            swal.close();
+
                             let message = response.message;
                             console.log(message);
                             $.notify({
@@ -111,6 +123,9 @@
                             datatable.ajax.reload(null, false);
                         },
                         error: function(xhr) {
+                            // tutup loading
+                            swal.close();
+
                             let message = xhr.statusText;
                             console.log(message);
                             $.notify({
