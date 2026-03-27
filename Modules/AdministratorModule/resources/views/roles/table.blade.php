@@ -73,9 +73,9 @@
 
         function action_destroy(url, name) {
             swal({
+                icon: "warning",
                 title: `Hapus Peran ${name}`,
                 text: `Apakah Anda yakin ingin melakukan ini?`,
-                icon: "warning",
                 buttons: {
                     confirm: {
                         text: "Hapus",
