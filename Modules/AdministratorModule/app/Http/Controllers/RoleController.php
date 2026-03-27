@@ -29,7 +29,7 @@ class RoleController extends Controller
     {
         $request = request();
         if ($request->ajax()) {
-            if ($request->datatables == 'main') {
+            if ($request->datatable == 'main') {
                 $permission_count = DB::table('role_has_permissions')
                     ->select('role_id', DB::raw('COUNT(permission_id) as permissions_count'))
                     ->groupBy('role_id');

@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table id="basic_datatables" class="display table table-striped table-hover">
+    <table id="datatable" class="display table table-striped table-hover">
         <thead>
             <tr>
                 <th>Nama</th>
@@ -16,7 +16,7 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            basic_datatables = $('#basic_datatables').DataTable({
+            datatable = $('#datatable').DataTable({
                 autoWidth: false,
                 language: {
                     url: "{{ asset('assets/js/plugin/datatables/Indonesian.json') }}",
@@ -25,7 +25,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: '{{ url()->current() }}?datatables=main',
+                    url: '{{ url()->current() }}?datatable=main',
                     type: 'GET',
                 },
 
@@ -69,5 +69,31 @@
                 ],
             });
         });
+
+        function action_destroy(url, name) {
+            swal({
+                title: `Hapus Peran ${name}`,
+                text: `Apakah Anda yakin ingin melakukan ini?`,
+                icon: "warning",
+                buttons: {
+                    confirm: {
+                        text: "Hapus",
+                        className: "btn btn-success",
+                    },
+                    cancel: {
+                        visible: true,
+                        text: "Batal",
+                        className: "btn btn-danger",
+                    },
+                },
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    // Lakukan request penghapusan data
+                } else {
+                    swal.close();
+                }
+            });
+        }
     </script>
 @endpush
