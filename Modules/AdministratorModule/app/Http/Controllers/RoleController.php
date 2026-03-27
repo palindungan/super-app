@@ -139,7 +139,18 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        //
+        $role->update([
+            "name" => $request->name,
+            "guard_name" => $request->guard_name,
+        ]);
+
+        $permissions = [];
+        if ($request->permissions) {
+            $permissions = array_unique($request->permissions);
+        }
+        $role->syncPermissions($permissions);
+
+        return redirect(route('administrator-roles.index'))->with('success', "Data berhasil diubah");
     }
 
     /**
