@@ -97,24 +97,12 @@
                             _token: $('meta[name="csrf-token"]').attr('content')
                         },
                         success: function(response) {
-                            swal("Good job!", "You clicked the button!", {
-                                icon: "success",
-                                buttons: {
-                                    confirm: {
-                                        className: 'btn btn-success'
-                                    }
-                                },
-                            });
+                            message = response.message;
+                            console.log(message);
                         },
                         error: function(xhr) {
-                            swal("Good job!", "You clicked the button!", {
-                                icon: "error",
-                                buttons: {
-                                    confirm: {
-                                        className: 'btn btn-danger'
-                                    }
-                                },
-                            });
+                            message = xhr.statusText;
+                            console.log(message);
                         }
                     });
                 } else {
