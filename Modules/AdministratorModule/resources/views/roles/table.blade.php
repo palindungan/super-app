@@ -90,6 +90,33 @@
             }).then((confirm) => {
                 if (confirm) {
                     // Lakukan request penghapusan data
+                    $.ajax({
+                        url: url,
+                        type: 'DELETE',
+                        data: {
+                            _token: $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function(response) {
+                            swal("Good job!", "You clicked the button!", {
+                                icon: "success",
+                                buttons: {
+                                    confirm: {
+                                        className: 'btn btn-success'
+                                    }
+                                },
+                            });
+                        },
+                        error: function(xhr) {
+                            swal("Good job!", "You clicked the button!", {
+                                icon: "error",
+                                buttons: {
+                                    confirm: {
+                                        className: 'btn btn-danger'
+                                    }
+                                },
+                            });
+                        }
+                    });
                 } else {
                     swal.close();
                 }

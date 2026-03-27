@@ -29,3 +29,5 @@
 <link rel="stylesheet" href="{{ asset('components/layouts/master_1/assets/css/kaiadmin.min.css') }}" />
 
 @stack('styles')
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
