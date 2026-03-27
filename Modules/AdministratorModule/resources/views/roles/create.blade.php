@@ -18,8 +18,8 @@
         <div class="row">
             @include('administratormodule::roles.fields')
             <div class="col-md-12">
-                <button type="submit" class="btn btn-success">Buat</button>
-                <a class="btn btn-danger" href="{{ route('administrator-roles.index') }}">Batal</a>
+                <button type="submit" class="btn btn-warning">Buat</button>
+                <a class="btn btn-light" href="{{ route('administrator-roles.index') }}">Batal</a>
             </div>
         </div>
     </form>

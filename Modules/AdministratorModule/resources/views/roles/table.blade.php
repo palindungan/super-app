@@ -78,12 +78,12 @@
                 buttons: {
                     confirm: {
                         text: "Hapus",
-                        className: "btn btn-success",
+                        className: "btn btn-danger",
                     },
                     cancel: {
                         visible: true,
                         text: "Batal",
-                        className: "btn btn-danger",
+                        className: "btn btn-light",
                     },
                 },
                 dangerMode: true,
