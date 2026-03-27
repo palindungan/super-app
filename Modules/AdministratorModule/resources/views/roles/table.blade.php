@@ -108,7 +108,9 @@
                         },
                         success: function(response) {
                             // tutup loading
-                            swal.close();
+                            setTimeout(() => {
+                                swal.close();
+                            }, 1000);
 
                             let message = response.message;
                             console.log(message);
@@ -124,7 +126,9 @@
                         },
                         error: function(xhr) {
                             // tutup loading
-                            swal.close();
+                            setTimeout(() => {
+                                swal.close();
+                            }, 1000);
 
                             let message = xhr.statusText;
                             console.log(message);
