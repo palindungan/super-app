@@ -99,10 +99,24 @@
                         success: function(response) {
                             message = response.message;
                             console.log(message);
+                            $.notify({
+                                icon: 'icon-check',
+                                title: "Berhasil",
+                                message: message,
+                            }, {
+                                type: "success",
+                            });
                         },
                         error: function(xhr) {
                             message = xhr.statusText;
                             console.log(message);
+                            $.notify({
+                                icon: 'icon-close',
+                                title: "Gagal",
+                                message: message,
+                            }, {
+                                type: "danger",
+                            });
                         }
                     });
                 } else {

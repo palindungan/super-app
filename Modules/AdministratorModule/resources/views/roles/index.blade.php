@@ -5,6 +5,8 @@
 @push('scripts')
     <script src="{{ asset('components/layouts/master_1/assets/js/plugin/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('components/layouts/master_1/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('components/layouts/master_1/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}">
+    </script>
 @endpush
 
 @section('content')
