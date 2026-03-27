@@ -87,8 +87,8 @@
                     },
                 },
                 dangerMode: true,
-            }).then((willDelete) => {
-                if (willDelete) {
+            }).then((confirm) => {
+                if (confirm) {
                     // Lakukan request penghapusan data
                 } else {
                     swal.close();
