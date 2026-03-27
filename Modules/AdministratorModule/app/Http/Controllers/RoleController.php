@@ -123,10 +123,13 @@ class RoleController extends Controller
     {
         $permissions_data = ModelsPermission::$data;
 
+        $role_has_permissions = $role->permissions->pluck('name')->toArray();
+
         return view(
             'administratormodule::roles.edit',
             compact(
                 'permissions_data',
+                'role_has_permissions',
             )
         )->with('role', $role);
     }
