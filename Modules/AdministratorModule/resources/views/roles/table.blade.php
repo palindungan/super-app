@@ -16,7 +16,7 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            datatable = $('#datatable').DataTable({
+            let datatable = $('#datatable').DataTable({
                 autoWidth: false,
                 language: {
                     url: "{{ asset('assets/js/plugin/datatables/Indonesian.json') }}",
@@ -97,7 +97,7 @@
                             _token: $('meta[name="csrf-token"]').attr('content')
                         },
                         success: function(response) {
-                            message = response.message;
+                            let message = response.message;
                             console.log(message);
                             $.notify({
                                 icon: 'icon-check',
@@ -108,7 +108,7 @@
                             });
                         },
                         error: function(xhr) {
-                            message = xhr.statusText;
+                            let message = xhr.statusText;
                             console.log(message);
                             $.notify({
                                 icon: 'icon-close',
