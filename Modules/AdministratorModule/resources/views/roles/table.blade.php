@@ -22,14 +22,12 @@
                 language: {
                     url: "{{ asset('assets/js/plugin/datatables/Indonesian.json') }}",
                 },
-
                 processing: true,
                 serverSide: true,
                 ajax: {
                     url: '{{ url()->current() }}?datatable=main',
                     type: 'GET',
                 },
-
                 columnDefs: [{
                     orderable: false,
                     targets: [4],
