@@ -113,7 +113,8 @@
                                                         @endphp
                                                         <div class="col-md-3">
                                                             <div class="form-check">
-                                                                <input type="checkbox" class="form-check-input"
+                                                                <input type="checkbox"
+                                                                    class="form-check-input permissions"
                                                                     id="permissions{{ $index }}"
                                                                     name="permissions[]"
                                                                     value="{{ $permission['name'] }}">
@@ -137,3 +138,24 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            // Saat select_all di klik
+            $('#select_all').on('change', function() {
+                $('.permissions').prop('checked', $(this).prop('checked'));
+            });
+
+            // Optional (best practice):
+            // Jika semua permissions dicentang manual → select_all ikut aktif
+            // Jika ada yang tidak dicentang → select_all mati
+            $('.permissions').on('change', function() {
+                let total = $('.permissions').length;
+                let checked = $('.permissions:checked').length;
+
+                $('#select_all').prop('checked', total === checked);
+            });
+        });
+    </script>
+@endpush
