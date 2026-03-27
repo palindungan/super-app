@@ -15,8 +15,9 @@
 
 @push('scripts')
     <script>
+        let datatable;
         $(document).ready(function() {
-            let datatable = $('#datatable').DataTable({
+            datatable = $('#datatable').DataTable({
                 autoWidth: false,
                 language: {
                     url: "{{ asset('assets/js/plugin/datatables/Indonesian.json') }}",
@@ -106,6 +107,8 @@
                             }, {
                                 type: "success",
                             });
+
+                            datatable.ajax.reload(null, false);
                         },
                         error: function(xhr) {
                             let message = xhr.statusText;
