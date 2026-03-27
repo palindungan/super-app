@@ -142,19 +142,24 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            // Saat select_all di klik
-            $('#select_all').on('change', function() {
-                $('.permissions').prop('checked', $(this).prop('checked'));
-            });
-
-            // Optional (best practice):
-            // Jika semua permissions dicentang manual → select_all ikut aktif
-            // Jika ada yang tidak dicentang → select_all mati
-            $('.permissions').on('change', function() {
+            function syncSelectAll() {
                 let total = $('.permissions').length;
                 let checked = $('.permissions:checked').length;
 
                 $('#select_all').prop('checked', total === checked);
+            }
+
+            // Jalankan saat pertama load (INI YANG PENTING UNTUK EDIT)
+            syncSelectAll();
+
+            // Saat klik select_all
+            $('#select_all').on('change', function() {
+                $('.permissions').prop('checked', $(this).prop('checked'));
+            });
+
+            // Saat checkbox permissions berubah
+            $('.permissions').on('change', function() {
+                syncSelectAll();
             });
         });
     </script>
