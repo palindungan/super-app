@@ -158,6 +158,21 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $request = request();
+
+        $role->syncPermissions([]);
+
+        $role->delete();
+
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dihapus',
+                'data' => null,
+                'errors' => null
+            ], 200);
+        }
+
+        return redirect(route('administrator-roles.index'))->with('success', "Data berhasil dihapus");
     }
 }
