@@ -121,7 +121,14 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        return view('administratormodule::roles.edit');
+        $permissions_data = ModelsPermission::$data;
+
+        return view(
+            'administratormodule::roles.edit',
+            compact(
+                'permissions_data',
+            )
+        )->with('role', $role);
     }
 
     /**
