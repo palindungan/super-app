@@ -72,7 +72,9 @@
                 searchDelay: 500
             });
         });
+    </script>
 
+    <script>
         function actionDestroy(url, name) {
             actionDestroyConfirm(name).then((confirmed) => {
                 if (!confirmed) return;
