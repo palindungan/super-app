@@ -178,15 +178,6 @@ class RoleController extends Controller
         $request = request();
 
         if ($request->ajax()) {
-            if ($response = tokenFormCheck($request->_token_form)) {
-                return response()->json([
-                    'success' => false,
-                    'message' => $response,
-                    // 'data' => null,
-                    // 'errors' => null,
-                ], 422);
-            }
-
             $role->syncPermissions([]);
             $role->delete();
 
