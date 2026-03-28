@@ -74,7 +74,7 @@ class RoleController extends Controller
                 return response()->json([
                     'success' => true,
                     'message' => "Berhasil",
-                    'data' => token_form_generate(),
+                    'data' => tokenFormGenerate(),
                     // 'errors' => null,
                 ], 200);
             }

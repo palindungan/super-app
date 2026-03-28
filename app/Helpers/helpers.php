@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
 if (!function_exists('token_form_generate')) {
-    function token_form_generate(): string
+    function tokenFormGenerate(): string
     {
         // Dapatkan timestamp saat ini (detik)
         $nowTimestamp = now()->timestamp;
