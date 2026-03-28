@@ -20,7 +20,7 @@
             datatable = $('#datatable').DataTable({
                 autoWidth: false,
                 language: {
-                    url: "{{ asset('assets/js/plugin/datatables/Indonesian.json') }}",
+                    url: "{{ asset('assets/json/plugin/datatables/id.json') }}",
                 },
                 processing: true,
                 serverSide: true,
