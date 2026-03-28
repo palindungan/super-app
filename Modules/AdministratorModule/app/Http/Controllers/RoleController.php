@@ -94,7 +94,7 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        if ($response = token_form_check($request->_token_form, route('administrator-roles.index'))) return $response;
+        if ($response = token_form_check($request->_token_form)) return $response;
 
         $role = Role::create([
             "name" => $request->name,
@@ -141,7 +141,7 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        if ($response = token_form_check($request->_token_form, route('administrator-roles.index'))) return $response;
+        if ($response = token_form_check($request->_token_form)) return $response;
 
         $role->update([
             "name" => $request->name,
@@ -165,10 +165,10 @@ class RoleController extends Controller
         $request = request();
 
         if ($request->ajax()) {
-            if ($response = token_form_check($request->_token_form, route('administrator-roles.index'))) {
+            if ($response = token_form_check($request->_token_form)) {
                 return response()->json([
                     'success' => false,
-                    'message' => $response->getSession()->get('error', 'Terjadi kesalahan token.'),
+                    'message' => $response,
                     // 'data' => null,
                     // 'errors' => null,
                 ], 422);
