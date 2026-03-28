@@ -164,13 +164,12 @@ class RoleController extends Controller
     {
         $request = request();
 
-        if ($response = token_form_check($request->_token_form, route('administrator-roles.index'))) return $response;
-
-        $role->syncPermissions([]);
-
-        $role->delete();
-
         if ($request->ajax()) {
+            if ($response = token_form_check($request->_token_form, route('administrator-roles.index'))) return $response->get('error');
+
+            $role->syncPermissions([]);
+            $role->delete();
+
             return response()->json([
                 'success' => true,
                 'message' => 'Data berhasil dihapus',
@@ -178,6 +177,11 @@ class RoleController extends Controller
                 // 'errors' => null,
             ], 200);
         }
+
+        if ($response = token_form_check($request->_token_form, route('administrator-roles.index'))) return $response;
+
+        $role->syncPermissions([]);
+        $role->delete();
 
         return redirect(route('administrator-roles.index'))->with('success', "Data berhasil dihapus");
     }
