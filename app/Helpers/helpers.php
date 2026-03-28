@@ -37,17 +37,17 @@ if (!function_exists('form_token_check')) {
      * @param string $redirectUrl
      * @return RedirectResponse|null
      */
-    function form_token_check($_token_form, string $redirectUrl): ?RedirectResponse
+    function form_token_check($token, string $redirectUrl): ?RedirectResponse
     {
         // Jika token tidak ada
-        if (!$_token_form) {
+        if (!$token) {
             return redirect($redirectUrl)
                 ->withInput()
                 ->with('error', 'Ups, token tidak ditemukan');
         }
 
         // Decrypt token
-        $decrypted = token_form_decrypt($_token_form);
+        $decrypted = token_form_decrypt($token);
 
         // Cek validitas token
         if (!$decrypted || !Str::contains($decrypted, 'token_form_generate')) {
@@ -57,14 +57,14 @@ if (!function_exists('form_token_check')) {
         }
 
         // Cek double submit
-        if (session()->has('last_token_form') && session('last_token_form') === $_token_form) {
+        if (session()->has('_token_form') && session('_token_form') === $token) {
             return redirect($redirectUrl)
                 ->withInput()
                 ->with('error', 'Ups, form sudah dikirim, harap jangan menekan tombol lagi');
         }
 
         // Simpan token terakhir di session
-        session(['last_token_form' => $_token_form]);
+        session(['_token_form' => $token]);
 
         return null; // token valid, lanjut proses
     }
