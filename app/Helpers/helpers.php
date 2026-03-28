@@ -30,13 +30,6 @@ if (!function_exists('token_form_decrypt')) {
 }
 
 if (!function_exists('token_form_check')) {
-    /**
-     * Cek token form untuk mencegah double submit
-     *
-     * @param Request $request
-     * @param string $redirectUrl
-     * @return RedirectResponse|null
-     */
     function token_form_check(string $token): ?string
     {
         // Jika token tidak ada
