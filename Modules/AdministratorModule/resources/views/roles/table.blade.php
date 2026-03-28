@@ -87,11 +87,8 @@
             showLoading("Menghapus...", "Mohon tunggu");
 
             try {
-                // Ambil token tambahan dari server
-                const token = await apiTokenFormGenerate();
-
                 // Kirim request delete
-                const response = await apiDestroy(url, token);
+                const response = await apiDestroy(url);
 
                 // Jika berhasil
                 onSuccess(response);
@@ -128,29 +125,15 @@
         // ========================
         // API
         // ========================
-        function apiTokenFormGenerate() {
-            return $.ajax({
-                url: "{{ url()->current() }}",
-                type: "GET",
-                data: {
-                    action: "token_form_generate"
-                }
-            }).then(res => res?.data); // aman kalau null
-        }
 
-        function apiDestroy(url, token) {
+        function apiDestroy(url) {
             return $.ajax({
                 url: url,
                 type: "DELETE",
                 data: {
-                    _token: csrfToken(),
-                    _token_form: token
+                    _token: $('meta[name="csrf-token"]').attr('content')
                 }
             });
-        }
-
-        function csrfToken() {
-            return $('meta[name="csrf-token"]').attr('content') || '';
         }
 
         // ========================
