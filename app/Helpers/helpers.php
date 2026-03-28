@@ -16,12 +16,12 @@ if (!function_exists('token_form_generate')) {
 }
 
 if (!function_exists('form_token_check')) {
-    function form_token_check($request)
+    function form_token_check($request, $url)
     {
         $_token_form = $request->input('_token_form');
 
         if (session()->has('last_token_form') && session('last_token_form') === $_token_form) {
-            return redirect()->back()->withInput()->with('error', 'Ups, kamu menekan tombol simpan dua kali.');
+            return redirect($url)->withInput()->with('error', 'Ups, kamu menekan tombol simpan dua kali.');
         }
 
         session(['last_token_form' => $_token_form]);
