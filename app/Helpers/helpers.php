@@ -29,7 +29,7 @@ if (!function_exists('token_form_decrypt')) {
     }
 }
 
-if (!function_exists('form_token_check')) {
+if (!function_exists('token_form_check')) {
     /**
      * Cek token form untuk mencegah double submit
      *
@@ -37,7 +37,7 @@ if (!function_exists('form_token_check')) {
      * @param string $redirectUrl
      * @return RedirectResponse|null
      */
-    function form_token_check($token, string $redirectUrl): ?RedirectResponse
+    function token_form_check($token, string $redirectUrl): ?RedirectResponse
     {
         // Jika token tidak ada
         if (!$token) {
