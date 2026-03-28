@@ -17,55 +17,51 @@
     <script>
         let datatable;
         $(document).ready(function() {
-            datatable = $('#datatable').DataTable({
-                autoWidth: false,
+            datatable = new DataTable('#datatable', {
                 language: {
                     url: "{{ asset('assets/json/plugin/datatables/id.json') }}",
                 },
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: '{{ url()->current() }}?datatable=main',
-                    type: 'GET',
+                    url: '{{ url()->current() }}',
+                    data: {
+                        datatable: 'main'
+                    }
                 },
-                columnDefs: [{
-                    orderable: false,
-                    targets: [4],
-                }],
                 order: [
                     [0, 'asc'],
                 ],
                 columns: [{
                         data: 'name',
                         name: 'roles.name',
-                        className: '',
                         defaultContent: '-'
                     },
                     {
                         data: 'guard_name',
                         name: 'roles.guard_name',
-                        className: '',
                         defaultContent: '-'
                     },
                     {
                         data: 'permissions_count',
                         name: 'permission_counts.permissions_count',
-                        className: '',
                         defaultContent: '-'
                     },
                     {
                         data: 'updated_at',
                         name: 'roles.updated_at',
-                        className: '',
                         defaultContent: '-'
                     },
                     {
                         data: 'action',
                         name: 'roles.id',
                         className: 'text-end',
-                        defaultContent: '-'
+                        defaultContent: '-',
+                        orderable: false,
+                        searchable: false
                     },
                 ],
+                deferRender: true
             });
         });
 
