@@ -75,9 +75,6 @@
     </script>
 
     <script>
-        // ========================
-        // MAIN FUNCTION
-        // ========================
         async function destroyAction(url, name) {
             // Tampilkan konfirmasi
             const confirmed = await destroyConfirm(name);
@@ -104,9 +101,6 @@
             }
         }
 
-        // ========================
-        // KONFIRMASI
-        // ========================
         function destroyConfirm(name) {
             return Swal.fire({
                 icon: "warning",
@@ -122,10 +116,6 @@
             }).then(result => result.isConfirmed);
         }
 
-        // ========================
-        // API
-        // ========================
-
         function destroyApi(url) {
             return $.ajax({
                 url: url,
@@ -136,9 +126,6 @@
             });
         }
 
-        // ========================
-        // UI
-        // ========================
         function swalShowLoading(title, text) {
             Swal.fire({
                 title,
