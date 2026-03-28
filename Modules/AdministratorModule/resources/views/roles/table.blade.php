@@ -75,20 +75,31 @@
     </script>
 
     <script>
+        // ========================
+        // MAIN FUNCTION
+        // ========================
         async function actionDestroy(url, name) {
+            // 1. Tampilkan konfirmasi
             const confirmed = await confirmDelete(name);
             if (!confirmed) return;
 
+            // 2. Tampilkan loading
             showLoading("Menghapus...", "Mohon tunggu");
 
             try {
+                // 3. Ambil token tambahan dari server
                 const token = await getFormToken();
+
+                // 4. Kirim request delete
                 const response = await sendDelete(url, token);
 
+                // 5. Jika berhasil
                 onSuccess(response);
             } catch (error) {
+                // 6. Jika gagal
                 onError(error);
             } finally {
+                // 7. Tutup loading
                 Swal.close();
             }
         }
@@ -121,7 +132,7 @@
                 data: {
                     action: "token_form_generate"
                 }
-            }).then(res => res.data);
+            }).then(res => res?.data); // aman kalau null
         }
 
         function sendDelete(url, token) {
@@ -136,7 +147,7 @@
         }
 
         function getCsrfToken() {
-            return $('meta[name="csrf-token"]').attr('content');
+            return $('meta[name="csrf-token"]').attr('content') || '';
         }
 
         // ========================
@@ -153,15 +164,26 @@
         }
 
         function onSuccess(response) {
-            notify("success", "Berhasil", "icon-check", response.message);
+            const message = response?.message || "Data berhasil dihapus";
+
+            notify("success", "Berhasil", "icon-check", message);
+
+            // reload datatable tanpa reset pagination
             datatable.ajax.reload(null, false);
         }
 
         function onError(xhr) {
-            const message = xhr.responseJSON?.message || xhr.statusText || "Terjadi kesalahan";
+            const message =
+                xhr?.responseJSON?.message ||
+                xhr?.statusText ||
+                "Terjadi kesalahan";
+
             notify("danger", "Gagal", "icon-close", message);
         }
 
+        // ========================
+        // NOTIFICATION
+        // ========================
         function notify(type, title, icon, message) {
             $.notify({
                 icon,
