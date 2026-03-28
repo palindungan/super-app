@@ -111,7 +111,7 @@
                         type: 'DELETE',
                         data: {
                             _token: $('meta[name="csrf-token"]').attr('content'),
-                            _token_form: "{{ generate_token_form() }}"
+                            _token_form: "{{ token_form_generate() }}"
                         },
                         success: function(response) {
 

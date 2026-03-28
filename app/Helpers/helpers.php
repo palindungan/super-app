@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Crypt;
 
-if (!function_exists('generate_token_form')) {
-    function generate_token_form()
+if (!function_exists('token_form_generate')) {
+    function token_form_generate()
     {
         // Dapatkan timestamp saat ini (detik)
         $nowTimestamp = now()->timestamp; // integer
