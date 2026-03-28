@@ -130,8 +130,8 @@
             return $.ajax({
                 url: url,
                 type: "DELETE",
-                data: {
-                    _token: $('meta[name="csrf-token"]').attr('content')
+                data: function(d) {
+                    d._token: $('meta[name="csrf-token"]').attr('content');
                 }
             });
         }
