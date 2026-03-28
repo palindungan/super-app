@@ -52,12 +52,14 @@
     <div class="card">
         <div class="card-body pb-0" style="padding-top: 0px;">
             <div class="col-md-12 pb-0" style="padding: 10px;">
+                <input type="text" name="active_tab" id="active_tab" value="{{ old('active_tab', 0) }}">
                 <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
                     @foreach ($permissions_data as $item_idx => $item)
                         @php
                             $link_active = '';
                             $aria_selected = 'false';
-                            if ($item_idx == 0) {
+                            $active_tab = old('active_tab', 0);
+                            if ($item_idx == $active_tab) {
                                 $link_active = 'active';
                                 $aria_selected = 'true';
                             }
@@ -83,7 +85,7 @@
                     @foreach ($permissions_data as $item_idx => $item)
                         @php
                             $link_active = '';
-                            if ($item_idx == 0) {
+                            if ($item_idx == $active_tab) {
                                 $link_active = 'show active';
                             }
                         @endphp
@@ -165,6 +167,13 @@
             $('.permissions').on('change', function() {
                 syncSelectAll();
             });
+        });
+    </script>
+    <script>
+        $('a[data-bs-toggle="pill"]').on('shown.bs.tab', function(e) {
+            let id = $(e.target).attr('id'); // contoh: line-1-tab
+            let index = id.split('-')[1]; // ambil "1"
+            $('#active_tab').val(index);
         });
     </script>
 @endpush
