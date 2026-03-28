@@ -75,30 +75,38 @@
     </script>
 
     <script>
-        function actionDestroy(url, name) {
-            actionDestroyConfirm(name).then((confirmed) => {
-                if (!confirmed) return;
+        async function actionDestroy(url, name) {
+            // 1. Konfirmasi
+            const confirmed = await actionDestroyConfirm(name);
+            if (!confirmed) return;
 
-                showLoading("Menghapus...", "Mohon tunggu");
+            // 2. Loading
+            showLoading("Menghapus...", "Mohon tunggu");
 
-                actionTokenFormGenerate()
-                    .then((token) => deleteData(url, token))
-                    .then((response) => handleSuccess(response))
-                    .catch((error) => handleError(error))
-                    .finally(() => Swal.close());
-            });
+            try {
+                // 3. Ambil token
+                const token = await actionTokenFormGenerate();
+
+                // 4. Hapus data
+                const response = await deleteData(url, token);
+
+                // 5. Success
+                handleSuccess(response);
+            } catch (error) {
+                handleError(error);
+            } finally {
+                Swal.close();
+            }
         }
 
         function actionDestroyConfirm(name) {
             return Swal.fire({
                 icon: "warning",
                 title: `Hapus Peran ${name}`,
-                text: "Apakah Anda yakin ingin melakukan ini?",
+                text: "Apakah Anda yakin?",
                 showCancelButton: true,
                 confirmButtonText: "Hapus",
                 cancelButtonText: "Batal",
-                allowOutsideClick: false,
-                buttonsStyling: false,
                 customClass: {
                     confirmButton: "btn btn-danger me-2",
                     cancelButton: "btn btn-light"
@@ -107,40 +115,31 @@
         }
 
         function actionTokenFormGenerate() {
-            return new Promise((resolve, reject) => {
-                $.ajax({
-                    url: "{{ url()->current() }}",
-                    type: 'GET',
-                    data: {
-                        action: "token_form_generate"
-                    },
-                    success: (res) => resolve(res.data),
-                    error: (xhr) => reject(xhr)
-                });
-            });
+            return $.ajax({
+                url: "{{ url()->current() }}",
+                type: "GET",
+                data: {
+                    action: "token_form_generate"
+                }
+            }).then(res => res.data);
         }
 
         function deleteData(url, token) {
-            return new Promise((resolve, reject) => {
-                $.ajax({
-                    url: url,
-                    type: 'DELETE',
-                    data: {
-                        _token: $('meta[name="csrf-token"]').attr('content'),
-                        _token_form: token
-                    },
-                    success: resolve,
-                    error: reject
-                });
+            return $.ajax({
+                url: url,
+                type: "DELETE",
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    _token_form: token
+                }
             });
         }
 
         function showLoading(title, text) {
             Swal.fire({
-                title: title,
-                text: text,
+                title,
+                text,
                 allowOutsideClick: false,
-                allowEscapeKey: false,
                 didOpen: () => Swal.showLoading()
             });
         }
@@ -151,36 +150,32 @@
         }
 
         function handleError(xhr) {
-            let message = xhr.responseJSON?.message || xhr.statusText;
+            const message = xhr.responseJSON?.message || xhr.statusText;
             notifyError(message);
         }
 
         function notifySuccess(message) {
-            $.notify({
-                icon: 'icon-check',
-                title: "Berhasil",
-                message: message,
-            }, getNotifyConfig("success"));
+            showNotify("success", "Berhasil", "icon-check", message);
         }
 
         function notifyError(message) {
-            $.notify({
-                icon: 'icon-close',
-                title: "Gagal",
-                message: message,
-            }, getNotifyConfig("danger"));
+            showNotify("danger", "Gagal", "icon-close", message);
         }
 
-        function getNotifyConfig(type) {
-            return {
-                type: type,
+        function showNotify(type, title, icon, message) {
+            $.notify({
+                icon,
+                title,
+                message
+            }, {
+                type,
                 delay: 5000,
                 placement: {
                     from: "top",
                     align: "right"
                 },
                 z_index: 9999
-            };
+            });
         }
     </script>
 @endpush
