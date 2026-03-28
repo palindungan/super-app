@@ -21,17 +21,28 @@
                 language: {
                     url: "{{ asset('assets/json/plugin/datatables/id.json') }}"
                 },
+
                 processing: true,
                 serverSide: true,
+
                 ajax: {
-                    url: '{{ url()->current() }}',
-                    data: {
-                        datatable: 'main'
+                    url: "{{ url()->current() }}",
+                    data: function(d) {
+                        d.datatable = 'main';
+                    },
+                    error: function(xhr) {
+                        try {
+                            console.error(JSON.parse(xhr.responseText));
+                        } catch (e) {
+                            console.error(xhr.responseText);
+                        }
                     }
                 },
+
                 order: [
                     [0, 'asc']
                 ],
+
                 columns: [{
                         data: 'name',
                         name: 'roles.name',
@@ -61,7 +72,10 @@
                         searchable: false
                     }
                 ],
-                deferRender: true
+
+                deferRender: true,
+                stateSave: true,
+                searchDelay: 500
             });
         });
 
