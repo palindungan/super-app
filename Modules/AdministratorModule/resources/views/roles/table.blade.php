@@ -110,16 +110,6 @@
             }).then(result => result.isConfirmed);
         }
 
-        function showLoading() {
-            Swal.fire({
-                title: "Menghapus...",
-                text: "Mohon tunggu",
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                didOpen: () => Swal.showLoading()
-            });
-        }
-
         function actionTokenFormGenerate() {
             return new Promise((resolve, reject) => {
                 $.ajax({
@@ -146,6 +136,16 @@
                     success: resolve,
                     error: reject
                 });
+            });
+        }
+
+        function showLoading() {
+            Swal.fire({
+                title: "Menghapus...",
+                text: "Mohon tunggu",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => Swal.showLoading()
             });
         }
 
