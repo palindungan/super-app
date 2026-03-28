@@ -78,9 +78,9 @@
         // ========================
         // MAIN FUNCTION
         // ========================
-        async function actionDestroy(url, name) {
+        async function destroyAction(url, name) {
             // 1. Tampilkan konfirmasi
-            const confirmed = await confirmDelete(name);
+            const confirmed = await destroyConfirm(name);
             if (!confirmed) return;
 
             // 2. Tampilkan loading
@@ -88,10 +88,10 @@
 
             try {
                 // 3. Ambil token tambahan dari server
-                const token = await getFormToken();
+                const token = await apiTokenFormGenerate();
 
                 // 4. Kirim request delete
-                const response = await sendDelete(url, token);
+                const response = await apiDestroy(url, token);
 
                 // 5. Jika berhasil
                 onSuccess(response);
@@ -107,7 +107,7 @@
         // ========================
         // KONFIRMASI
         // ========================
-        function confirmDelete(name) {
+        function destroyConfirm(name) {
             return Swal.fire({
                 icon: "warning",
                 title: `Hapus Peran ${name}`,
@@ -125,7 +125,7 @@
         // ========================
         // API
         // ========================
-        function getFormToken() {
+        function apiTokenFormGenerate() {
             return $.ajax({
                 url: "{{ url()->current() }}",
                 type: "GET",
@@ -135,18 +135,18 @@
             }).then(res => res?.data); // aman kalau null
         }
 
-        function sendDelete(url, token) {
+        function apiDestroy(url, token) {
             return $.ajax({
                 url: url,
                 type: "DELETE",
                 data: {
-                    _token: getCsrfToken(),
+                    _token: csrfToken(),
                     _token_form: token
                 }
             });
         }
 
-        function getCsrfToken() {
+        function csrfToken() {
             return $('meta[name="csrf-token"]').attr('content') || '';
         }
 
