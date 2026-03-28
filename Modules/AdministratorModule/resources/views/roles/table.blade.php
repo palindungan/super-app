@@ -123,7 +123,7 @@
         function generateFormToken() {
             return new Promise((resolve, reject) => {
                 $.ajax({
-                    url: window.location.href,
+                    url: "{{ url()->current() }}",
                     type: 'GET',
                     data: {
                         action: "token_form_generate"
