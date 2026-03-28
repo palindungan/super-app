@@ -94,6 +94,10 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
+        if ($response = form_token_check($request)) {
+            return $response;
+        }
+
         $role = Role::create([
             "name" => $request->name,
             "guard_name" => $request->guard_name,

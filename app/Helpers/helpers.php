@@ -14,3 +14,18 @@ if (!function_exists('token_form_generate')) {
         return $token;
     }
 }
+
+if (!function_exists('form_token_check')) {
+    function form_token_check($request)
+    {
+        $_token_form = $request->input('_token_form');
+
+        if (session()->has('last_token_form') && session('last_token_form') === $_token_form) {
+            return redirect()->back()->with('error', 'Ups, kamu menekan tombol simpan dua kali.');
+        }
+
+        session(['last_token_form' => $_token_form]);
+
+        return null;
+    }
+}
