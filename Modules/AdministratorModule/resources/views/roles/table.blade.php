@@ -107,34 +107,63 @@
                     });
 
                     $.ajax({
-                        url: url,
-                        type: 'DELETE',
+                        url: "{{ url()->current() }}",
+                        type: 'GET',
                         data: {
-                            _token: $('meta[name="csrf-token"]').attr('content'),
-                            _token_form: "{{ token_form_generate() }}"
+                            action: "token_form_generate"
                         },
                         success: function(response) {
-
-                            Swal.close();
-
-                            $.notify({
-                                icon: 'icon-check',
-                                title: "Berhasil",
-                                message: response.message,
-                            }, {
-                                type: "success",
-                                delay: 5000, // durasi muncul notifikasi
-                                placement: {
-                                    from: "top",
-                                    align: "right"
+                            $.ajax({
+                                url: url,
+                                type: 'DELETE',
+                                data: {
+                                    _token: $('meta[name="csrf-token"]').attr('content'),
+                                    _token_form: response.data
                                 },
-                                z_index: 9999
-                            });
+                                success: function(response) {
 
-                            datatable.ajax.reload(null, false);
+                                    Swal.close();
+
+                                    $.notify({
+                                        icon: 'icon-check',
+                                        title: "Berhasil",
+                                        message: response.message,
+                                    }, {
+                                        type: "success",
+                                        delay: 5000, // durasi muncul notifikasi
+                                        placement: {
+                                            from: "top",
+                                            align: "right"
+                                        },
+                                        z_index: 9999
+                                    });
+
+                                    datatable.ajax.reload(null, false);
+                                },
+                                error: function(xhr) {
+
+                                    Swal.close();
+
+                                    let message = xhr.responseJSON?.message || xhr
+                                        .statusText;
+
+                                    $.notify({
+                                        icon: 'icon-close',
+                                        title: "Gagal",
+                                        message: message,
+                                    }, {
+                                        type: "danger",
+                                        delay: 5000,
+                                        placement: {
+                                            from: "top",
+                                            align: "right"
+                                        },
+                                        z_index: 9999
+                                    });
+                                }
+                            });
                         },
                         error: function(xhr) {
-
                             Swal.close();
 
                             let message = xhr.responseJSON?.message || xhr.statusText;
