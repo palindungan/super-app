@@ -79,7 +79,7 @@
             });
         });
 
-        function action_destroy(url, name) {
+        function actionDestroy(url, name) {
             confirmDelete(name).then((confirmed) => {
                 if (!confirmed) return;
 

@@ -3,7 +3,7 @@
         <i class="fa fa-edit"></i>
     </a>
     <button type="button" class="btn btn-link btn-danger"
-        onclick="action_destroy(
+        onclick="actionDestroy(
         '{{ route('administrator-roles.destroy', $row->id) }}', 
         '{{ $row->name }}'
     )">
