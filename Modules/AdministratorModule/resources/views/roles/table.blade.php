@@ -83,7 +83,7 @@
             actionDestroyConfirm(name).then((confirmed) => {
                 if (!confirmed) return;
 
-                showLoading();
+                showLoading("Menghapus...", "Mohon tunggu");
 
                 actionTokenFormGenerate()
                     .then((token) => deleteData(url, token))
@@ -139,10 +139,10 @@
             });
         }
 
-        function showLoading() {
+        function showLoading(title, text) {
             Swal.fire({
-                title: "Menghapus...",
-                text: "Mohon tunggu",
+                title: title,
+                text: text,
                 allowOutsideClick: false,
                 allowEscapeKey: false,
                 didOpen: () => Swal.showLoading()
