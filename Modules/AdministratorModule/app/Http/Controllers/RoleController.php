@@ -187,8 +187,6 @@ class RoleController extends Controller
                 // 'data' => null,
                 // 'errors' => null,
             ], 200);
-        } else {
-            // 
         }
     }
 }
