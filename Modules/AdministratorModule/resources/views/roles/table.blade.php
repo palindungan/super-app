@@ -87,9 +87,12 @@
                 showCancelButton: true,
                 confirmButtonText: "Hapus",
                 cancelButtonText: "Batal",
-                confirmButtonColor: "#d33",
-                cancelButtonColor: "#6c757d",
-                allowOutsideClick: false
+                allowOutsideClick: false,
+                buttonsStyling: false, // WAJIB biar class bootstrap kepake
+                customClass: {
+                    confirmButton: "btn btn-danger me-2",
+                    cancelButton: "btn btn-light"
+                }
             }).then((result) => {
                 if (result.isConfirmed) {
 
