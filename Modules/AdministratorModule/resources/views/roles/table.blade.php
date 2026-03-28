@@ -79,27 +79,30 @@
         // MAIN FUNCTION
         // ========================
         async function destroyAction(url, name) {
-            // 1. Tampilkan konfirmasi
+            // Tampilkan konfirmasi
             const confirmed = await destroyConfirm(name);
             if (!confirmed) return;
 
-            // 2. Tampilkan loading
+            // Tampilkan loading
             showLoading("Menghapus...", "Mohon tunggu");
 
             try {
-                // 3. Ambil token tambahan dari server
+                // Ambil token tambahan dari server
                 const token = await apiTokenFormGenerate();
 
-                // 4. Kirim request delete
+                // Kirim request delete
                 const response = await apiDestroy(url, token);
 
-                // 5. Jika berhasil
+                // Jika berhasil
                 onSuccess(response);
+
+                // reload datatable tanpa reset pagination
+                datatable.ajax.reload(null, false);
             } catch (error) {
-                // 6. Jika gagal
+                // Jika gagal
                 onError(error);
             } finally {
-                // 7. Tutup loading
+                // Tutup loading
                 Swal.close();
             }
         }
@@ -164,12 +167,9 @@
         }
 
         function onSuccess(response) {
-            const message = response?.message || "Data berhasil dihapus";
+            const message = response?.message || "Data berhasil diproses";
 
             notify("icon-check", "Berhasil", message, "success");
-
-            // reload datatable tanpa reset pagination
-            datatable.ajax.reload(null, false);
         }
 
         function onError(xhr) {
