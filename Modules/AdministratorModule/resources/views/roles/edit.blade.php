@@ -14,7 +14,7 @@
     </div>
 
     <form action="{{ route('administrator-roles.update', $role->id) }}" method="POST" onsubmit="formOnSubmitButton(this)">
-        @include('components.form.data', ['method' => 'PUT'])
+        @include('components.forms.data', ['method' => 'PUT'])
         <div class="row">
             @include('administratormodule::roles.fields')
             <div class="col-md-12">
