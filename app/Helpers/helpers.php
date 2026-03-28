@@ -19,7 +19,7 @@ if (!function_exists('token_form_generate')) {
 }
 
 if (!function_exists('token_form_decrypt')) {
-    function token_form_decrypt(string $token): ?string
+    function tokenFormDecrypt(string $token): ?string
     {
         try {
             return Crypt::decryptString($token);
@@ -38,7 +38,7 @@ if (!function_exists('token_form_check')) {
         }
 
         // Decrypt token
-        $decrypted = token_form_decrypt($token);
+        $decrypted = tokenFormDecrypt($token);
 
         // Cek validitas token
         if (!$decrypted || !Str::contains($decrypted, 'token_form_generate')) {
