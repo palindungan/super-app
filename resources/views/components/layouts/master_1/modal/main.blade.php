@@ -20,7 +20,7 @@
             </div>
             <div class="modal-footer">
                 <form action="{{ route('logout') }}" method="POST" onsubmit="formOnSubmitButton(this)">
-                    @include('components.custom.form.data', ['method' => 'POST'])
+                    @include('components.form.data', ['method' => 'POST'])
                     <button type="submit" class="btn btn-danger">Keluar</button>
                 </form>
                 <button type="button" class="btn btn-link text-primary text-decoration-none" data-bs-dismiss="modal">
