@@ -19,7 +19,7 @@
         $(document).ready(function() {
             datatable = new DataTable('#datatable', {
                 language: {
-                    url: "{{ asset('assets/json/plugin/datatables/id.json') }}",
+                    url: "{{ asset('assets/json/plugin/datatables/id.json') }}"
                 },
                 processing: true,
                 serverSide: true,
@@ -30,7 +30,7 @@
                     }
                 },
                 order: [
-                    [0, 'asc'],
+                    [0, 'asc']
                 ],
                 columns: [{
                         data: 'name',
@@ -59,7 +59,7 @@
                         defaultContent: '-',
                         orderable: false,
                         searchable: false
-                    },
+                    }
                 ],
                 deferRender: true
             });
