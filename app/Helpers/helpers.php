@@ -21,7 +21,7 @@ if (!function_exists('form_token_check')) {
         $_token_form = $request->input('_token_form');
 
         if (session()->has('last_token_form') && session('last_token_form') === $_token_form) {
-            return redirect()->back()->with('error', 'Ups, kamu menekan tombol simpan dua kali.');
+            return redirect()->back()->withInput()->with('error', 'Ups, kamu menekan tombol simpan dua kali.');
         }
 
         session(['last_token_form' => $_token_form]);
