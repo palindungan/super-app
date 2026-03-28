@@ -1,35 +1,21 @@
 <script>
     $(document).ready(function() {
         @if (session('success'))
-            $.notify({
-                icon: 'icon-check',
-                title: "Berhasil",
-                message: "{!! addslashes(session('success')) !!}"
-            }, {
-                type: "success",
-                delay: 5000, // durasi muncul notifikasi
-                placement: {
-                    from: "top",
-                    align: "right"
-                },
-                z_index: 9999
-            });
+            notify(
+                'icon-check',
+                'Berhasil',
+                "{!! addslashes(session('success')) !!}",
+                'success'
+            );
         @endif
 
         @if (session('error'))
-            $.notify({
-                icon: 'icon-close',
-                title: "Gagal",
-                message: "{!! addslashes(session('error')) !!}"
-            }, {
-                type: "danger",
-                delay: 5000,
-                placement: {
-                    from: "top",
-                    align: "right"
-                },
-                z_index: 9999
-            });
+            notify(
+                'icon-close',
+                'Gagal',
+                "{!! addslashes(session('error')) !!}",
+                'danger'
+            );
         @endif
 
         @if ($errors->any())
@@ -42,20 +28,14 @@
                 }
             @endphp
 
-            $.notify({
-                icon: 'icon-close',
-                title: "Gagal",
-                message: "{!! addslashes($message) !!}"
-            }, {
-                type: "danger",
-                delay: 5000,
-                placement: {
-                    from: "top",
-                    align: "right"
-                },
-                z_index: 9999
-            });
+            notify(
+                'icon-close',
+                'Gagal',
+                "{!! addslashes($message) !!}",
+                'danger'
+            );
         @endif
+
     });
 </script>
 
