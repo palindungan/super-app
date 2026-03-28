@@ -52,15 +52,16 @@
     <div class="card">
         <div class="card-body pb-0" style="padding-top: 0px;">
             <div class="col-md-12 pb-0" style="padding: 10px;">
-                <input type="text" name="active_tab" id="active_tab" value="{{ old('active_tab', 0) }}">
+                <input type="text" name="nav_link_active_tab" id="nav_link_active_tab"
+                    value="{{ old('nav_link_active_tab', 0) }}">
                 <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
                     @foreach ($permissions_data as $item_idx => $item)
                         @php
-                            $link_active = '';
+                            $nav_link_active = '';
+                            $nav_link_active_tab = old('nav_link_active_tab', 0);
                             $aria_selected = 'false';
-                            $active_tab = old('active_tab', 0);
-                            if ($item_idx == $active_tab) {
-                                $link_active = 'active';
+                            if ($item_idx == $nav_link_active_tab) {
+                                $nav_link_active = 'active';
                                 $aria_selected = 'true';
                             }
                             $permissions = [];
@@ -72,7 +73,7 @@
                             $index = "$item_idx";
                         @endphp
                         <li class="nav-item">
-                            <a data-bs-toggle="pill" role="tab" class="nav-link {{ $link_active }}"
+                            <a data-bs-toggle="pill" role="tab" class="nav-link {{ $nav_link_active }}"
                                 aria-selected="{{ $aria_selected }}" id="line-{{ $index }}-tab"
                                 href="#line-{{ $index }}" aria-controls="pills-{{ $index }}">
                                 {{ $item['label'] }}
@@ -84,16 +85,17 @@
                 <div class="tab-content mt-3 mb-3" id="line-tabContent">
                     @foreach ($permissions_data as $item_idx => $item)
                         @php
-                            $link_active = '';
-                            if ($item_idx == $active_tab) {
-                                $link_active = 'show active';
+                            $nav_link_active = '';
+                            if ($item_idx == $nav_link_active_tab) {
+                                $nav_link_active = 'show active';
                             }
                         @endphp
                         @php
                             $index = "$item_idx";
                         @endphp
-                        <div role="tabpanel" class="tab-pane fade {{ $link_active }}" id="line-{{ $index }}"
-                            aria-labelledby="line-{{ $index }}-tab" style="padding-top: 15px;">
+                        <div role="tabpanel" class="tab-pane fade {{ $nav_link_active }}"
+                            id="line-{{ $index }}" aria-labelledby="line-{{ $index }}-tab"
+                            style="padding-top: 15px;">
                             @foreach ($item['menu'] as $menu_idx => $menu)
                                 @php
                                     $index = "$item_idx-$menu_idx";
@@ -173,7 +175,7 @@
         $('a[data-bs-toggle="pill"]').on('shown.bs.tab', function(e) {
             let id = $(e.target).attr('id'); // contoh: line-1-tab
             let index = id.split('-')[1]; // ambil "1"
-            $('#active_tab').val(index);
+            $('#nav_link_active_tab').val(index);
         });
     </script>
 @endpush
