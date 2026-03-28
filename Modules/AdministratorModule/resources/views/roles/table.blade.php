@@ -80,7 +80,21 @@
         });
 
         function action_destroy(url, name) {
-            Swal.fire({
+            confirmDelete(name).then((confirmed) => {
+                if (!confirmed) return;
+
+                showLoading();
+
+                generateFormToken()
+                    .then((token) => deleteData(url, token))
+                    .then((response) => handleSuccess(response))
+                    .catch((error) => handleError(error))
+                    .finally(() => Swal.close());
+            });
+        }
+
+        function confirmDelete(name) {
+            return Swal.fire({
                 icon: "warning",
                 title: `Hapus Peran ${name}`,
                 text: "Apakah Anda yakin ingin melakukan ini?",
@@ -88,103 +102,89 @@
                 confirmButtonText: "Hapus",
                 cancelButtonText: "Batal",
                 allowOutsideClick: false,
-                buttonsStyling: false, // WAJIB biar class bootstrap kepake
+                buttonsStyling: false,
                 customClass: {
                     confirmButton: "btn btn-danger me-2",
                     cancelButton: "btn btn-light"
                 }
-            }).then((result) => {
-                if (result.isConfirmed) {
+            }).then(result => result.isConfirmed);
+        }
 
-                    Swal.fire({
-                        title: "Menghapus...",
-                        text: "Mohon tunggu",
-                        allowOutsideClick: false,
-                        allowEscapeKey: false,
-                        didOpen: () => {
-                            Swal.showLoading();
-                        }
-                    });
-
-                    $.ajax({
-                        url: "{{ url()->current() }}",
-                        type: 'GET',
-                        data: {
-                            action: "token_form_generate"
-                        },
-                        success: function(response) {
-                            $.ajax({
-                                url: url,
-                                type: 'DELETE',
-                                data: {
-                                    _token: $('meta[name="csrf-token"]').attr('content'),
-                                    _token_form: response.data
-                                },
-                                success: function(response) {
-
-                                    Swal.close();
-
-                                    $.notify({
-                                        icon: 'icon-check',
-                                        title: "Berhasil",
-                                        message: response.message,
-                                    }, {
-                                        type: "success",
-                                        delay: 5000, // durasi muncul notifikasi
-                                        placement: {
-                                            from: "top",
-                                            align: "right"
-                                        },
-                                        z_index: 9999
-                                    });
-
-                                    datatable.ajax.reload(null, false);
-                                },
-                                error: function(xhr) {
-
-                                    Swal.close();
-
-                                    let message = xhr.responseJSON?.message || xhr
-                                        .statusText;
-
-                                    $.notify({
-                                        icon: 'icon-close',
-                                        title: "Gagal",
-                                        message: message,
-                                    }, {
-                                        type: "danger",
-                                        delay: 5000,
-                                        placement: {
-                                            from: "top",
-                                            align: "right"
-                                        },
-                                        z_index: 9999
-                                    });
-                                }
-                            });
-                        },
-                        error: function(xhr) {
-                            Swal.close();
-
-                            let message = xhr.responseJSON?.message || xhr.statusText;
-
-                            $.notify({
-                                icon: 'icon-close',
-                                title: "Gagal",
-                                message: message,
-                            }, {
-                                type: "danger",
-                                delay: 5000,
-                                placement: {
-                                    from: "top",
-                                    align: "right"
-                                },
-                                z_index: 9999
-                            });
-                        }
-                    });
-                }
+        function showLoading() {
+            Swal.fire({
+                title: "Menghapus...",
+                text: "Mohon tunggu",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => Swal.showLoading()
             });
+        }
+
+        function generateFormToken() {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: window.location.href,
+                    type: 'GET',
+                    data: {
+                        action: "token_form_generate"
+                    },
+                    success: (res) => resolve(res.data),
+                    error: (xhr) => reject(xhr)
+                });
+            });
+        }
+
+        function deleteData(url, token) {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: url,
+                    type: 'DELETE',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr('content'),
+                        _token_form: token
+                    },
+                    success: resolve,
+                    error: reject
+                });
+            });
+        }
+
+        function handleSuccess(response) {
+            notifySuccess(response.message);
+            datatable.ajax.reload(null, false);
+        }
+
+        function handleError(xhr) {
+            let message = xhr.responseJSON?.message || xhr.statusText;
+            notifyError(message);
+        }
+
+        function notifySuccess(message) {
+            $.notify({
+                icon: 'icon-check',
+                title: "Berhasil",
+                message: message,
+            }, getNotifyConfig("success"));
+        }
+
+        function notifyError(message) {
+            $.notify({
+                icon: 'icon-close',
+                title: "Gagal",
+                message: message,
+            }, getNotifyConfig("danger"));
+        }
+
+        function getNotifyConfig(type) {
+            return {
+                type: type,
+                delay: 5000,
+                placement: {
+                    from: "top",
+                    align: "right"
+                },
+                z_index: 9999
+            };
         }
     </script>
 @endpush
