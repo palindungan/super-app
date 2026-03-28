@@ -84,7 +84,7 @@
             if (!confirmed) return;
 
             // Tampilkan loading
-            showLoading("Menghapus...", "Mohon tunggu");
+            swalShowLoading("Menghapus...", "Mohon tunggu");
 
             try {
                 // Kirim request delete
@@ -139,13 +139,29 @@
         // ========================
         // UI
         // ========================
-        function showLoading(title, text) {
+        function swalShowLoading(title, text) {
             Swal.fire({
                 title,
                 text,
                 allowOutsideClick: false,
                 allowEscapeKey: false,
                 didOpen: () => Swal.showLoading()
+            });
+        }
+
+        function notify(icon, title, message, type) {
+            $.notify({
+                icon,
+                title,
+                message
+            }, {
+                type,
+                delay: 5000,
+                placement: {
+                    from: "top",
+                    align: "right"
+                },
+                z_index: 9999
             });
         }
 
@@ -162,25 +178,6 @@
                 "Terjadi kesalahan";
 
             notify("icon-close", "Gagal", message, "danger");
-        }
-
-        // ========================
-        // NOTIFICATION
-        // ========================
-        function notify(icon, title, message, type) {
-            $.notify({
-                icon,
-                title,
-                message
-            }, {
-                type,
-                delay: 5000,
-                placement: {
-                    from: "top",
-                    align: "right"
-                },
-                z_index: 9999
-            });
         }
     </script>
 @endpush
