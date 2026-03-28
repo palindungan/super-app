@@ -110,7 +110,8 @@
                         url: url,
                         type: 'DELETE',
                         data: {
-                            _token: $('meta[name="csrf-token"]').attr('content')
+                            _token: $('meta[name="csrf-token"]').attr('content'),
+                            _token_form: "{{ generate_token_form() }}"
                         },
                         success: function(response) {
 
