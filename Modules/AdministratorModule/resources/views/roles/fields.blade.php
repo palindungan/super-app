@@ -45,6 +45,9 @@
         </div>
     </div>
 </div>
+@php
+    $role_has_permissions = old('permissions', $role_has_permissions ?? []);
+@endphp
 <div class="col-md-12">
     <div class="card">
         <div class="card-body pb-0" style="padding-top: 0px;">
@@ -118,7 +121,7 @@
                                                                     id="permissions{{ $index }}"
                                                                     name="permissions[]"
                                                                     value="{{ $permission['name'] }}"
-                                                                    {{ in_array($permission['name'], $role_has_permissions ?? []) ? 'checked' : '' }}>
+                                                                    {{ in_array($permission['name'], $role_has_permissions) ? 'checked' : '' }}>
                                                                 <label class="form-check-label"
                                                                     for="permissions{{ $index }}">
                                                                     {{ $permission['label'] }}
