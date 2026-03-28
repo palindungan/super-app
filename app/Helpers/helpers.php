@@ -37,10 +37,8 @@ if (!function_exists('form_token_check')) {
      * @param string $redirectUrl
      * @return RedirectResponse|null
      */
-    function form_token_check(Request $request, string $redirectUrl): ?RedirectResponse
+    function form_token_check($_token_form, string $redirectUrl): ?RedirectResponse
     {
-        $_token_form = $request->input('_token_form');
-
         // Jika token tidak ada
         if (!$_token_form) {
             return redirect($redirectUrl)

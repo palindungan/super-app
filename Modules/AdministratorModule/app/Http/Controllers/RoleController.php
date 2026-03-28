@@ -94,7 +94,7 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        if ($response = form_token_check($request, route('administrator-roles.index'))) return $response;
+        if ($response = form_token_check($request->_token_form, route('administrator-roles.index'))) return $response;
 
         $role = Role::create([
             "name" => $request->name,
@@ -141,7 +141,7 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        if ($response = form_token_check($request, route('administrator-roles.index'))) return $response;
+        if ($response = form_token_check($request->_token_form, route('administrator-roles.index'))) return $response;
 
         $role->update([
             "name" => $request->name,
@@ -164,7 +164,7 @@ class RoleController extends Controller
     {
         $request = request();
 
-        if ($response = form_token_check($request, route('administrator-roles.index'))) return $response;
+        if ($response = form_token_check($request->_token_form, route('administrator-roles.index'))) return $response;
 
         $role->syncPermissions([]);
 
