@@ -21,10 +21,8 @@
                 language: {
                     url: "{{ asset('assets/json/plugin/datatables/id.json') }}"
                 },
-
                 processing: true,
                 serverSide: true,
-
                 ajax: {
                     url: "{{ url()->current() }}",
                     data: function(d) {
@@ -38,11 +36,9 @@
                         }
                     }
                 },
-
                 order: [
                     [0, 'asc']
                 ],
-
                 columns: [{
                         data: 'name',
                         name: 'roles.name',
@@ -72,8 +68,6 @@
                         searchable: false
                     }
                 ],
-
-                deferRender: true,
                 stateSave: true,
                 searchDelay: 500
             });
