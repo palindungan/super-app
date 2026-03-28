@@ -176,13 +176,13 @@ class RoleController extends Controller
                 // 'data' => null,
                 // 'errors' => null,
             ], 200);
+        } else {
+            if ($response = token_form_check($request->_token_form, route('administrator-roles.index'))) return $response;
+
+            $role->syncPermissions([]);
+            $role->delete();
+
+            return redirect(route('administrator-roles.index'))->with('success', "Data berhasil dihapus");
         }
-
-        if ($response = token_form_check($request->_token_form, route('administrator-roles.index'))) return $response;
-
-        $role->syncPermissions([]);
-        $role->delete();
-
-        return redirect(route('administrator-roles.index'))->with('success', "Data berhasil dihapus");
     }
 }
