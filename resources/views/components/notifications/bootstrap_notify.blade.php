@@ -58,3 +58,34 @@
         @endif
     });
 </script>
+
+<script>
+    function notify(icon, title, message, type) {
+        $.notify({
+            icon,
+            title,
+            message
+        }, {
+            type,
+            delay: 5000,
+            placement: {
+                from: "top",
+                align: "right"
+            },
+            z_index: 9999
+        });
+    }
+
+    function notifyOnSuccess(response) {
+        const message = response?.message || "Data berhasil diproses";
+        notify("icon-check", "Berhasil", message, "success");
+    }
+
+    function notifyOnError(xhr) {
+        const message =
+            // xhr?.responseJSON?.message ||
+            xhr?.statusText ||
+            "Terjadi kesalahan";
+        notify("icon-close", "Gagal", message, "danger");
+    }
+</script>
