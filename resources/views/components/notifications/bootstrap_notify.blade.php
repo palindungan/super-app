@@ -35,7 +35,6 @@
                 'danger'
             );
         @endif
-
     });
 </script>
 
