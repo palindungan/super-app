@@ -154,7 +154,6 @@
 
         function notifyOnSuccess(response) {
             const message = response?.message || "Data berhasil diproses";
-
             notify("icon-check", "Berhasil", message, "success");
         }
 
@@ -163,7 +162,6 @@
                 xhr?.responseJSON?.message ||
                 xhr?.statusText ||
                 "Terjadi kesalahan";
-
             notify("icon-close", "Gagal", message, "danger");
         }
     </script>
