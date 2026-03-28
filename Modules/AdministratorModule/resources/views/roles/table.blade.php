@@ -122,6 +122,12 @@
                                 message: response.message,
                             }, {
                                 type: "success",
+                                delay: 5000, // durasi muncul notifikasi
+                                placement: {
+                                    from: "top",
+                                    align: "right"
+                                },
+                                z_index: 9999
                             });
 
                             datatable.ajax.reload(null, false);
@@ -138,6 +144,12 @@
                                 message: message,
                             }, {
                                 type: "danger",
+                                delay: 5000,
+                                placement: {
+                                    from: "top",
+                                    align: "right"
+                                },
+                                z_index: 9999
                             });
                         }
                     });
