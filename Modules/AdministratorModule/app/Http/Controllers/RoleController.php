@@ -165,7 +165,14 @@ class RoleController extends Controller
         $request = request();
 
         if ($request->ajax()) {
-            if ($response = token_form_check($request->_token_form, route('administrator-roles.index'))) return $response->get('error');
+            if ($response = token_form_check($request->_token_form, route('administrator-roles.index'))) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $response->getSession()->get('error', 'Terjadi kesalahan token.'),
+                    // 'data' => null,
+                    // 'errors' => null,
+                ], 422);
+            }
 
             $role->syncPermissions([]);
             $role->delete();
@@ -177,12 +184,7 @@ class RoleController extends Controller
                 // 'errors' => null,
             ], 200);
         } else {
-            if ($response = token_form_check($request->_token_form, route('administrator-roles.index'))) return $response;
-
-            $role->syncPermissions([]);
-            $role->delete();
-
-            return redirect(route('administrator-roles.index'))->with('success', "Data berhasil dihapus");
+            // 
         }
     }
 }
