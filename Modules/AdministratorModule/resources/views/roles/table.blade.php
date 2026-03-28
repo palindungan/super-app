@@ -80,12 +80,12 @@
         });
 
         function actionDestroy(url, name) {
-            confirmDelete(name).then((confirmed) => {
+            actionDestroyConfirm(name).then((confirmed) => {
                 if (!confirmed) return;
 
                 showLoading();
 
-                generateFormToken()
+                actionTokenFormGenerate()
                     .then((token) => deleteData(url, token))
                     .then((response) => handleSuccess(response))
                     .catch((error) => handleError(error))
@@ -93,7 +93,7 @@
             });
         }
 
-        function confirmDelete(name) {
+        function actionDestroyConfirm(name) {
             return Swal.fire({
                 icon: "warning",
                 title: `Hapus Peran ${name}`,
@@ -120,7 +120,7 @@
             });
         }
 
-        function generateFormToken() {
+        function actionTokenFormGenerate() {
             return new Promise((resolve, reject) => {
                 $.ajax({
                     url: "{{ url()->current() }}",
