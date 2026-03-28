@@ -94,9 +94,7 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        if ($response = form_token_check($request, route('administrator-roles.index'))) {
-            return $response;
-        }
+        if ($response = form_token_check($request, route('administrator-roles.index'))) return $response;
 
         $role = Role::create([
             "name" => $request->name,
