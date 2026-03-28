@@ -4,7 +4,7 @@
             $.notify({
                 icon: 'icon-check',
                 title: "Berhasil",
-                message: "{{ session('success') }}"
+                message: "{!! addslashes(session('success')) !!}"
             }, {
                 type: "success",
                 delay: 5000, // durasi muncul notifikasi
@@ -20,7 +20,7 @@
             $.notify({
                 icon: 'icon-close',
                 title: "Gagal",
-                message: "{{ session('error') }}"
+                message: "{!! addslashes(session('error')) !!}"
             }, {
                 type: "danger",
                 delay: 5000,
@@ -45,7 +45,7 @@
             $.notify({
                 icon: 'icon-close',
                 title: "Gagal",
-                message: "{{ $message }}"
+                message: "{!! addslashes($message) !!}"
             }, {
                 type: "danger",
                 delay: 5000,
