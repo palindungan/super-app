@@ -88,7 +88,7 @@
 
             try {
                 // Kirim request delete
-                const response = await apiDestroy(url);
+                const response = await destroyApi(url);
 
                 // Jika berhasil
                 onSuccess(response);
@@ -126,7 +126,7 @@
         // API
         // ========================
 
-        function apiDestroy(url) {
+        function destroyApi(url) {
             return $.ajax({
                 url: url,
                 type: "DELETE",
