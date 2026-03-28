@@ -53,14 +53,14 @@ if (!function_exists('form_token_check')) {
         if (!$decrypted || !Str::contains($decrypted, 'token_form_generate')) {
             return redirect($redirectUrl)
                 ->withInput()
-                ->with('error', 'Ups, token invalid');
+                ->with('error', 'Ups, token tidak valid');
         }
 
         // Cek double submit
         if (session()->has('last_token_form') && session('last_token_form') === $_token_form) {
             return redirect($redirectUrl)
                 ->withInput()
-                ->with('error', 'Ups, kamu menekan tombol simpan dua kali');
+                ->with('error', 'Ups, form sudah dikirim, harap jangan menekan tombol lagi');
         }
 
         // Simpan token terakhir di session
