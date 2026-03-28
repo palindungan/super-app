@@ -94,7 +94,9 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        if ($response = token_form_check($request->_token_form)) return $response;
+        if ($response = token_form_check($request->_token_form)) return redirect(route('administrator-roles.index'))
+            ->withInput()
+            ->with('error', $response);
 
         $role = Role::create([
             "name" => $request->name,
@@ -141,7 +143,9 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        if ($response = token_form_check($request->_token_form)) return $response;
+        if ($response = token_form_check($request->_token_form)) return redirect(route('administrator-roles.index'))
+            ->withInput()
+            ->with('error', $response);
 
         $role->update([
             "name" => $request->name,
