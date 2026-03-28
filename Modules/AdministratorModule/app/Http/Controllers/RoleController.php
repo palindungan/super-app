@@ -103,7 +103,7 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        if ($response = token_form_check($request->_token_form)) return redirect(route('administrator-roles.index'))
+        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator-roles.index'))
             ->withInput()
             ->with('error', $response);
 
@@ -152,7 +152,7 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        if ($response = token_form_check($request->_token_form)) return redirect(route('administrator-roles.index'))
+        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator-roles.index'))
             ->withInput()
             ->with('error', $response);
 
@@ -178,7 +178,7 @@ class RoleController extends Controller
         $request = request();
 
         if ($request->ajax()) {
-            if ($response = token_form_check($request->_token_form)) {
+            if ($response = tokenFormCheck($request->_token_form)) {
                 return response()->json([
                     'success' => false,
                     'message' => $response,

@@ -30,7 +30,7 @@ if (!function_exists('token_form_decrypt')) {
 }
 
 if (!function_exists('token_form_check')) {
-    function token_form_check(string $token): ?string
+    function tokenFormCheck(string $token): ?string
     {
         // Jika token tidak ada
         if (!$token) {
