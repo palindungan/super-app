@@ -6,7 +6,7 @@
             <h3 class="text-center">Masuk</h3>
             <div class="login-form">
                 <form action="{{ route('login') }}" method="POST" onsubmit="formOnSubmitButton(this)">
-                    @include('components.form.data', ['method' => 'POST'])
+                    @include('components.custom.form.data', ['method' => 'POST'])
                     <div class="form-group">
                         @include('components.layouts.master_1.alert.dismissible')
                     </div>

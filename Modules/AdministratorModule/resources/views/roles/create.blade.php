@@ -14,7 +14,7 @@
     </div>
 
     <form action="{{ route('administrator-roles.store') }}" method="POST" onsubmit="formOnSubmitButton(this)">
-        @include('components.form.data', ['method' => 'POST'])
+        @include('components.custom.form.data', ['method' => 'POST'])
         <div class="row">
             @include('administratormodule::roles.fields')
             <div class="col-md-12">
