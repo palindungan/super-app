@@ -166,7 +166,7 @@
         function onSuccess(response) {
             const message = response?.message || "Data berhasil dihapus";
 
-            notify("success", "Berhasil", "icon-check", message);
+            notify("icon-check", "Berhasil", message, "success");
 
             // reload datatable tanpa reset pagination
             datatable.ajax.reload(null, false);
@@ -178,13 +178,13 @@
                 xhr?.statusText ||
                 "Terjadi kesalahan";
 
-            notify("danger", "Gagal", "icon-close", message);
+            notify("icon-close", "Gagal", message, "danger");
         }
 
         // ========================
         // NOTIFICATION
         // ========================
-        function notify(type, title, icon, message) {
+        function notify(icon, title, message, type) {
             $.notify({
                 icon,
                 title,
