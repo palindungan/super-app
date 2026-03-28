@@ -76,30 +76,27 @@
 
     <script>
         async function actionDestroy(url, name) {
-            // 1. Konfirmasi
-            const confirmed = await actionDestroyConfirm(name);
+            const confirmed = await confirmDelete(name);
             if (!confirmed) return;
 
-            // 2. Loading
             showLoading("Menghapus...", "Mohon tunggu");
 
             try {
-                // 3. Ambil token
-                const token = await actionTokenFormGenerate();
+                const token = await getFormToken();
+                const response = await sendDelete(url, token);
 
-                // 4. Hapus data
-                const response = await deleteData(url, token);
-
-                // 5. Success
-                handleSuccess(response);
+                onSuccess(response);
             } catch (error) {
-                handleError(error);
+                onError(error);
             } finally {
                 Swal.close();
             }
         }
 
-        function actionDestroyConfirm(name) {
+        // ========================
+        // KONFIRMASI
+        // ========================
+        function confirmDelete(name) {
             return Swal.fire({
                 icon: "warning",
                 title: `Hapus Peran ${name}`,
@@ -114,7 +111,10 @@
             }).then(result => result.isConfirmed);
         }
 
-        function actionTokenFormGenerate() {
+        // ========================
+        // API
+        // ========================
+        function getFormToken() {
             return $.ajax({
                 url: "{{ url()->current() }}",
                 type: "GET",
@@ -124,45 +124,45 @@
             }).then(res => res.data);
         }
 
-        function deleteData(url, token) {
+        function sendDelete(url, token) {
             return $.ajax({
                 url: url,
                 type: "DELETE",
                 data: {
-                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    _token: getCsrfToken(),
                     _token_form: token
                 }
             });
         }
 
+        function getCsrfToken() {
+            return $('meta[name="csrf-token"]').attr('content');
+        }
+
+        // ========================
+        // UI
+        // ========================
         function showLoading(title, text) {
             Swal.fire({
                 title,
                 text,
                 allowOutsideClick: false,
+                allowEscapeKey: false,
                 didOpen: () => Swal.showLoading()
             });
         }
 
-        function handleSuccess(response) {
-            notifySuccess(response.message);
+        function onSuccess(response) {
+            notify("success", "Berhasil", "icon-check", response.message);
             datatable.ajax.reload(null, false);
         }
 
-        function handleError(xhr) {
-            const message = xhr.responseJSON?.message || xhr.statusText;
-            notifyError(message);
+        function onError(xhr) {
+            const message = xhr.responseJSON?.message || xhr.statusText || "Terjadi kesalahan";
+            notify("danger", "Gagal", "icon-close", message);
         }
 
-        function notifySuccess(message) {
-            showNotify("success", "Berhasil", "icon-check", message);
-        }
-
-        function notifyError(message) {
-            showNotify("danger", "Gagal", "icon-close", message);
-        }
-
-        function showNotify(type, title, icon, message) {
+        function notify(type, title, icon, message) {
             $.notify({
                 icon,
                 title,
