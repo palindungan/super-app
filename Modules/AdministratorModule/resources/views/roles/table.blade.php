@@ -80,34 +80,29 @@
         });
 
         function action_destroy(url, name) {
-            swal({
+            Swal.fire({
                 icon: "warning",
                 title: `Hapus Peran ${name}`,
-                text: `Apakah Anda yakin ingin melakukan ini?`,
-                buttons: {
-                    confirm: {
-                        text: "Hapus",
-                        className: "btn btn-danger",
-                    },
-                    cancel: {
-                        visible: true,
-                        text: "Batal",
-                        className: "btn btn-light",
-                    },
-                },
-                dangerMode: true,
-            }).then((confirm) => {
-                if (confirm) {
-                    // 🔥 tampilkan loading
-                    swal({
+                text: "Apakah Anda yakin ingin melakukan ini?",
+                showCancelButton: true,
+                confirmButtonText: "Hapus",
+                cancelButtonText: "Batal",
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#6c757d",
+                allowOutsideClick: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    Swal.fire({
                         title: "Menghapus...",
                         text: "Mohon tunggu",
-                        buttons: false,
-                        closeOnClickOutside: false,
-                        closeOnEsc: false,
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
                     });
 
-                    // Lakukan request penghapusan data
                     $.ajax({
                         url: url,
                         type: 'DELETE',
@@ -115,17 +110,13 @@
                             _token: $('meta[name="csrf-token"]').attr('content')
                         },
                         success: function(response) {
-                            // tutup loading
-                            setTimeout(() => {
-                                swal.close();
-                            }, 1000);
 
-                            let message = response.message;
-                            console.log(message);
+                            Swal.close();
+
                             $.notify({
                                 icon: 'icon-check',
                                 title: "Berhasil",
-                                message: message,
+                                message: response.message,
                             }, {
                                 type: "success",
                             });
@@ -133,13 +124,11 @@
                             datatable.ajax.reload(null, false);
                         },
                         error: function(xhr) {
-                            // tutup loading
-                            setTimeout(() => {
-                                swal.close();
-                            }, 1000);
 
-                            let message = xhr.statusText;
-                            console.log(message);
+                            Swal.close();
+
+                            let message = xhr.responseJSON?.message || xhr.statusText;
+
                             $.notify({
                                 icon: 'icon-close',
                                 title: "Gagal",

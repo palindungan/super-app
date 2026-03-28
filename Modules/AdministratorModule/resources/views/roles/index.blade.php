@@ -9,7 +9,7 @@
 @push('scripts')
     <script src="{{ asset('assets/js/plugin/datatables/dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugin/datatables/dataTables.bootstrap5.min.js') }}"></script>
-    <script src="{{ asset('components/layouts/master_1/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugin/sweetalert2/sweetalert2@11.js') }}"></script>
     <script src="{{ asset('components/layouts/master_1/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}">
     </script>
 @endpush
