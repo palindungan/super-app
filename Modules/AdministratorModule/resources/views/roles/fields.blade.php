@@ -52,7 +52,7 @@
     <div class="card">
         <div class="card-body pb-0" style="padding-top: 0px;">
             <div class="col-md-12 pb-0" style="padding: 10px;">
-                <input type="text" name="nav_link_active_tab" id="nav_link_active_tab"
+                <input type="hidden" name="nav_link_active_tab" id="nav_link_active_tab"
                     value="{{ old('nav_link_active_tab', 0) }}">
                 <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
                     @foreach ($permissions_data as $item_idx => $item)
