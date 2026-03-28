@@ -141,6 +141,8 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
+        if ($response = form_token_check($request, route('administrator-roles.index'))) return $response;
+
         $role->update([
             "name" => $request->name,
             "guard_name" => $request->guard_name,
@@ -161,6 +163,8 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         $request = request();
+
+        if ($response = form_token_check($request, route('administrator-roles.index'))) return $response;
 
         $role->syncPermissions([]);
 
