@@ -137,7 +137,7 @@
 
                             Swal.close();
 
-                            let message = xhr.statusText || xhr.responseJSON?.message;
+                            let message = xhr.responseJSON?.message || xhr.statusText;
 
                             $.notify({
                                 icon: 'icon-close',
