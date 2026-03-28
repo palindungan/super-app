@@ -69,15 +69,6 @@ class RoleController extends Controller
 
                 return $dataTable->make(true);
             }
-
-            if ($request->action == 'token_form_generate') {
-                return response()->json([
-                    'success' => true,
-                    'message' => "Berhasil",
-                    'data' => tokenFormGenerate(),
-                    // 'errors' => null,
-                ], 200);
-            }
         }
 
         return view('administratormodule::roles.index');

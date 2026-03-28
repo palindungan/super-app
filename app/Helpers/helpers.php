@@ -5,14 +5,14 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
-if (!function_exists('token_form_generate')) {
+if (!function_exists('tokenFormGenerate')) {
     function tokenFormGenerate(): string
     {
         // Dapatkan timestamp saat ini (detik)
         $nowTimestamp = now()->timestamp;
 
         // Convert ke string sebelum encrypt, tambahkan identifier
-        $token = Crypt::encryptString((string) $nowTimestamp . "-token_form_generate");
+        $token = Crypt::encryptString((string) $nowTimestamp . "-tokenFormGenerate");
 
         return $token;
     }
@@ -41,7 +41,7 @@ if (!function_exists('token_form_check')) {
         $decrypted = tokenFormDecrypt($token);
 
         // Cek validitas token
-        if (!$decrypted || !Str::contains($decrypted, 'token_form_generate')) {
+        if (!$decrypted || !Str::contains($decrypted, 'tokenFormGenerate')) {
             return 'Ups, token tidak valid';
         }
 
