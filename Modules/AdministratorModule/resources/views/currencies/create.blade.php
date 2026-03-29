@@ -8,7 +8,7 @@
         }
 
         function createOnSubmit() {
-            const $btn = $('#create_submit_btn');
+            const $btn = $('#store_button');
             buttonLoading($btn);
 
             createApi();
@@ -34,7 +34,7 @@
                     notifyOnError(err);
                 },
                 complete: function() {
-                    const $btn = $('#create_submit_btn');
+                    const $btn = $('#store_button');
                     buttonReset($btn, 'Buat');
                 }
             });

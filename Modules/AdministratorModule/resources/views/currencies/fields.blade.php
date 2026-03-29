@@ -20,6 +20,7 @@
                                 <label for="code">Kode</label>
                                 <input type="text" class="form-control form-control" autocomplete="off"
                                     id="code" name="code" />
+                                <small class="form-text text-muted text-danger"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -27,6 +28,7 @@
                                 <label for="name">Nama</label>
                                 <input type="text" class="form-control form-control" autocomplete="off"
                                     id="name" name="name" />
+                                <small class="form-text text-muted text-danger"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -34,6 +36,7 @@
                                 <label for="symbol">Simbol</label>
                                 <input type="text" class="form-control form-control" autocomplete="off"
                                     id="symbol" name="symbol" />
+                                <small class="form-text text-muted text-danger"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -41,6 +44,7 @@
                                 <label for="minor_unit">Satuan Pecahan</label>
                                 <input type="number" class="form-control form-control" autocomplete="off"
                                     id="minor_unit" name="minor_unit" />
+                                <small class="form-text text-muted text-danger"></small>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -59,7 +63,7 @@
                     </div>
                 </div>
                 <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-warning" id="create_submit_btn"
+                    <button type="button" class="btn btn-warning" id="store_button"
                         onclick="createOnSubmit()">Buat</button>
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
                 </div>
