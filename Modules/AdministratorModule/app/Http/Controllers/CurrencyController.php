@@ -27,6 +27,10 @@ class CurrencyController extends Controller
         $request = request();
         if ($request->ajax()) {
             if ($request->datatable == 'main') {
+                $query = Currency::query()->select(
+                    'currencies.*',
+                );
+
                 $dataTable = DataTables::of($query);
 
                 $dataTable->editColumn('action', function ($row) {
