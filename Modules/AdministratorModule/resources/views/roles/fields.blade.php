@@ -20,7 +20,7 @@
                     <div class="form-group {{ $errors->has('guard_name') ? 'has-error has-feedback' : '' }}">
                         <label for="guard_name">Nama Penjaga</label>
                         <input type="text" class="form-control form-control" autocomplete="off" id="guard_name"
-                            name="guard_name" value="{{ old('guard_name', $role->guard_name ?? 'web') }}" readonly/>
+                            name="guard_name" value="{{ old('guard_name', $role->guard_name ?? 'web') }}" readonly />
                         @error('guard_name')
                             <small class="form-text text-muted text-danger">
                                 {{ $message }}
@@ -29,18 +29,16 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="select_all"
-                                name="select_all">
-                            <label class="form-check-label" for="select_all">
-                                Pilih Semua
-                            </label>
-                            <br>
-                            <small class="form-text text-muted">
-                                Aktifkan semua izin yang Tersedia untuk Peran ini.
-                            </small>
-                        </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="select_all"
+                            name="select_all">
+                        <label class="form-check-label" for="select_all">
+                            Pilih Semua
+                        </label>
+                        <br>
+                        <small class="form-text text-muted">
+                            Aktifkan semua izin yang Tersedia untuk Peran ini.
+                        </small>
                     </div>
                 </div>
             </div>
