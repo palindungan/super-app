@@ -5,26 +5,24 @@
 
             formReset($form);
 
-            // Show modal
             $('#fields_modal').modal('show');
         }
 
         function createOnSubmit(e) {
-            // createApi();
+            createApi();
         }
 
         function createApi() {
-            url = `{{ route('administrator-roles.store') }}`;
-
+            const url = `{{ route('administrator-roles.store') }}`;
             $.ajax({
                 url: url,
                 type: "POST",
                 data: $('#fields_form').serialize(),
                 success: function(res) {
-                    // 
+                    notifyOnSuccess(res);
                 },
                 error: function(err) {
-                    // 
+                    notifyOnError(err);
                 }
             });
         }

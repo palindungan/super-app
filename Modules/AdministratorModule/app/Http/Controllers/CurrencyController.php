@@ -63,7 +63,23 @@ class CurrencyController extends Controller
      */
     public function store(StoreCurrencyRequest $request)
     {
-        //
+        if ($request->ajax()) {
+            if ($response = tokenFormCheck($request->_token_form)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $response,
+                    // 'data' => null,
+                    // 'errors' => null,
+                ], 422);
+            }
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dibuat',
+                // 'data' => null,
+                // 'errors' => null,
+            ], 200);
+        }
     }
 
     /**
