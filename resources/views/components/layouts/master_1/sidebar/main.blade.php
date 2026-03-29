@@ -140,7 +140,7 @@
                     </a>
                 </li>
                 <li class="nav-item @yield('sidebar.administrator.currencies.active')">
-                    <a href="">
+                    <a href="{{ route('administrator-currencies.index') }}">
                         <i class="fas fa-money-bill-wave-alt"></i>
                         <p>Mata Uang</p>
                     </a>
