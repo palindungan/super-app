@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
+
+            $table->string('code')->nullable();
+            $table->string('name')->nullable();
+            $table->string('symbol')->nullable();
+            $table->unsignedTinyInteger('minor_unit')->nullable();
+            $table->boolean('is_active')->nullable();
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
