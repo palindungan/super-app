@@ -36,8 +36,8 @@
                 </form>
             </div>
             <div class="modal-footer border-0">
-                <button type="button" class="btn btn-warning">Add</button>
-                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning">Buat</button>
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
             </div>
         </div>
     </div>
