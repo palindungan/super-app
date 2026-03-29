@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Currency;
 use Modules\AdministratorModule\Http\Requests\StoreCurrencyRequest;
 use Modules\AdministratorModule\Http\Requests\UpdateCurrencyRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class CurrencyController extends Controller
 {
@@ -23,7 +24,25 @@ class CurrencyController extends Controller
      */
     public function index()
     {
-        //
+        $request = request();
+        if ($request->ajax()) {
+            if ($request->datatable == 'main') {
+                $dataTable = DataTables::of($query);
+
+                $dataTable->editColumn('action', function ($row) {
+                    $result = view('administratormodule::currencies.table_action', compact('row'))->render();
+                    if ($result) {
+                        return $result;
+                    }
+                    return null;
+                });
+                $dataTable->rawColumns(['action']);
+
+                return $dataTable->make(true);
+            }
+        }
+
+        return view('administratormodule::currencies.index');
     }
 
     /**
