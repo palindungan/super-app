@@ -3,18 +3,15 @@
         <div class="modal-content">
             <div class="modal-header border-0">
                 <h5 class="modal-title">
-                    <span class="fw-mediumbold">
-                        New</span>
-                    <span class="fw-light">
-                        Row
-                    </span>
+                    <span class="fw-mediumbold">Buat</span>
+                    <span class="fw-light">Mata Uang</span>
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p class="small">Create a new row using this form, make sure you fill them all</p>
+                {{-- <p class="small">Create a new row using this form, make sure you fill them all</p> --}}
                 <form>
                     <div class="row">
                         <div class="col-sm-12">
@@ -39,8 +36,8 @@
                 </form>
             </div>
             <div class="modal-footer border-0">
-                <button type="button" id="addRowButton" class="btn btn-primary">Add</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning">Add</button>
+                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
