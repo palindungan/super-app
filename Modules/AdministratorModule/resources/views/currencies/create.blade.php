@@ -14,7 +14,7 @@
         }
 
         function createApi() {
-            url = "";
+            url = `{{ route('administrator-roles.store') }}`;
 
             $.ajax({
                 url: url,
