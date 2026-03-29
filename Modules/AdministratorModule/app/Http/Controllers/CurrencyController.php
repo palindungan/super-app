@@ -76,7 +76,9 @@ class CurrencyController extends Controller
             return response()->json([
                 'success' => true,
                 'message' => 'Data berhasil dibuat',
-                // 'data' => null,
+                'data' => [
+                    '_token_form' => tokenFormGenerate(),
+                ],
                 // 'errors' => null,
             ], 200);
         }
