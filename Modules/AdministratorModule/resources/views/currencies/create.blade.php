@@ -13,7 +13,7 @@
                 </div>
                 <div class="modal-body">
                     {{-- <p class="small">Create a new row using this form, make sure you fill them all</p> --}}
-                    <div class="row">
+                    <div class="row m-0">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="code">Kode</label>
