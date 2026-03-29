@@ -36,6 +36,7 @@ class CurrencyController extends Controller
                     }
                     return null;
                 });
+
                 $dataTable->rawColumns(['action']);
 
                 return $dataTable->make(true);
