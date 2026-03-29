@@ -21,10 +21,10 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Mata Uang</h4>
-                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('administrator-currencies.create') }}">
+                        <button class="btn btn-primary btn-round ms-auto" type="button">
                             <i class="fa fa-plus"></i>
                             Buat Mata Uang
-                        </a>
+                        </button>
                     </div>
                 </div>
                 <div class="card-body">
