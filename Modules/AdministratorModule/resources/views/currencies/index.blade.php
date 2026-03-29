@@ -36,4 +36,6 @@
     </div>
 
     @include('administratormodule::currencies.fields')
+    @include('administratormodule::currencies.create')
+    @include('administratormodule::currencies.edit')
 @endsection
