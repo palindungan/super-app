@@ -2,6 +2,7 @@
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <form id="fields_form">
+                @include('components.forms.data')
                 <div class="modal-header border-0">
                     <h5 class="modal-title">
                         <span class="fw-mediumbold">Buat</span>
@@ -58,7 +59,8 @@
                     </div>
                 </div>
                 <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-warning">Buat</button>
+                    <button type="button" class="btn btn-warning" id="create_submit_btn"
+                        onclick="createOnSubmit()">Buat</button>
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
                 </div>
             </form>
