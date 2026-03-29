@@ -20,7 +20,7 @@
                                 <label for="code">Kode</label>
                                 <input type="text" class="form-control form-control" autocomplete="off"
                                     id="code" name="code" />
-                                <small class="form-text text-muted text-danger"></small>
+                                <small class="form-text text-muted text-danger" id="code_error"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -28,7 +28,7 @@
                                 <label for="name">Nama</label>
                                 <input type="text" class="form-control form-control" autocomplete="off"
                                     id="name" name="name" />
-                                <small class="form-text text-muted text-danger"></small>
+                                <small class="form-text text-muted text-danger" id="name_error"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -36,7 +36,7 @@
                                 <label for="symbol">Simbol</label>
                                 <input type="text" class="form-control form-control" autocomplete="off"
                                     id="symbol" name="symbol" />
-                                <small class="form-text text-muted text-danger"></small>
+                                <small class="form-text text-muted text-danger" id="symbol_error"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -44,7 +44,7 @@
                                 <label for="minor_unit">Satuan Pecahan</label>
                                 <input type="number" class="form-control form-control" autocomplete="off"
                                     id="minor_unit" name="minor_unit" />
-                                <small class="form-text text-muted text-danger"></small>
+                                <small class="form-text text-muted text-danger" id="minor_unit_error"></small>
                             </div>
                         </div>
                         <div class="col-md-12">
