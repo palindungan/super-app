@@ -14,22 +14,33 @@
                 {{-- <p class="small">Create a new row using this form, make sure you fill them all</p> --}}
                 <form>
                     <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group form-group-default">
-                                <label>Name</label>
-                                <input id="addName" type="text" class="form-control" placeholder="fill name">
-                            </div>
-                        </div>
-                        <div class="col-md-6 pe-0">
-                            <div class="form-group form-group-default">
-                                <label>Position</label>
-                                <input id="addPosition" type="text" class="form-control" placeholder="fill position">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="code">Kode</label>
+                                <input type="text" class="form-control form-control" autocomplete="off"
+                                    id="code" name="code" />
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group form-group-default">
-                                <label>Office</label>
-                                <input id="addOffice" type="text" class="form-control" placeholder="fill office">
+                            <div class="form-group">
+                                <label for="name">Nama</label>
+                                <input type="text" class="form-control form-control" autocomplete="off"
+                                    id="name" name="name" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="symbol">Simbol</label>
+                                <input type="text" class="form-control form-control" autocomplete="off"
+                                    id="symbol" name="symbol" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="minor_unit">Satuan Pecahan</label>
+                                <input type="text" class="form-control form-control" autocomplete="off"
+                                    id="minor_unit" name="minor_unit" />
                             </div>
                         </div>
                     </div>
