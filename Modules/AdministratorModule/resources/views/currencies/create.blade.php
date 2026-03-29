@@ -43,18 +43,16 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <div class="form-check form-switch ps-0">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="is_active"
-                                        name="is_active">
-                                    <label class="form-check-label" for="is_active">
-                                        Status Aktif
-                                    </label>
-                                    <br>
-                                    <small class="form-text text-muted">
-                                        Aktifkan untuk menggunakan mata uang ini dalam transaksi.
-                                    </small>
-                                </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="is_active"
+                                    name="is_active">
+                                <label class="form-check-label" for="is_active">
+                                    Status Aktif
+                                </label>
+                                <br>
+                                <small class="form-text text-muted">
+                                    Aktifkan untuk menggunakan mata uang ini dalam transaksi.
+                                </small>
                             </div>
                         </div>
                     </div>
