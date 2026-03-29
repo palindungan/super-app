@@ -1,5 +1,5 @@
 <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <form>
                 <div class="modal-header border-0">
@@ -38,7 +38,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="minor_unit">Satuan Pecahan</label>
-                                <input type="text" class="form-control form-control" autocomplete="off"
+                                <input type="number" class="form-control form-control" autocomplete="off"
                                     id="minor_unit" name="minor_unit" />
                             </div>
                         </div>
