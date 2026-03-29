@@ -6,7 +6,7 @@
                     <span class="fw-mediumbold">Buat</span>
                     <span class="fw-light">Mata Uang</span>
                 </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="modal-footer border-0">
                 <button type="button" class="btn btn-warning">Add</button>
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
