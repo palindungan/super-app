@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Modules\AdministratorModule\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Currency;
-use App\Http\Requests\StoreCurrencyRequest;
-use App\Http\Requests\UpdateCurrencyRequest;
+use Modules\AdministratorModule\Http\Requests\StoreCurrencyRequest;
+use Modules\AdministratorModule\Http\Requests\UpdateCurrencyRequest;
 
 class CurrencyController extends Controller
 {
