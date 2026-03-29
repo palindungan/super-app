@@ -21,8 +21,7 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Mata Uang</h4>
-                        <button class="btn btn-primary btn-round ms-auto" data-bs-toggle="modal"
-                            data-bs-target="#fields_modal">
+                        <button class="btn btn-primary btn-round ms-auto" onclick="createAction()">
                             <i class="fa fa-plus"></i>
                             Buat Mata Uang
                         </button>
