@@ -19,9 +19,7 @@
             $.ajax({
                 url: url,
                 type: "POST",
-                data: {
-
-                },
+                data: $('#fields_form').serialize(),
                 success: function(res) {
                     // 
                 },
