@@ -2,9 +2,9 @@
 
 @section('sidebar.administrator.roles.active', 'active')
 
-@section('content')
-    @include('components.resources.assets.index')
+@include('components.resources.assets.index')
 
+@section('content')
     <div class="page-header">
         <h3 class="fw-bold mb-3">Peran</h3>
         @include('components.layouts.master_1.breadcrumb.main', [
