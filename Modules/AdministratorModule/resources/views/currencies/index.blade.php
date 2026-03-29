@@ -22,7 +22,7 @@
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Mata Uang</h4>
                         <button class="btn btn-primary btn-round ms-auto" data-bs-toggle="modal"
-                            data-bs-target="#addRowModal">
+                            data-bs-target="#fields_modal">
                             <i class="fa fa-plus"></i>
                             Buat Mata Uang
                         </button>
@@ -35,5 +35,5 @@
         </div>
     </div>
 
-    @include('administratormodule::currencies.create')
+    @include('administratormodule::currencies.fields')
 @endsection
