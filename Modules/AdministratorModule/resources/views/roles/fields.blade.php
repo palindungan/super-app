@@ -24,7 +24,7 @@
                     <div class="form-group {{ $errors->has('guard_name') ? 'has-error has-feedback' : '' }}">
                         <label for="guard_name">Nama Penjaga</label>
                         <input type="text" class="form-control form-control" autocomplete="off" id="guard_name"
-                            name="guard_name" value="{{ old('guard_name', $role->guard_name ?? 'web') }}" />
+                            name="guard_name" value="{{ old('guard_name', $role->guard_name ?? 'web') }}" readonly/>
                         @error('guard_name')
                             <small class="form-text text-muted text-danger">
                                 {{ $message }}
