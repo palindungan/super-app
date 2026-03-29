@@ -6,7 +6,7 @@
                 <th>Nama</th>
                 <th>Simbol</th>
                 <th>Satuan Pecahan</th>
-                <th>Aktif</th>
+                <th>Status Aktif</th>
                 <th></th>
             </tr>
         </thead>
