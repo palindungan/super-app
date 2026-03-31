@@ -97,7 +97,9 @@
                 notifyOnError(error);
             } finally {
                 // Tutup loading
-                Swal.close();
+                setTimeout(function() {
+                    Swal.close();
+                }, 500);
             }
         }
 

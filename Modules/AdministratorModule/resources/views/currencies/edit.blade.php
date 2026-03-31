@@ -20,7 +20,9 @@
                 notifyOnError(error);
             }
 
-            Swal.close();
+            setTimeout(function() {
+                Swal.close();
+            }, 500);
         }
 
         function editInput(response) {
