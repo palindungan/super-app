@@ -25,32 +25,6 @@
             }, 500);
         }
 
-        function editInput(response) {
-            const data = response.data;
-            $.each(data, function(key, value) {
-                const $checkbox = $('input[type="checkbox"][name="' + key + '"]');
-                if ($checkbox.length) {
-                    $checkbox.prop('checked', value == 1 || value === true);
-                } else {
-                    $('[name="' + key + '"]').val(value);
-                }
-            });
-
-            $('#edit_title_data').text(data.name);
-        }
-
-        function editHide() {
-            $('#edit_title').hide();
-            $('#update_button').hide();
-        }
-
-        function editShow(url) {
-            $('#edit_title').show();
-            $('#update_button').show();
-
-            $('#update_button').attr('data-url', url);
-        }
-
         function editOnSubmit(button) {
             let url = $(button).attr('data-url');
 
@@ -59,9 +33,7 @@
 
             updateApi(url);
         }
-    </script>
 
-    <script>
         function updateApi(url) {
             $.ajax({
                 url: url,
@@ -92,6 +64,34 @@
                     buttonReset($btn, 'Ubah');
                 }
             });
+        }
+
+        function editHide() {
+            $('#edit_title').hide();
+            $('#update_button').hide();
+        }
+
+        function editShow(url) {
+            $('#edit_title').show();
+            $('#update_button').show();
+
+            $('#update_button').attr('data-url', url);
+        }
+    </script>
+
+    <script>
+        function editInput(response) {
+            const data = response.data;
+            $.each(data, function(key, value) {
+                const $checkbox = $('input[type="checkbox"][name="' + key + '"]');
+                if ($checkbox.length) {
+                    $checkbox.prop('checked', value == 1 || value === true);
+                } else {
+                    $('[name="' + key + '"]').val(value);
+                }
+            });
+
+            $('#edit_title_data').text(data.name);
         }
     </script>
 @endpush
