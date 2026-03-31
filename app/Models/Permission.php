@@ -39,6 +39,11 @@ class Permission extends Model
                             'guard_name' => 'web',
                         ],
                         [
+                            'label' => 'Lihat',
+                            'name' => 'administrator-currencies.show',
+                            'guard_name' => 'web',
+                        ],
+                        [
                             'label' => 'Perbarui',
                             'name' => 'administrator-currencies.edit',
                             'guard_name' => 'web',
@@ -61,6 +66,11 @@ class Permission extends Model
                         [
                             'label' => 'Buat',
                             'name' => 'administrator-roles.create',
+                            'guard_name' => 'web',
+                        ],
+                        [
+                            'label' => 'Lihat',
+                            'name' => 'administrator-roles.show',
                             'guard_name' => 'web',
                         ],
                         [
