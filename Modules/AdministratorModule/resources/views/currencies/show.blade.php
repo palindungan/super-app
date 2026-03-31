@@ -1,15 +1,11 @@
 @push('scripts')
     <script>
         function showApi(url) {
-            $.ajax({
+            return $.ajax({
                 url: url,
                 type: "GET",
-                success: function(response) {
-                    console.log("showApi");
-                    console.log(response);
-                },
-                error: function(xhr) {
-                    notifyOnError(xhr);
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content')
                 }
             });
         }
