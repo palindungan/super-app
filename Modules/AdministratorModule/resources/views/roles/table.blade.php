@@ -1,3 +1,5 @@
+@include('components.resources.assets.simple_modal_destroy')
+
 <div class="table-responsive">
     <table id="datatable" class="display table table-striped table-hover">
         <thead>
@@ -12,8 +14,6 @@
         <tbody></tbody>
     </table>
 </div>
-
-@include('components.resources.assets.simple_modal_destroy')
 
 @push('scripts')
     <script>
