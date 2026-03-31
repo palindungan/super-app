@@ -19,6 +19,18 @@
             storeApi();
         }
 
+        function createHide() {
+            $('#create_title').hide();
+            $('#store_button').hide();
+        }
+
+        function createShow() {
+            $('#create_title').show();
+            $('#store_button').show();
+        }
+    </script>
+
+    <script>
         function storeApi() {
             swalShowLoading("Membuat data...", "Mohon tunggu");
 
@@ -56,16 +68,6 @@
                     }, 500);
                 }
             });
-        }
-
-        function createHide() {
-            $('#create_title').hide();
-            $('#store_button').hide();
-        }
-
-        function createShow() {
-            $('#create_title').show();
-            $('#store_button').show();
         }
     </script>
 @endpush
