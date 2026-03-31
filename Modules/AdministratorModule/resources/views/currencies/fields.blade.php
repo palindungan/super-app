@@ -54,7 +54,7 @@
                         <div class="col-md-12">
                             <div class="form-check form-switch" id="is_active_group">
                                 <input class="form-check-input" type="checkbox" role="switch" id="is_active"
-                                    name="is_active">
+                                    name="is_active" value="1" checked>
                                 <label class="form-check-label" for="is_active">
                                     Status Aktif
                                 </label>
