@@ -45,6 +45,10 @@ class RoleSeeder extends Seeder
                 'name' => 'super_admin',
                 'guard_name' => 'web',
             ],
+            [
+                'name' => 'admin',
+                'guard_name' => 'web',
+            ],
         ];
         foreach ($data as $key => $value) {
             $role = Role::updateOrCreate(
