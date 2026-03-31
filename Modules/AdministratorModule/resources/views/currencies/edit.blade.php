@@ -34,6 +34,22 @@
             updateApi(url);
         }
 
+        function editHide() {
+            $('#edit_title').hide();
+            $('#update_button').hide();
+
+            $('#update_button').attr('data-url', '');
+        }
+
+        function editShow(url) {
+            $('#edit_title').show();
+            $('#update_button').show();
+
+            $('#update_button').attr('data-url', url);
+        }
+    </script>
+
+    <script>
         function updateApi(url) {
             swalShowLoading("Mengubah data...", "Mohon tunggu");
 
@@ -70,20 +86,6 @@
                     }, 500);
                 }
             });
-        }
-
-        function editHide() {
-            $('#edit_title').hide();
-            $('#update_button').hide();
-
-            $('#update_button').attr('data-url', '');
-        }
-
-        function editShow(url) {
-            $('#edit_title').show();
-            $('#update_button').show();
-
-            $('#update_button').attr('data-url', url);
         }
     </script>
 
