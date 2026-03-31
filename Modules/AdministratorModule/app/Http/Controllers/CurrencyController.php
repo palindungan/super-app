@@ -92,7 +92,12 @@ class CurrencyController extends Controller
      */
     public function show(Currency $currency)
     {
-        //
+        return response()->json([
+            'success' => true,
+            'message' => 'Data berhasil ditemukan',
+            'data' => $currency,
+            // 'errors' => null,
+        ], 200);
     }
 
     /**
