@@ -1,3 +1,7 @@
+@push('scripts')
+    @include('components.validation.script')
+@endpush
+
 <div class="modal fade" id="fields_modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
         <div class="modal-content">
@@ -16,7 +20,7 @@
                     {{-- <p class="small">Create a new row using this form, make sure you fill them all</p> --}}
                     <div class="row m-0">
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group" id="code_group">
                                 <label for="code">Kode</label>
                                 <input type="text" class="form-control form-control" autocomplete="off"
                                     id="code" name="code" />
@@ -24,7 +28,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group" id="name_group">
                                 <label for="name">Nama</label>
                                 <input type="text" class="form-control form-control" autocomplete="off"
                                     id="name" name="name" />
@@ -32,7 +36,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group" id="symbol_group">
                                 <label for="symbol">Simbol</label>
                                 <input type="text" class="form-control form-control" autocomplete="off"
                                     id="symbol" name="symbol" />
@@ -40,7 +44,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group" id="minor_unit_group">
                                 <label for="minor_unit">Satuan Pecahan</label>
                                 <input type="number" class="form-control form-control" autocomplete="off"
                                     id="minor_unit" name="minor_unit" />
@@ -48,7 +52,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="form-check form-switch">
+                            <div class="form-check form-switch" id="is_active_group">
                                 <input class="form-check-input" type="checkbox" role="switch" id="is_active"
                                     name="is_active">
                                 <label class="form-check-label" for="is_active">
@@ -58,6 +62,8 @@
                                 <small class="form-text text-muted">
                                     Aktifkan untuk menggunakan mata uang ini dalam transaksi.
                                 </small>
+                                <br>
+                                <small class="form-text text-danger" id="is_active_error"></small>
                             </div>
                         </div>
                     </div>

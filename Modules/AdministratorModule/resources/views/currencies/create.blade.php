@@ -4,6 +4,8 @@
             const $form = $('#fields_form');
             formReset($form);
 
+            validationErrorsReset();
+
             $('#fields_modal').modal('show');
         }
 
@@ -30,8 +32,12 @@
 
                     notifyOnSuccess(res);
                 },
-                error: function(err) {
-                    notifyOnError(err);
+                error: function(xhr) {
+                    notifyOnError(xhr);
+
+                    if (xhr?.responseJSON?.errors) {
+                        validationErrorsShow(xhr?.responseJSON?.errors);
+                    }
                 },
                 complete: function() {
                     const $btn = $('#store_button');
