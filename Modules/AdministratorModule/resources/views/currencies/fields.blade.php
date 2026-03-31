@@ -8,9 +8,13 @@
             <form id="fields_form">
                 @include('components.forms.data')
                 <div class="modal-header border-0">
-                    <h5 class="modal-title">
+                    <h5 class="modal-title" id="create_title">
                         <span class="fw-mediumbold">Buat</span>
                         <span class="fw-light">Mata Uang</span>
+                    </h5>
+                    <h5 class="modal-title" id="edit_title">
+                        <span class="fw-mediumbold">Ubah</span>
+                        <span class="fw-light" id="edit_title_data">Mata Uang</span>
                     </h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -72,6 +76,8 @@
                 <div class="modal-footer border-0">
                     <button type="button" class="btn btn-warning" id="store_button"
                         onclick="createOnSubmit()">Buat</button>
+                    <button type="button" class="btn btn-warning" id="update_button"
+                        onclick="editOnSubmit()">Ubah</button>
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
                 </div>
             </form>

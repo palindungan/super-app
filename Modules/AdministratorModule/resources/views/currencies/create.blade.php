@@ -1,6 +1,9 @@
 @push('scripts')
     <script>
         function createAction() {
+            createShow();
+            editHide();
+
             const $form = $('#fields_form');
             formReset($form);
 
@@ -47,6 +50,16 @@
                     buttonReset($btn, 'Buat');
                 }
             });
+        }
+
+        function createHide() {
+            $('#create_title').hide();
+            $('#store_button').hide();
+        }
+
+        function createShow() {
+            $('#create_title').show();
+            $('#store_button').show();
         }
     </script>
 @endpush

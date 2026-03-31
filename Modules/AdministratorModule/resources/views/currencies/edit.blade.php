@@ -1,6 +1,9 @@
 @push('scripts')
     <script>
         async function editAction(url) {
+            editShow();
+            createHide();
+
             const $form = $('#fields_form');
             formReset($form);
 
@@ -26,6 +29,18 @@
                     $('[name="' + key + '"]').val(value);
                 }
             });
+
+            $('#edit_title_data').text(data.name);
+        }
+
+        function editHide() {
+            $('#edit_title').hide();
+            $('#update_button').hide();
+        }
+
+        function editShow() {
+            $('#edit_title').show();
+            $('#update_button').show();
         }
     </script>
 @endpush
