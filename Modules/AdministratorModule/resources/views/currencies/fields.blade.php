@@ -1,7 +1,3 @@
-@push('scripts')
-    @include('components.validation.script')
-@endpush
-
 <div class="modal fade" id="fields_modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
         <div class="modal-content">

@@ -4,6 +4,10 @@
 
 @include('components.resources.assets.index')
 
+@push('scripts')
+    @include('components.validation.script')
+@endpush
+
 @section('content')
     <div class="page-header">
         <h3 class="fw-bold mb-3">Mata Uang</h3>
