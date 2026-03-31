@@ -35,6 +35,8 @@
         }
 
         function updateApi(url) {
+            swalShowLoading("Mengubah data...", "Mohon tunggu");
+
             $.ajax({
                 url: url,
                 type: "PUT",
@@ -62,6 +64,10 @@
                 complete: function() {
                     const $btn = $('#update_button');
                     buttonReset($btn, 'Ubah');
+
+                    setTimeout(function() {
+                        Swal.close();
+                    }, 500);
                 }
             });
         }

@@ -20,6 +20,8 @@
         }
 
         function storeApi() {
+            swalShowLoading("Membuat data...", "Mohon tunggu");
+
             const url = `{{ route('administrator-currencies.store') }}`;
             $.ajax({
                 url: url,
@@ -48,6 +50,10 @@
                 complete: function() {
                     const $btn = $('#store_button');
                     buttonReset($btn, 'Buat');
+
+                    setTimeout(function() {
+                        Swal.close();
+                    }, 500);
                 }
             });
         }
