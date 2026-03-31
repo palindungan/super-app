@@ -53,7 +53,45 @@
 
         function editOnSubmit(button) {
             let url = $(button).attr('data-url');
-            console.log(url);
+
+            const $btn = $('#update_button');
+            buttonLoading($btn);
+
+            updateApi(url);
+        }
+    </script>
+
+    <script>
+        function updateApi(url) {
+            $.ajax({
+                url: url,
+                type: "PUT",
+                data: $('#fields_form').serialize(),
+                success: function(response) {
+                    $('#fields_modal').modal('hide');
+
+                    const $form = $('#fields_form');
+                    formReset($form);
+
+                    $('[name="_token_form"]').val(response.data._token_form);
+
+                    notifyOnSuccess(response);
+
+                    // reload datatable tanpa reset pagination
+                    datatable.ajax.reload(null, false);
+                },
+                error: function(xhr) {
+                    notifyOnError(xhr);
+
+                    if (xhr?.responseJSON?.errors) {
+                        validationErrorsShow(xhr?.responseJSON?.errors);
+                    }
+                },
+                complete: function() {
+                    const $btn = $('#update_button');
+                    buttonReset($btn, 'Ubah');
+                }
+            });
         }
     </script>
 @endpush
