@@ -1,13 +1,1 @@
-@push('scripts')
-    <script>
-        function showApi(url) {
-            return $.ajax({
-                url: url,
-                type: "GET",
-                data: {
-                    _token: $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-        }
-    </script>
-@endpush
+@include('components.resources.assets.simple_modal_show')
