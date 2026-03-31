@@ -15,11 +15,11 @@ class RoleController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('can:administrator-roles.index')->only('index');
-        // $this->middleware('can:administrator-roles.create')->only(['create', 'store']);
-        // $this->middleware('can:administrator-roles.show')->only('show');
-        // $this->middleware('can:administrator-roles.edit')->only(['edit', 'update']);
-        // $this->middleware('can:administrator-roles.destroy')->only('destroy');
+        $this->middleware('can:administrator-roles.index')->only('index');
+        $this->middleware('can:administrator-roles.create')->only(['create', 'store']);
+        $this->middleware('can:administrator-roles.show')->only('show');
+        $this->middleware('can:administrator-roles.edit')->only(['edit', 'update']);
+        $this->middleware('can:administrator-roles.destroy')->only('destroy');
     }
 
     /**

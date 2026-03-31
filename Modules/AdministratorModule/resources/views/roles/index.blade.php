@@ -21,10 +21,12 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Peran</h4>
-                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('administrator-roles.create') }}">
-                            <i class="fa fa-plus"></i>
-                            Buat Peran
-                        </a>
+                        @can('administrator-roles.create')
+                            <a class="btn btn-primary btn-round ms-auto" href="{{ route('administrator-roles.create') }}">
+                                <i class="fa fa-plus"></i>
+                                Buat Peran
+                            </a>
+                        @endcan
                     </div>
                 </div>
                 <div class="card-body">
