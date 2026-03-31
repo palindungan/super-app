@@ -47,6 +47,8 @@
         function editShow(url) {
             $('#edit_title').show();
             $('#update_button').show();
+
+            $('#update_button').attr('data-url', url);
         }
     </script>
 @endpush

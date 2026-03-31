@@ -77,7 +77,7 @@
                     <button type="button" class="btn btn-warning" id="store_button"
                         onclick="createOnSubmit()">Buat</button>
                     <button type="button" class="btn btn-warning" id="update_button"
-                        onclick="editOnSubmit()">Ubah</button>
+                        onclick="editOnSubmit()" data-url="">Ubah</button>
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
                 </div>
             </form>
