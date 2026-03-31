@@ -32,6 +32,10 @@ class UserSeeder extends Seeder
                     'password' => Hash::make(config('app.password')),
                 ]
             );
+
+            if ($key == 0) {
+                $user->assignRole('super_admin');
+            }
         }
     }
 }

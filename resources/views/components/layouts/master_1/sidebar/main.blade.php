@@ -139,12 +139,14 @@
                         <p>Saldo</p>
                     </a>
                 </li>
-                <li class="nav-item @yield('sidebar.administrator.currencies.active')">
-                    <a href="{{ route('administrator-currencies.index') }}">
-                        <i class="fas fa-money-bill-wave-alt"></i>
-                        <p>Mata Uang</p>
-                    </a>
-                </li>
+                @can('administrator-currencies.index')
+                    <li class="nav-item @yield('sidebar.administrator.currencies.active')">
+                        <a href="{{ route('administrator-currencies.index') }}">
+                            <i class="fas fa-money-bill-wave-alt"></i>
+                            <p>Mata Uang</p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item @yield('sidebar.administrator.roles.active')">
                     <a href="{{ route('administrator-roles.index') }}">
                         <i class="fas fa-user-shield"></i>
