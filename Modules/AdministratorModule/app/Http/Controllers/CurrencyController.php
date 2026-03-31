@@ -13,7 +13,7 @@ class CurrencyController extends Controller
     public function __construct()
     {
         $this->middleware('can:administrator-currencies.index')->only('index');
-        // $this->middleware('can:administrator-currencies.create')->only(['create', 'store']);
+        $this->middleware('can:administrator-currencies.create')->only(['create', 'store']);
         // $this->middleware('can:administrator-currencies.show')->only('show');
         // $this->middleware('can:administrator-currencies.edit')->only(['edit', 'update']);
         // $this->middleware('can:administrator-currencies.destroy')->only('destroy');
