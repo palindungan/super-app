@@ -22,15 +22,15 @@
                 url: url,
                 type: "POST",
                 data: $('#fields_form').serialize(),
-                success: function(res) {
+                success: function(response) {
                     $('#fields_modal').modal('hide');
 
                     const $form = $('#fields_form');
                     formReset($form);
 
-                    $('[name="_token_form"]').val(res.data._token_form);
+                    $('[name="_token_form"]').val(response.data._token_form);
 
-                    notifyOnSuccess(res);
+                    notifyOnSuccess(response);
                 },
                 error: function(xhr) {
                     notifyOnError(xhr);

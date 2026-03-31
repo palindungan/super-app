@@ -60,10 +60,10 @@
         notify("icon-check", "Berhasil", message, "success");
     }
 
-    function notifyOnError(xhr) {
+    function notifyOnError(error) {
         const message =
-            xhr?.responseJSON?.message ||
-            xhr?.statusText ||
+            error?.responseJSON?.message ||
+            error?.statusText ||
             "Terjadi kesalahan";
         notify("icon-close", "Gagal", message, "danger");
     }
