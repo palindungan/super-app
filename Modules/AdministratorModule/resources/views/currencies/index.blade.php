@@ -36,5 +36,6 @@
 
     @include('administratormodule::currencies.fields')
     @include('administratormodule::currencies.create')
+    @include('administratormodule::currencies.show')
     @include('administratormodule::currencies.edit')
 @endsection
