@@ -1,10 +1,11 @@
 <script>
     function swalShowLoading(title, text) {
         Swal.fire({
-            title,
-            text,
+            title: title,
+            text: text,
             allowOutsideClick: false,
             allowEscapeKey: false,
+            scrollbarPadding: false,
             didOpen: () => Swal.showLoading()
         });
     }
