@@ -3,7 +3,7 @@
         async function editAction(url) {
             swalShowLoading("Memuat data...", "Mohon tunggu");
 
-            editShow();
+            editShow(url);
             createHide();
 
             const $form = $('#fields_form');
@@ -44,7 +44,7 @@
             $('#update_button').hide();
         }
 
-        function editShow() {
+        function editShow(url) {
             $('#edit_title').show();
             $('#update_button').show();
         }
