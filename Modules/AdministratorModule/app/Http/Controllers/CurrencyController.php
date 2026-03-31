@@ -33,6 +33,11 @@ class CurrencyController extends Controller
 
                 $dataTable = DataTables::of($query);
 
+                $dataTable->editColumn('is_active', function ($row) {
+                    return $row->is_active
+                        ? "<i class='far fa-check-circle fa-lg text-success'></i>"
+                        : "<i class='far fa-times-circle fa-lg text-danger'></i>";
+                });
                 $dataTable->editColumn('action', function ($row) {
                     $result = view('administratormodule::currencies.table_action', compact('row'))->render();
                     if ($result) {
@@ -41,7 +46,7 @@ class CurrencyController extends Controller
                     return null;
                 });
 
-                $dataTable->rawColumns(['action']);
+                $dataTable->rawColumns(['is_active', 'action']);
 
                 return $dataTable->make(true);
             }
