@@ -31,6 +31,9 @@
                     $('[name="_token_form"]').val(response.data._token_form);
 
                     notifyOnSuccess(response);
+
+                    // reload datatable tanpa reset pagination
+                    datatable.ajax.reload(null, false);
                 },
                 error: function(xhr) {
                     notifyOnError(xhr);
