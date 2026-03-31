@@ -75,6 +75,8 @@
         function editHide() {
             $('#edit_title').hide();
             $('#update_button').hide();
+
+            $('#update_button').attr('data-url', '');
         }
 
         function editShow(url) {
