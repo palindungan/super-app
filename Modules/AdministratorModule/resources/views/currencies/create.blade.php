@@ -16,10 +16,22 @@
             const $btn = $('#store_button');
             buttonLoading($btn);
 
-            createApi();
+            storeApi();
         }
 
-        function createApi() {
+        function createHide() {
+            $('#create_title').hide();
+            $('#store_button').hide();
+        }
+
+        function createShow() {
+            $('#create_title').show();
+            $('#store_button').show();
+        }
+    </script>
+
+    <script>
+        function storeApi() {
             const url = `{{ route('administrator-currencies.store') }}`;
             $.ajax({
                 url: url,
@@ -50,16 +62,6 @@
                     buttonReset($btn, 'Buat');
                 }
             });
-        }
-
-        function createHide() {
-            $('#create_title').hide();
-            $('#store_button').hide();
-        }
-
-        function createShow() {
-            $('#create_title').show();
-            $('#store_button').show();
         }
     </script>
 @endpush
