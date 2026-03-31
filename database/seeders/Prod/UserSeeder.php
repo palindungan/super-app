@@ -19,6 +19,10 @@ class UserSeeder extends Seeder
                 'name' => 'Test User',
                 'email' => 'test@example.com',
             ],
+            [
+                'name' => 'Test User 2',
+                'email' => 'test2@example.com',
+            ],
         ];
 
         foreach ($data as $key => $value) {
@@ -34,6 +38,8 @@ class UserSeeder extends Seeder
             );
 
             if ($key == 0) {
+                $user->assignRole('super_admin');
+            } elseif ($key == 1) {
                 $user->assignRole('super_admin');
             }
         }
