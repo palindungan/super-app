@@ -16,12 +16,12 @@ class UserSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'Test User',
-                'email' => 'test@example.com',
+                'name' => 'Super Admin',
+                'email' => 'super_admin@example.com',
             ],
             [
-                'name' => 'Test User 2',
-                'email' => 'test2@example.com',
+                'name' => 'Admin',
+                'email' => 'admin@example.com',
             ],
         ];
 
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
             if ($key == 0) {
                 $user->assignRole('super_admin');
             } elseif ($key == 1) {
-                $user->assignRole('super_admin');
+                $user->assignRole('admin');
             }
         }
     }
