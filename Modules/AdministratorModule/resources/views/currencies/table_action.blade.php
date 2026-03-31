@@ -8,7 +8,7 @@
     <button type="button" class="btn btn-link btn-danger"
         onclick="destroyAction(
         '{{ route('administrator-currencies.destroy', $row->id) }}', 
-        '{{ $row->name }}'
+        'Mata Uang {{ $row->name }}'
     )">
         <i class="fa fa-times"></i>
     </button>

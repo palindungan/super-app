@@ -5,7 +5,7 @@
     <button type="button" class="btn btn-link btn-danger"
         onclick="destroyAction(
         '{{ route('administrator-roles.destroy', $row->id) }}', 
-        '{{ $row->name }}'
+        'Peran {{ $row->name }}'
     )">
         <i class="fa fa-times"></i>
     </button>

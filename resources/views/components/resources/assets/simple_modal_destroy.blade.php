@@ -37,7 +37,7 @@
             return Swal.fire({
                 icon: "warning",
                 iconHtml: iconHtml,
-                title: `Hapus Peran ${name}`,
+                title: `Hapus ${name}`,
                 text: "Apakah Anda yakin?",
                 showCancelButton: true,
                 confirmButtonText: "Hapus",
