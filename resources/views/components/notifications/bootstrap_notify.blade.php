@@ -62,7 +62,7 @@
 
     function notifyOnError(xhr) {
         const message =
-            // xhr?.responseJSON?.message ||
+            xhr?.responseJSON?.message ||
             xhr?.statusText ||
             "Terjadi kesalahan";
         notify("icon-close", "Gagal", message, "danger");
