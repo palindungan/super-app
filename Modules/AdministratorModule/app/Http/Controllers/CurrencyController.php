@@ -73,6 +73,9 @@ class CurrencyController extends Controller
                 ], 422);
             }
 
+            $input = $request->all();
+            $currency = Currency::create($input);
+
             return response()->json([
                 'success' => true,
                 'message' => 'Data berhasil dibuat',
