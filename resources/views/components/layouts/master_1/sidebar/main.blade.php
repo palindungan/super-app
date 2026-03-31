@@ -147,12 +147,14 @@
                         </a>
                     </li>
                 @endcan
-                <li class="nav-item @yield('sidebar.administrator.roles.active')">
-                    <a href="{{ route('administrator-roles.index') }}">
-                        <i class="fas fa-user-shield"></i>
-                        <p>Peran dan Izin</p>
-                    </a>
-                </li>
+                @can('administrator-roles.index')
+                    <li class="nav-item @yield('sidebar.administrator.roles.active')">
+                        <a href="{{ route('administrator-roles.index') }}">
+                            <i class="fas fa-user-shield"></i>
+                            <p>Peran dan Izin</p>
+                        </a>
+                    </li>
+                @endcan
             </ul>
         </div>
     </div>
