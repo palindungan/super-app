@@ -1,6 +1,8 @@
 @push('scripts')
     <script>
         async function editAction(url) {
+            swalShowLoading("Memuat data...", "Mohon tunggu");
+
             editShow();
             createHide();
 
@@ -17,6 +19,8 @@
             } catch (error) {
                 notifyOnError(error);
             }
+
+            Swal.close();
         }
 
         function editInput(response) {
