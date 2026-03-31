@@ -113,7 +113,28 @@ class CurrencyController extends Controller
      */
     public function update(UpdateCurrencyRequest $request, Currency $currency)
     {
-        //
+        if ($request->ajax()) {
+            if ($response = tokenFormCheck($request->_token_form)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $response,
+                    // 'data' => null,
+                    // 'errors' => null,
+                ], 422);
+            }
+
+            $input = $request->all();
+            $currency->update($input);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil diubah',
+                'data' => [
+                    '_token_form' => tokenFormGenerate(),
+                ],
+                // 'errors' => null,
+            ], 200);
+        }
     }
 
     /**
