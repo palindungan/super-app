@@ -65,7 +65,8 @@
                     {
                         data: 'is_active',
                         name: 'currencies.is_active',
-                        defaultContent: '-'
+                        defaultContent: '-',
+                        searchable: false
                     },
                     {
                         data: 'action',
