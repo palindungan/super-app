@@ -39,7 +39,17 @@
     </div>
 
     @include('administratormodule::currencies.fields')
-    @include('administratormodule::currencies.create')
-    @include('administratormodule::currencies.show')
-    @include('administratormodule::currencies.edit')
 @endsection
+
+@include('components.resources.assets.simple_modal_create', [
+    'url' => route('administrator-currencies.store'),
+])
+@include('components.resources.assets.simple_modal_edit')
+@include('components.resources.assets.simple_modal_show')
+@push('scripts')
+    <script>
+        function editTitleData(data) {
+            $('#edit_title_data').text(data.name);
+        }
+    </script>
+@endpush
