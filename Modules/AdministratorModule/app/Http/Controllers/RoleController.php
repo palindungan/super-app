@@ -49,7 +49,6 @@ class RoleController extends Controller
                         ? "<span class='badge bg-warning'>{$row->guard_name}</span>"
                         : null;
                 });
-
                 $dataTable->editColumn('permissions_count', function ($row) {
                     return $row->permissions_count
                         ? "<span class='badge bg-warning'>{$row->permissions_count}</span>"
