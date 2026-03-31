@@ -2,7 +2,6 @@
     <button type="button" class="btn btn-link btn-primary btn-lg"
         onclick="editAction(
         '{{ route('administrator-currencies.show', $row->id) }}',
-        '{{ route('administrator-currencies.edit', $row->id) }}',
         '{{ route('administrator-currencies.update', $row->id) }}'
     )">
         <i class="fa fa-edit"></i>
