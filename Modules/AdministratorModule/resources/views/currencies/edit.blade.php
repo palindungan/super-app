@@ -50,5 +50,10 @@
 
             $('#update_button').attr('data-url', url);
         }
+
+        function editOnSubmit(button) {
+            let url = $(button).attr('data-url');
+            console.log(url);
+        }
     </script>
 @endpush
