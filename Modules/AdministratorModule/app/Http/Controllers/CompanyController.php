@@ -10,6 +10,15 @@ use Yajra\DataTables\Facades\DataTables;
 
 class CompanyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:administrator-companies.index')->only('index');
+        $this->middleware('can:administrator-companies.create')->only(['create', 'store']);
+        $this->middleware('can:administrator-companies.show')->only('show');
+        $this->middleware('can:administrator-companies.edit')->only(['edit', 'update']);
+        $this->middleware('can:administrator-companies.destroy')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */
