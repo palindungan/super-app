@@ -16,12 +16,16 @@ class UserSeeder extends Seeder
     {
         $data = [
             [
+                'company_id' => 1,
                 'name' => 'Super Admin',
                 'email' => 'super_admin@example.com',
+                'role_name' => 'super_admin',
             ],
             [
-                'name' => 'Admin',
-                'email' => 'admin@example.com',
+                'company_id' => 2,
+                'name' => 'Admin Toko',
+                'email' => 'admin_toko@example.com',
+                'role_name' => 'admin',
             ],
         ];
 
@@ -31,17 +35,14 @@ class UserSeeder extends Seeder
                     'email' => $value['email'],
                 ],
                 [
+                    'company_id' => $value['company_id'],
                     'name' => $value['name'],
                     'email' => $value['email'],
                     'password' => Hash::make(config('app.password')),
                 ]
             );
 
-            if ($key == 0) {
-                $user->assignRole('super_admin');
-            } elseif ($key == 1) {
-                $user->assignRole('admin');
-            }
+            $user->assignRole($value['role_name']);
         }
     }
 }
