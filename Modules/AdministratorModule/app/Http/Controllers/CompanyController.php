@@ -4,6 +4,7 @@ namespace Modules\AdministratorModule\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company;
+use App\Repositories\CompanyRepository;
 use Modules\AdministratorModule\Http\Requests\StoreCompanyRequest;
 use Modules\AdministratorModule\Http\Requests\UpdateCompanyRequest;
 use Yajra\DataTables\Facades\DataTables;
@@ -27,9 +28,11 @@ class CompanyController extends Controller
         $request = request();
         if ($request->ajax()) {
             if ($request->datatable == 'main') {
-                $query = Company::query()->select(
-                    'companies.*',
-                );
+                $query = CompanyRepository::getQuery()
+                    ->select(
+                        'companies.*',
+                        'default_currencies.name AS default_currency_name',
+                    );
 
                 $dataTable = DataTables::of($query);
 

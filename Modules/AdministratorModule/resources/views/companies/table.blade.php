@@ -6,6 +6,7 @@
             <tr>
                 <th>Kode</th>
                 <th>Nama</th>
+                <th>Mata Uang Standar</th>
                 <th></th>
             </tr>
         </thead>
@@ -47,6 +48,11 @@
                     {
                         data: 'name',
                         name: 'companies.name',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'default_currency_name',
+                        name: 'default_currencies.name',
                         defaultContent: '-'
                     },
                     {
