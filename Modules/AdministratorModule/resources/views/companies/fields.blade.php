@@ -67,7 +67,7 @@
                     </div>
                 </div>
 
-                <input type="text" id="default_currency_text" name="default_currency_text"
+                <input type="hidden" id="default_currency_text" name="default_currency_text"
                     value="{{ old('default_currency_text', $selectedCurrencyText) }}">
             </div>
         </div>
