@@ -4,6 +4,7 @@ namespace Modules\AdministratorModule\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateCompanyRequest extends FormRequest
 {
@@ -23,7 +24,13 @@ class UpdateCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'code' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('companies', 'code')->ignore($this->route('company')),
+            ],
+            'name' => 'required|string|max:255',
         ];
     }
 }

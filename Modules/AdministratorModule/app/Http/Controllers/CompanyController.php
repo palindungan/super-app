@@ -55,7 +55,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('administratormodule::companies.create');
     }
 
     /**
@@ -63,7 +63,14 @@ class CompanyController extends Controller
      */
     public function store(StoreCompanyRequest $request)
     {
-        //
+        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator-companies.index'))
+            ->withInput()
+            ->with('error', $response);
+
+        $input = $request->all();
+        $company = Company::create($input);
+
+        return redirect(route('administrator-companies.index'))->with('success', "Data berhasil dibuat");
     }
 
     /**
@@ -95,6 +102,17 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        $request = request();
+
+        if ($request->ajax()) {
+            $company->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dihapus',
+                // 'data' => null,
+                // 'errors' => null,
+            ], 200);
+        }
     }
 }
