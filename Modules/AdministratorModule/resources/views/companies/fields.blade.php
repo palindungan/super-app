@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="form-group {{ $errors->has('code') ? 'has-error has-feedback' : '' }}">
                         <label for="code">Kode</label>
                         <input type="text" class="form-control form-control" autocomplete="off" id="code"
@@ -28,9 +28,17 @@
                         @enderror
                     </div>
                 </div>
-                <select id="default_currency_id" name="default_currency_id">
-                    <option value="">Cari Mata Uang</option>
-                </select>
+                <div class="col-md-6">
+                    <div class="form-group {{ $errors->has('default_currency_id') ? 'has-error has-feedback' : '' }}">
+                        <label for="default_currency_id">Default Mata Uang</label>
+                        <select class="form-control" id="default_currency_id" name="default_currency_id"></select>
+                        @error('default_currency_id')
+                            <small class="form-text text-muted text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
+                    </div>
+                </div>
             </div>
         </div>
     </div>
