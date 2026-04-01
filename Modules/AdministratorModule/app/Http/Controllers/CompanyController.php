@@ -86,7 +86,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('administratormodule::companies.edit')->with('company', $company);
     }
 
     /**
@@ -94,7 +94,14 @@ class CompanyController extends Controller
      */
     public function update(UpdateCompanyRequest $request, Company $company)
     {
-        //
+        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator-companies.index'))
+            ->withInput()
+            ->with('error', $response);
+
+        $input = $request->all();
+        $company->update($input);
+
+        return redirect(route('administrator-companies.index'))->with('success', "Data berhasil diubah");
     }
 
     /**
