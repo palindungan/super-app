@@ -101,7 +101,7 @@ class CompanyController extends Controller
         $input = $request->all();
         $company->update($input);
 
-        return redirect(route('administrator-companies.index'))->with('success', "Data berhasil diubah");
+        return redirect(route('administrator-companies.edit', $company->id))->with('success', "Data berhasil diubah");
     }
 
     /**
