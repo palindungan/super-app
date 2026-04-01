@@ -127,12 +127,14 @@
                     </span>
                     <h4 class="text-section">Administrator</h4>
                 </li>
-                <li class="nav-item @yield('sidebar.administrator.companies.active')">
-                    <a href="">
-                        <i class="fas fa-building"></i>
-                        <p>Perusahaan</p>
-                    </a>
-                </li>
+                @can('administrator-companies.index')
+                    <li class="nav-item @yield('sidebar.administrator.companies.active')">
+                        <a href="{{ route('administrator-companies.index') }}">
+                            <i class="fas fa-building"></i>
+                            <p>Perusahaan</p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item @yield('sidebar.administrator.balances.active')">
                     <a href="">
                         <i class="fas fa-money-check-alt"></i>

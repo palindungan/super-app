@@ -26,6 +26,36 @@ class Permission extends Model
             'label' => 'Administrator',
             'menu' => [
                 [
+                    'label' => 'Perusahaan',
+                    'permissions' => [
+                        [
+                            'label' => 'Lihat Apa Saja',
+                            'name' => 'administrator-companies.index',
+                            'guard_name' => 'web',
+                        ],
+                        [
+                            'label' => 'Buat',
+                            'name' => 'administrator-companies.create',
+                            'guard_name' => 'web',
+                        ],
+                        [
+                            'label' => 'Lihat',
+                            'name' => 'administrator-companies.show',
+                            'guard_name' => 'web',
+                        ],
+                        [
+                            'label' => 'Perbarui',
+                            'name' => 'administrator-companies.edit',
+                            'guard_name' => 'web',
+                        ],
+                        [
+                            'label' => 'Hapus',
+                            'name' => 'administrator-companies.destroy',
+                            'guard_name' => 'web',
+                        ],
+                    ],
+                ],
+                [
                     'label' => 'Mata Uang',
                     'permissions' => [
                         [
