@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Company;
 use Modules\AdministratorModule\Http\Requests\StoreCompanyRequest;
 use Modules\AdministratorModule\Http\Requests\UpdateCompanyRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class CompanyController extends Controller
 {
@@ -14,6 +15,29 @@ class CompanyController extends Controller
      */
     public function index()
     {
+        $request = request();
+        if ($request->ajax()) {
+            if ($request->datatable == 'main') {
+                $query = Company::query()->select(
+                    'companies.*',
+                );
+
+                $dataTable = DataTables::of($query);
+
+                $dataTable->editColumn('action', function ($row) {
+                    $result = view('administratormodule::companies.table_action', compact('row'))->render();
+                    if ($result) {
+                        return $result;
+                    }
+                    return null;
+                });
+
+                $dataTable->rawColumns(['action']);
+
+                return $dataTable->make(true);
+            }
+        }
+
         return view('administratormodule::companies.index');
     }
 
