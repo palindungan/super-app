@@ -1,10 +1,10 @@
 @include('components.resources.assets.fields')
 
-<div class="col-md-12">
+<div class="col-md-8">
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group {{ $errors->has('code') ? 'has-error has-feedback' : '' }}">
                         <label for="code">Kode</label>
                         <input type="text" class="form-control form-control" autocomplete="off" id="code"
@@ -28,10 +28,37 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-6">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                @php
+                    $selectedCurrencyId = old('default_currency_id', $company->default_currency_id ?? null);
+                    $selectedCurrencyText = old(
+                        'default_currency_text',
+                        isset($company) && $company->defaultCurrency
+                            ? $company->defaultCurrency->code . ' - ' . $company->defaultCurrency->name
+                            : '',
+                    );
+                @endphp
+
+                <div class="col-md-12">
                     <div class="form-group {{ $errors->has('default_currency_id') ? 'has-error has-feedback' : '' }}">
                         <label for="default_currency_id">Mata Uang Standar</label>
-                        <select class="form-control" id="default_currency_id" name="default_currency_id"></select>
+
+                        <select class="form-control" id="default_currency_id" name="default_currency_id">
+                            @if ($selectedCurrencyId)
+                                <option value="{{ $selectedCurrencyId }}" selected>
+                                    {{ $selectedCurrencyText }}
+                                </option>
+                            @endif
+                        </select>
+
                         @error('default_currency_id')
                             <small class="form-text text-muted text-danger">
                                 {{ $message }}
@@ -39,6 +66,9 @@
                         @enderror
                     </div>
                 </div>
+
+                <input type="text" id="default_currency_text" name="default_currency_text"
+                    value="{{ old('default_currency_text', $selectedCurrencyText) }}">
             </div>
         </div>
     </div>
@@ -63,6 +93,11 @@
                     return data;
                 }
             }
+        });
+
+        $('#default_currency_id').on('select2:select', function(e) {
+            let data = e.params.data;
+            $('#default_currency_text').val(data.text);
         });
     </script>
 @endpush

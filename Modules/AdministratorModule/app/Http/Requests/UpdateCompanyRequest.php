@@ -24,6 +24,7 @@ class UpdateCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'default_currency_id' => 'required|exists:currencies,id',
             'code' => [
                 'required',
                 'string',
