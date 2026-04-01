@@ -13,4 +13,9 @@ class Currency extends Model
         'minor_unit',
         'is_active',
     ];
+
+    public function companies()
+    {
+        return $this->hasMany(Company::class, 'default_currency_id');
+    }
 }

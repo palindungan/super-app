@@ -11,4 +11,9 @@ class Company extends Model
         'code',
         'name',
     ];
+
+    public function defaultCurrency()
+    {
+        return $this->belongsTo(Currency::class, 'default_currency_id');
+    }
 }
