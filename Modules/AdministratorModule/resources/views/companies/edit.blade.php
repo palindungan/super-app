@@ -13,7 +13,8 @@
         ])
     </div>
 
-    <form action="{{ route('administrator-companies.update', $company->id) }}" method="POST" onsubmit="formOnSubmitButton(this)">
+    <form action="{{ route('administrator-companies.update', $company->id) }}" method="POST"
+        onsubmit="formOnSubmitButton(this)">
         @include('components.forms.data', ['method' => 'PUT'])
         <div class="row">
             @include('administratormodule::companies.fields')
