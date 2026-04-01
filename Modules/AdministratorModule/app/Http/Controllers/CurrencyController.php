@@ -160,4 +160,38 @@ class CurrencyController extends Controller
             ], 200);
         }
     }
+
+    public function select2()
+    {
+        $search = request('q');
+        $page = request('page', 1);
+        $limit = 10;
+        $offset = ($page - 1) * $limit;
+
+        $query = Currency::query()
+            ->selectRaw("id, code || ' - ' || name as text")
+            ->where('is_active', true)
+            ->when($search, function ($query) use ($search) {
+                $query->where(function ($q) use ($search) {
+                    $q->where('code', 'ILIKE', "%$search%")
+                        ->orWhere('name', 'ILIKE', "%$search%")
+                        ->orWhereRaw("code || ' - ' || name ILIKE ?", ["%$search%"]);
+                });
+            });
+
+        $total = $query->count();
+
+        $currencies = $query
+            ->orderBy('code')
+            ->offset($offset)
+            ->limit($limit)
+            ->get();
+
+        return response()->json([
+            'results' => $currencies,
+            'pagination' => [
+                'more' => ($offset + $limit) < $total
+            ]
+        ]);
+    }
 }

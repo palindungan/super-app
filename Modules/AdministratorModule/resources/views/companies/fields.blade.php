@@ -28,7 +28,33 @@
                         @enderror
                     </div>
                 </div>
+                <select id="default_currency_id" name="default_currency_id">
+                    <option value="">Cari Mata Uang</option>
+                </select>
             </div>
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $('#default_currency_id').select2({
+            placeholder: 'Cari Mata Uang...',
+            // minimumInputLength: 1,
+            ajax: {
+                url: `{{ route('administrator-currencies.select2') }}`,
+                dataType: 'json',
+                delay: 250,
+                data: function(params) {
+                    return {
+                        q: params.term,
+                        page: params.page || 1
+                    };
+                },
+                processResults: function(data) {
+                    return data;
+                }
+            }
+        });
+    </script>
+@endpush
