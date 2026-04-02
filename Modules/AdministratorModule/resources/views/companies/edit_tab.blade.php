@@ -3,7 +3,7 @@
         <div class="card-body pb-0" style="padding-top: 0px;">
             <div class="col-md-12 pb-0" style="padding: 10px;">
                 <input type="hidden" name="nav_link_active_tab" id="nav_link_active_tab" value="0">
-                <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
+                <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist" style="margin-bottom: 28px;">
                     <li class="nav-item" role="presentation">
                         <a data-bs-toggle="pill" role="tab" class="nav-link active" aria-selected="true"
                             id="line-index-0-tab" href="#line-index-0" aria-controls="pills-index-0">
@@ -23,7 +23,7 @@
                         </a>
                     </li>
                 </ul>
-                <div class="tab-content mt-3 mb-3" id="line-tabContent">
+                {{-- <div class="tab-content mt-3 mb-3" id="line-tabContent">
                     <div role="tabpanel" class="tab-pane fade show active" id="line-index-0"
                         aria-labelledby="line-index-0-tab" style="padding-top: 15px;">
                         Cabang
@@ -36,7 +36,7 @@
                         style="padding-top: 15px;">
                         Saldo
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
