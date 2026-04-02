@@ -23,16 +23,13 @@
         </ul>
         {{--
         <div class="tab-content mt-3 mb-3" id="nav-tabContent">
-            <div role="tabpanel" class="tab-pane fade show active" id="nav-index-0"
-                aria-labelledby="nav-index-0-tab" style="padding-top: 15px;">
+            <div role="tabpanel" class="tab-pane fade show active" id="nav-index-0" aria-labelledby="nav-index-0-tab">
                 Cabang
             </div>
-            <div role="tabpanel" class="tab-pane fade " id="nav-index-1" aria-labelledby="nav-index-1-tab"
-                style="padding-top: 15px;">
+            <div role="tabpanel" class="tab-pane fade " id="nav-index-1" aria-labelledby="nav-index-1-tab">
                 Pengguna
             </div>
-            <div role="tabpanel" class="tab-pane fade " id="nav-index-2" aria-labelledby="nav-index-2-tab"
-                style="padding-top: 15px;">
+            <div role="tabpanel" class="tab-pane fade " id="nav-index-2" aria-labelledby="nav-index-2-tab">
                 Saldo
             </div>
         </div>
