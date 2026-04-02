@@ -23,6 +23,8 @@
                 <a class="btn btn-light" href="{{ route('administrator-companies.index') }}">Batal</a>
             </div>
         </div>
+
+        <input type="hidden" name="tab" value="{{ request('tab') }}">
     </form>
 
     @include('administratormodule::companies.edit_tab')

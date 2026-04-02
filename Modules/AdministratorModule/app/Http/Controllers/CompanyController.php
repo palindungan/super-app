@@ -104,7 +104,11 @@ class CompanyController extends Controller
         $input = $request->all();
         $company->update($input);
 
-        return redirect(route('administrator-companies.edit', $company->id))->with('success', "Data berhasil diubah");
+        if (!$request->has('tab')) {
+            return redirect(route('administrator-companies.edit', $company->id))->with('success', "Data berhasil diubah");
+        }
+
+        return redirect(route('administrator-companies.edit', ['company' => $company->id, 'tab' => $request->tab]))->with('success', "Data berhasil diubah");
     }
 
     /**
