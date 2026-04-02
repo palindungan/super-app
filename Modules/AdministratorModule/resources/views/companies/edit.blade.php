@@ -16,7 +16,7 @@
     <form action="{{ route('administrator-companies.update', $company->id) }}" method="POST"
         onsubmit="formOnSubmitButton(this)">
         @include('components.forms.data', ['method' => 'PUT'])
-        <div class="row">
+        <div class="row" style="margin-bottom: 30px;">
             @include('administratormodule::companies.fields')
             <div class="col-md-12">
                 <button type="submit" class="btn btn-warning">Ubah</button>
@@ -24,4 +24,6 @@
             </div>
         </div>
     </form>
+
+    @include('administratormodule::companies.edit_tab')
 @endsection
