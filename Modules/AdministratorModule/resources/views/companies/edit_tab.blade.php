@@ -3,36 +3,37 @@
         <div class="card-body pb-0" style="padding-top: 0px;">
             <div class="col-md-12 pb-0" style="padding: 10px;">
                 <input type="hidden" name="nav_link_active_tab" id="nav_link_active_tab" value="0">
-                <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist" style="margin-bottom: 28px;">
+                <ul class="nav nav-tabs nav-line nav-color-secondary" id="nav-tab" role="tablist"
+                    style="margin-bottom: 28px;">
                     <li class="nav-item" role="presentation">
                         <a data-bs-toggle="pill" role="tab" class="nav-link active" aria-selected="true"
-                            id="line-index-0-tab" href="#line-index-0" aria-controls="pills-index-0">
+                            id="nav-index-0-tab" href="#nav-index-0" aria-controls="pills-index-0">
                             Cabang
                         </a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a data-bs-toggle="pill" role="tab" class="nav-link " aria-selected="false"
-                            id="line-index-1-tab" href="#line-index-1" aria-controls="pills-index-1" tabindex="-1">
+                            id="nav-index-1-tab" href="#nav-index-1" aria-controls="pills-index-1" tabindex="-1">
                             Pengguna
                         </a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a data-bs-toggle="pill" role="tab" class="nav-link " aria-selected="false"
-                            id="line-index-2-tab" href="#line-index-2" aria-controls="pills-index-2" tabindex="-1">
+                            id="nav-index-2-tab" href="#nav-index-2" aria-controls="pills-index-2" tabindex="-1">
                             Saldo
                         </a>
                     </li>
                 </ul>
-                {{-- <div class="tab-content mt-3 mb-3" id="line-tabContent">
-                    <div role="tabpanel" class="tab-pane fade show active" id="line-index-0"
-                        aria-labelledby="line-index-0-tab" style="padding-top: 15px;">
+                {{-- <div class="tab-content mt-3 mb-3" id="nav-tabContent">
+                    <div role="tabpanel" class="tab-pane fade show active" id="nav-index-0"
+                        aria-labelledby="nav-index-0-tab" style="padding-top: 15px;">
                         Cabang
                     </div>
-                    <div role="tabpanel" class="tab-pane fade " id="line-index-1" aria-labelledby="line-index-1-tab"
+                    <div role="tabpanel" class="tab-pane fade " id="nav-index-1" aria-labelledby="nav-index-1-tab"
                         style="padding-top: 15px;">
                         Pengguna
                     </div>
-                    <div role="tabpanel" class="tab-pane fade " id="line-index-2" aria-labelledby="line-index-2-tab"
+                    <div role="tabpanel" class="tab-pane fade " id="nav-index-2" aria-labelledby="nav-index-2-tab"
                         style="padding-top: 15px;">
                         Saldo
                     </div>
