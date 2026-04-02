@@ -1,7 +1,7 @@
 <div class="text-center">
     <div class="card d-inline-block">
         <div class="card-body">
-            <ul class="nav nav-pills nav-secondary nav-pills-no-bd nav-pills-icons">
+            <ul class="nav nav-pills nav-secondary  nav-pills-no-bd nav-pills-icons justify-content-center">
                 <li class="nav-item">
                     <a data-bs-toggle="pill" class="nav-link m-0 active" id="nav-index-0-tab" href="#nav-index-0">
                         Cabang
