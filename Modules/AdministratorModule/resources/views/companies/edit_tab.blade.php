@@ -3,17 +3,17 @@
         <div class="card-body">
             <ul class="nav nav-pills nav-secondary  nav-pills-no-bd nav-pills-icons justify-content-center">
                 <li class="nav-item">
-                    <a data-bs-toggle="pill" class="nav-link m-0 active" id="nav-index-0-tab" href="#nav-index-0">
+                    <a data-bs-toggle="pill" id="nav-index-0-tab" href="#nav-index-0" class="nav-link m-0 active">
                         Cabang
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a data-bs-toggle="pill" class="nav-link m-0" id="nav-index-1-tab" href="#nav-index-1">
+                    <a data-bs-toggle="pill" id="nav-index-1-tab" href="#nav-index-1" class="nav-link m-0">
                         Pengguna
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a data-bs-toggle="pill" class="nav-link m-0" id="nav-index-2-tab" href="#nav-index-2">
+                    <a data-bs-toggle="pill" id="nav-index-2-tab" href="#nav-index-2" class="nav-link m-0">
                         Saldo
                     </a>
                 </li>
