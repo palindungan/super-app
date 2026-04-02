@@ -30,27 +30,33 @@
     </script>
 @endpush
 
+@php
+    $tab = request()->get('tab', 'branches');
+@endphp
+
 <div class="text-center">
     <div class="card d-inline-block" style="max-width: 100%;">
         <div class="card-body pt-3 pb-0">
             <div style="overflow-x: auto;" id="nav-scroll">
                 <ul class="nav nav-pills nav-secondary nav-pills-no-bd nav-pills-icons flex-nowrap">
                     <li class="nav-item">
-                        <a class="nav-link m-0 mb-3" href="{{ url()->current() }}?tab=branches">
+                        <a class="nav-link m-0 mb-3 {{ $tab == 'branches' ? 'active' : '' }}"
+                            href="{{ url()->current() }}?tab=branches">
                             Cabang
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link m-0 mb-3" href="{{ url()->current() }}?tab=users">
+                        <a class="nav-link m-0 mb-3 {{ $tab == 'users' ? 'active' : '' }}"
+                            href="{{ url()->current() }}?tab=users">
                             Pengguna
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link m-0 mb-3" href="{{ url()->current() }}?tab=balances">
+                        <a class="nav-link m-0 mb-3 {{ $tab == 'balances' ? 'active' : '' }}"
+                            href="{{ url()->current() }}?tab=balances">
                             Saldo
                         </a>
                     </li>
-                    <!-- item banyak -->
                 </ul>
             </div>
         </div>
