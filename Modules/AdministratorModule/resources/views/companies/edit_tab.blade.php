@@ -24,7 +24,8 @@
                         </a>
                     </li>
                 </ul>
-                {{-- <div class="tab-content mt-3 mb-3" id="nav-tabContent">
+                {{--
+                <div class="tab-content mt-3 mb-3" id="nav-tabContent">
                     <div role="tabpanel" class="tab-pane fade show active" id="nav-index-0"
                         aria-labelledby="nav-index-0-tab" style="padding-top: 15px;">
                         Cabang
@@ -37,7 +38,8 @@
                         style="padding-top: 15px;">
                         Saldo
                     </div>
-                </div> --}}
+                </div>
+                --}}
             </div>
         </div>
     </div>
