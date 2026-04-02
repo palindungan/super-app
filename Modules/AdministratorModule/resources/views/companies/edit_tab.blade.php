@@ -1,7 +1,39 @@
+@push('styles')
+    <style>
+        #nav-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+@endpush
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            var container = $('#nav-scroll');
+            var activeTab = container.find('.nav-link.active');
+            if (activeTab.length) {
+                container.animate({
+                    scrollLeft: activeTab.position().left + container.scrollLeft() - container.width() / 2 +
+                        activeTab.outerWidth() / 2
+                }, 400);
+            }
+        });
+
+        $('#nav-scroll .nav-link').on('shown.bs.tab', function() {
+            var container = $('#nav-scroll');
+            var activeTab = $(this);
+            container.animate({
+                scrollLeft: activeTab.position().left + container.scrollLeft() - container.width() / 2 +
+                    activeTab.outerWidth() / 2
+            }, 400);
+        });
+    </script>
+@endpush
+
 <div class="text-center">
     <div class="card d-inline-block" style="max-width: 100%;">
         <div class="card-body pt-3 pb-0">
-            <div style="overflow-x: auto;">
+            <div style="overflow-x: auto;" id="nav-scroll">
                 <ul class="nav nav-pills nav-secondary nav-pills-no-bd nav-pills-icons flex-nowrap">
                     <li class="nav-item">
                         <a data-bs-toggle="pill" href="#nav-index-0" class="nav-link m-0 mb-3 active">
