@@ -55,50 +55,50 @@
                 <input type="hidden" name="nav_link_active_tab" id="nav_link_active_tab"
                     value="{{ old('nav_link_active_tab', 0) }}">
                 <ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
-                    @foreach ($permissions_data as $item_idx => $item)
+                    @foreach ($permissions_data as $value_key => $value)
                         @php
                             $nav_link_active = '';
                             $nav_link_active_tab = old('nav_link_active_tab', 0);
                             $aria_selected = 'false';
-                            if ($item_idx == $nav_link_active_tab) {
+                            if ($value_key == $nav_link_active_tab) {
                                 $nav_link_active = 'active';
                                 $aria_selected = 'true';
                             }
                             $permissions = [];
-                            foreach ($item['menu'] as $menu_idx => $menu) {
+                            foreach ($value['menu'] as $menu_key => $menu) {
                                 $permissions = array_merge($permissions, $menu['permissions']);
                             }
                         @endphp
                         @php
-                            $index = "$item_idx";
+                            $index = "$value_key";
                         @endphp
                         <li class="nav-item">
                             <a data-bs-toggle="pill" role="tab" class="nav-link {{ $nav_link_active }}"
                                 aria-selected="{{ $aria_selected }}" id="line-{{ $index }}-tab"
                                 href="#line-{{ $index }}" aria-controls="pills-{{ $index }}">
-                                {{ $item['label'] }}
+                                {{ $value['label'] }}
                                 <span class="badge badge-secondary">{{ count($permissions) }}</span>
                             </a>
                         </li>
                     @endforeach
                 </ul>
                 <div class="tab-content mt-3 mb-3" id="line-tabContent">
-                    @foreach ($permissions_data as $item_idx => $item)
+                    @foreach ($permissions_data as $value_key => $value)
                         @php
                             $nav_link_active = '';
-                            if ($item_idx == $nav_link_active_tab) {
+                            if ($value_key == $nav_link_active_tab) {
                                 $nav_link_active = 'show active';
                             }
                         @endphp
                         @php
-                            $index = "$item_idx";
+                            $index = "$value_key";
                         @endphp
                         <div role="tabpanel" class="tab-pane fade {{ $nav_link_active }}"
                             id="line-{{ $index }}" aria-labelledby="line-{{ $index }}-tab"
                             style="padding-top: 15px;">
-                            @foreach ($item['menu'] as $menu_idx => $menu)
+                            @foreach ($value['menu'] as $menu_key => $menu)
                                 @php
-                                    $index = "$item_idx-$menu_idx";
+                                    $index = "$value_key-$menu_key";
                                 @endphp
                                 <div class="accordion accordion-secondary">
                                     <div class="card">
@@ -114,9 +114,9 @@
                                             aria-labelledby="heading{{ $index }}" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    @foreach ($menu['permissions'] as $permission_idx => $permission)
+                                                    @foreach ($menu['permissions'] as $permission_key => $permission)
                                                         @php
-                                                            $index = "$item_idx-$menu_idx-$permission_idx";
+                                                            $index = "$value_key-$menu_key-$permission_key";
                                                         @endphp
                                                         <div class="col-md-3">
                                                             <div class="form-check">
