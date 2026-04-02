@@ -1,19 +1,19 @@
 <div class="text-center">
     <div class="card d-inline-block">
-        <div class="card-body">
+        <div class="card-body pb-0 pt-3">
             <ul class="nav nav-pills nav-secondary  nav-pills-no-bd nav-pills-icons justify-content-center">
                 <li class="nav-item">
-                    <a data-bs-toggle="pill" id="nav-index-0-tab" href="#nav-index-0" class="nav-link m-0 active">
+                    <a data-bs-toggle="pill" id="nav-index-0-tab" href="#nav-index-0" class="nav-link m-0 mb-3 active">
                         Cabang
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a data-bs-toggle="pill" id="nav-index-1-tab" href="#nav-index-1" class="nav-link m-0">
+                    <a data-bs-toggle="pill" id="nav-index-1-tab" href="#nav-index-1" class="nav-link m-0 mb-3">
                         Pengguna
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a data-bs-toggle="pill" id="nav-index-2-tab" href="#nav-index-2" class="nav-link m-0">
+                    <a data-bs-toggle="pill" id="nav-index-2-tab" href="#nav-index-2" class="nav-link m-0 mb-3">
                         Saldo
                     </a>
                 </li>
