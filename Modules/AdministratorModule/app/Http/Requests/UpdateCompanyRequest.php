@@ -24,7 +24,6 @@ class UpdateCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'default_currency_id' => 'required|exists:currencies,id',
             'code' => [
                 'required',
                 'string',
@@ -32,6 +31,7 @@ class UpdateCompanyRequest extends FormRequest
                 Rule::unique('companies', 'code')->ignore($this->route('company')),
             ],
             'name' => 'required|string|max:255',
+            'default_currency_id' => 'required|exists:currencies,id',
         ];
     }
 }

@@ -23,9 +23,9 @@ class StoreCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'default_currency_id' => 'required|exists:currencies,id',
             'code' => 'required|string|max:255|unique:companies',
             'name' => 'required|string|max:255',
+            'default_currency_id' => 'required|exists:currencies,id',
         ];
     }
 }
