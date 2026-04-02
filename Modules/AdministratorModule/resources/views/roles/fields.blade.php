@@ -70,7 +70,7 @@
                             }
                         @endphp
                         @php
-                            $index = "$value_key";
+                            $index = "index-$value_key";
                         @endphp
                         <li class="nav-item">
                             <a data-bs-toggle="pill" role="tab" class="nav-link {{ $nav_link_active }}"
@@ -91,14 +91,14 @@
                             }
                         @endphp
                         @php
-                            $index = "$value_key";
+                            $index = "index-$value_key";
                         @endphp
                         <div role="tabpanel" class="tab-pane fade {{ $nav_link_active }}"
                             id="line-{{ $index }}" aria-labelledby="line-{{ $index }}-tab"
                             style="padding-top: 15px;">
                             @foreach ($value['menu'] as $menu_key => $menu)
                                 @php
-                                    $index = "$value_key-$menu_key";
+                                    $index = "index-$value_key-$menu_key";
                                 @endphp
                                 <div class="accordion accordion-secondary">
                                     <div class="card">
@@ -116,7 +116,7 @@
                                                 <div class="row">
                                                     @foreach ($menu['permissions'] as $permission_key => $permission)
                                                         @php
-                                                            $index = "$value_key-$menu_key-$permission_key";
+                                                            $index = "index-$value_key-$menu_key-$permission_key";
                                                         @endphp
                                                         <div class="col-md-3">
                                                             <div class="form-check">
