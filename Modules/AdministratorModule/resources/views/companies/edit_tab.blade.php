@@ -21,14 +21,14 @@
         </div>
     </div>
 </div>
-{{-- <div class="tab-content mt-3 mb-3" id="nav-tabContent">
-    <div role="tabpanel" class="tab-pane fade show active" id="nav-index-0" aria-labelledby="nav-index-0-tab">
+<div class="tab-content mt-3 mb-3" id="nav-tabContent">
+    <div role="tabpanel" id="nav-index-0" aria-labelledby="nav-index-0-tab" class="tab-pane fade show active">
         Cabang
     </div>
-    <div role="tabpanel" class="tab-pane fade " id="nav-index-1" aria-labelledby="nav-index-1-tab">
+    <div role="tabpanel" id="nav-index-1" aria-labelledby="nav-index-1-tab" class="tab-pane fade ">
         Pengguna
     </div>
-    <div role="tabpanel" class="tab-pane fade " id="nav-index-2" aria-labelledby="nav-index-2-tab">
+    <div role="tabpanel" id="nav-index-2" aria-labelledby="nav-index-2-tab" class="tab-pane fade ">
         Saldo
     </div>
-</div> --}}
+</div>
