@@ -1,10 +1,9 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-body pb-0" style="padding-top: 0px;">
-            <div class="col-md-12 pb-0" style="padding: 10px;">
-                <input type="hidden" name="nav_link_active_tab" id="nav_link_active_tab" value="0">
-                <ul class="nav nav-tabs nav-line nav-color-secondary" id="nav-tab" role="tablist"
-                    style="margin-bottom: 28px;">
+            <div class="col-md-12" style="padding: 10px;">
+                <ul class="nav nav-pills nav-secondary  nav-pills-no-bd nav-pills-icons justify-content-center"
+                    id="nav-tab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <a data-bs-toggle="pill" role="tab" class="nav-link active" aria-selected="true"
                             id="nav-index-0-tab" href="#nav-index-0" aria-controls="pills-index-0">
