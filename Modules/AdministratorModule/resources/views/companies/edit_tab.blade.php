@@ -1,23 +1,26 @@
 <div class="text-center">
-    <div class="card d-inline-block">
+    <div class="card d-inline-block" style="max-width: 100%;">
         <div class="card-body pt-3 pb-0">
-            <ul class="nav nav-pills nav-secondary  nav-pills-no-bd nav-pills-icons justify-content-center">
-                <li class="nav-item">
-                    <a data-bs-toggle="pill" id="nav-index-0-tab" href="#nav-index-0" class="nav-link m-0 mb-3 active">
-                        Cabang
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a data-bs-toggle="pill" id="nav-index-1-tab" href="#nav-index-1" class="nav-link m-0 mb-3">
-                        Pengguna
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a data-bs-toggle="pill" id="nav-index-2-tab" href="#nav-index-2" class="nav-link m-0 mb-3">
-                        Saldo
-                    </a>
-                </li>
-            </ul>
+            <div style="overflow-x: auto;">
+                <ul class="nav nav-pills nav-secondary nav-pills-no-bd nav-pills-icons flex-nowrap">
+                    <li class="nav-item">
+                        <a data-bs-toggle="pill" href="#nav-index-0" class="nav-link m-0 mb-3 active">
+                            Cabang
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="pill" href="#nav-index-1" class="nav-link m-0 mb-3">
+                            Pengguna
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="pill" href="#nav-index-2" class="nav-link m-0 mb-3">
+                            Saldo
+                        </a>
+                    </li>
+                    <!-- item banyak -->
+                </ul>
+            </div>
         </div>
     </div>
 </div>
