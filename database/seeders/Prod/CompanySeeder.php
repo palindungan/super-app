@@ -3,6 +3,7 @@
 namespace Database\Seeders\Prod;
 
 use App\Models\Branch;
+use App\Models\BranchUser;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -45,10 +46,14 @@ class CompanySeeder extends Seeder
                     [
                         'code' => 'cb-toko-lumajang',
                         'name' => 'Lumajang',
+                        'branch_users' => [
+                            'admin_toko@example.com',
+                        ],
                     ],
                     [
                         'code' => 'cb-toko-kunir',
                         'name' => 'Kunir',
+                        'branch_users' => [],
                     ],
                 ],
             ],
@@ -67,10 +72,14 @@ class CompanySeeder extends Seeder
                     [
                         'code' => 'cb-klinik-surabaya',
                         'name' => 'Surabaya',
+                        'branch_users' => [
+                            'admin_Klinik@example.com',
+                        ],
                     ],
                     [
                         'code' => 'cb-klinik-jember',
                         'name' => 'Jember',
+                        'branch_users' => [],
                     ],
                 ],
             ],
@@ -101,6 +110,16 @@ class CompanySeeder extends Seeder
                         'name' => $branch_value['name'],
                     ],
                 );
+
+                // branch_users
+                BranchUser::where('branch_id', $branch->id)->delete();
+                foreach ($branch_value['branch_users'] as $branch_user_key => $branch_user_value) {
+                    $user = User::where('email', $branch_user_value)->first();
+                    $branch_user = BranchUser::create([
+                        'branch_id' => $branch->id,
+                        'user_id' => $user->id,
+                    ]);
+                }
             }
 
             // users
