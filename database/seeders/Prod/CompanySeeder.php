@@ -64,7 +64,7 @@ class CompanySeeder extends Seeder
                 'users' => [
                     [
                         'name' => 'Admin Klinik',
-                        'email' => 'admin_Klinik@example.com',
+                        'email' => 'admin_klinik@example.com',
                         'role_name' => 'admin',
                     ],
                 ],
@@ -73,7 +73,7 @@ class CompanySeeder extends Seeder
                         'code' => 'cb-klinik-surabaya',
                         'name' => 'Surabaya',
                         'branch_users' => [
-                            'admin_Klinik@example.com',
+                            'admin_klinik@example.com',
                         ],
                     ],
                     [
