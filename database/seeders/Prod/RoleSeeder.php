@@ -17,8 +17,9 @@ class RoleSeeder extends Seeder
     {
         // permissions
         $permissions_name = [];
-        $permissions_data = ModelsPermission::$data;
-        foreach ($permissions_data as $key => $value) {
+
+        $data = ModelsPermission::$data;
+        foreach ($data as $key => $value) {
             $permissions = [];
             foreach ($value['menu'] as $menu_key => $menu_value) {
                 $permissions = array_merge($permissions, $menu_value['permissions']);
