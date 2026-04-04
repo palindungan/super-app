@@ -62,7 +62,7 @@ class CompanySeeder extends Seeder
             // users
             foreach ($company_value['users'] as $user_key => $user_value) {
                 $user = UserSeeder::updateOrCreate([
-                    'company_id' => $user_value['company_id'],
+                    'company_id' => $company->id,
                     'name' => $user_value['name'],
                     'email' => $user_value['email'],
                     'role_name' => $user_value['role_name'],
