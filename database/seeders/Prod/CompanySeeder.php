@@ -74,7 +74,6 @@ class CompanySeeder extends Seeder
                         'password' => Hash::make(config('app.password')),
                     ],
                 );
-
                 $user->assignRole($user_value['role_name']);
             }
         }
