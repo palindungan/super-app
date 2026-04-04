@@ -18,16 +18,16 @@ class DatabaseSeeder extends Seeder
     {
         if (App::environment(['local', 'staging'])) {
             $this->call([
-                \Database\Seeders\Prod\CompanySeeder::class,
                 \Database\Seeders\Prod\RoleSeeder::class,
                 \Database\Seeders\Prod\CurrencySeeder::class,
+                \Database\Seeders\Prod\CompanySeeder::class,
             ]);
         }
         if (App::environment(['production'])) {
             $this->call([
-                \Database\Seeders\Prod\CompanySeeder::class,
                 \Database\Seeders\Prod\RoleSeeder::class,
                 \Database\Seeders\Prod\CurrencySeeder::class,
+                \Database\Seeders\Prod\CompanySeeder::class,
             ]);
         }
     }
