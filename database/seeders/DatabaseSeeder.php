@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
             $this->call([
                 \Database\Seeders\Prod\CompanySeeder::class,
                 \Database\Seeders\Prod\RoleSeeder::class,
-                \Database\Seeders\Prod\UserSeeder::class,
                 \Database\Seeders\Prod\CurrencySeeder::class,
             ]);
         }
@@ -28,7 +27,6 @@ class DatabaseSeeder extends Seeder
             $this->call([
                 \Database\Seeders\Prod\CompanySeeder::class,
                 \Database\Seeders\Prod\RoleSeeder::class,
-                \Database\Seeders\Prod\UserSeeder::class,
                 \Database\Seeders\Prod\CurrencySeeder::class,
             ]);
         }
