@@ -3,8 +3,10 @@
 namespace Database\Seeders\Prod;
 
 use App\Models\Company;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class CompanySeeder extends Seeder
 {
@@ -61,12 +63,19 @@ class CompanySeeder extends Seeder
 
             // users
             foreach ($company_value['users'] as $user_key => $user_value) {
-                $user = UserSeeder::updateOrCreate([
-                    'company_id' => $company->id,
-                    'name' => $user_value['name'],
-                    'email' => $user_value['email'],
-                    'role_name' => $user_value['role_name'],
-                ]);
+                $user = User::updateOrCreate(
+                    [
+                        'email' => $user_value['email'],
+                    ],
+                    [
+                        'company_id' => $company->id,
+                        'name' => $user_value['name'],
+                        'email' => $user_value['email'],
+                        'password' => Hash::make(config('app.password')),
+                    ],
+                );
+
+                $user->assignRole($user_value['role_name']);
             }
         }
     }
