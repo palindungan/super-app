@@ -52,14 +52,8 @@ class RoleSeeder extends Seeder
         ];
         foreach ($data as $key => $value) {
             $role = Role::updateOrCreate(
-                [
-                    'name' => $value['name'],
-                    'guard_name' => $value['guard_name'],
-                ],
-                [
-                    'name' => $value['name'],
-                    'guard_name' => $value['guard_name'],
-                ]
+                $value,
+                $value
             );
             $role->syncPermissions($permissions_name ?? []);
         }
