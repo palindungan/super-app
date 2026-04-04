@@ -43,21 +43,36 @@ class CompanySeeder extends Seeder
                 ],
                 'branches' =>  [
                     [
-                        'code' => 'cb-lumajang',
+                        'code' => 'cb-toko-lumajang',
                         'name' => 'Lumajang',
                     ],
                     [
-                        'code' => 'cb-kunir',
+                        'code' => 'cb-toko-kunir',
                         'name' => 'Kunir',
                     ],
                 ],
             ],
             [
                 'default_currency_id' => 1,
-                'code' => 'pt-klinik-hewan',
-                'name' => 'PT Klinik Hewan',
-                'users' => [],
-                'branches' => [],
+                'code' => 'pt-klinik',
+                'name' => 'PT Klinik',
+                'users' => [
+                    [
+                        'name' => 'Admin Klinik',
+                        'email' => 'admin_Klinik@example.com',
+                        'role_name' => 'admin',
+                    ],
+                ],
+                'branches' =>  [
+                    [
+                        'code' => 'cb-klinik-surabaya',
+                        'name' => 'Surabaya',
+                    ],
+                    [
+                        'code' => 'cb-klinik-jember',
+                        'name' => 'Jember',
+                    ],
+                ],
             ],
         ];
 
