@@ -18,23 +18,23 @@ class RoleSeeder extends Seeder
         // permissions
         $permissions_name = [];
         $permissions_data = ModelsPermission::$data;
-        foreach ($permissions_data as $item_idx => $item) {
+        foreach ($permissions_data as $key => $value) {
             $permissions = [];
-            foreach ($item['menu'] as $menu_idx => $menu) {
-                $permissions = array_merge($permissions, $menu['permissions']);
+            foreach ($value['menu'] as $menu_key => $menu_value) {
+                $permissions = array_merge($permissions, $menu_value['permissions']);
             }
-            foreach ($permissions as $permission_idx => $permission) {
+            foreach ($permissions as $permission_key => $permission_value) {
                 Permission::updateOrCreate(
                     [
-                        'name' => $permission['name'],
-                        'guard_name' => $permission['guard_name'],
+                        'name' => $permission_value['name'],
+                        'guard_name' => $permission_value['guard_name'],
                     ],
                     [
-                        'name' => $permission['name'],
-                        'guard_name' => $permission['guard_name'],
+                        'name' => $permission_value['name'],
+                        'guard_name' => $permission_value['guard_name'],
                     ]
                 );
-                $permissions_name[] = $permission['name'];
+                $permissions_name[] = $permission_value['name'];
             }
         }
         $permissions_name = array_unique($permissions_name);
