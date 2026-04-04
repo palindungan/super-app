@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Prod;
 
+use App\Models\Branch;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -27,6 +28,7 @@ class CompanySeeder extends Seeder
                         'role_name' => 'super_admin',
                     ],
                 ],
+                'branches' => [],
             ],
             [
                 'default_currency_id' => 1,
@@ -39,12 +41,23 @@ class CompanySeeder extends Seeder
                         'role_name' => 'admin',
                     ],
                 ],
+                'branches' =>  [
+                    [
+                        'code' => 'cb-lumajang',
+                        'name' => 'Lumajang',
+                    ],
+                    [
+                        'code' => 'cb-kunir',
+                        'name' => 'Kunir',
+                    ],
+                ],
             ],
             [
                 'default_currency_id' => 1,
                 'code' => 'pt-klinik-hewan',
                 'name' => 'PT Klinik Hewan',
                 'users' => [],
+                'branches' => [],
             ],
         ];
 
@@ -60,6 +73,20 @@ class CompanySeeder extends Seeder
                     'name' => $company_value['name'],
                 ],
             );
+
+            // branches
+            foreach ($company_value['branches'] as $branch_key => $branch_value) {
+                $branch = Branch::updateOrCreate(
+                    [
+                        'code' => $branch_value['code'],
+                    ],
+                    [
+                        'company_id' => $company->id,
+                        'code' => $branch_value['code'],
+                        'name' => $branch_value['name'],
+                    ],
+                );
+            }
 
             // users
             foreach ($company_value['users'] as $user_key => $user_value) {
