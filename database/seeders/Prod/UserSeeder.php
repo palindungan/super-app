@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 'name' => $param['name'],
                 'email' => $param['email'],
                 'password' => Hash::make(config('app.password')),
-            ]
+            ],
         );
 
         $user->assignRole($param['role_name']);
