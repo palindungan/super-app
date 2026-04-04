@@ -31,10 +31,10 @@ class CompanySeeder extends Seeder
             ],
         ];
 
-        foreach ($data as $key => $value) {
-            Company::updateOrCreate(
-                ['code' => $value['code']],
-                $value
+        foreach ($data as $company_key => $company_value) {
+            $company = Company::updateOrCreate(
+                ['code' => $company_value['code']],
+                $company_value
             );
         }
     }
