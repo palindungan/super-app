@@ -9,40 +9,20 @@ use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public static function updateOrCreate($param = [])
     {
-        $data = [
+        $user = User::updateOrCreate(
             [
-                'company_id' => 1,
-                'name' => 'Super Admin',
-                'email' => 'super_admin@example.com',
-                'role_name' => 'super_admin',
+                'email' => $param['email'],
             ],
             [
-                'company_id' => 2,
-                'name' => 'Admin Toko',
-                'email' => 'admin_toko@example.com',
-                'role_name' => 'admin',
-            ],
-        ];
+                'company_id' => $param['company_id'],
+                'name' => $param['name'],
+                'email' => $param['email'],
+                'password' => Hash::make(config('app.password')),
+            ]
+        );
 
-        foreach ($data as $key => $value) {
-            $user = User::updateOrCreate(
-                [
-                    'email' => $value['email'],
-                ],
-                [
-                    'company_id' => $value['company_id'],
-                    'name' => $value['name'],
-                    'email' => $value['email'],
-                    'password' => Hash::make(config('app.password')),
-                ]
-            );
-
-            $user->assignRole($value['role_name']);
-        }
+        $user->assignRole($param['role_name']);
     }
 }

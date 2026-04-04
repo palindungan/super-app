@@ -89,7 +89,7 @@ class CurrencySeeder extends Seeder
         foreach ($data as $key => $value) {
             $currency = Currency::updateOrCreate(
                 ['code' => $value['code']],
-                $value
+                $value,
             );
         }
     }

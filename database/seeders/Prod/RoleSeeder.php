@@ -32,7 +32,7 @@ class RoleSeeder extends Seeder
                     [
                         'name' => $permission_value['name'],
                         'guard_name' => $permission_value['guard_name'],
-                    ]
+                    ],
                 );
                 $permissions_name[] = $permission_value['name'];
             }
@@ -53,7 +53,7 @@ class RoleSeeder extends Seeder
         foreach ($data as $key => $value) {
             $role = Role::updateOrCreate(
                 $value,
-                $value
+                $value,
             );
             $role->syncPermissions($permissions_name ?? []);
         }
