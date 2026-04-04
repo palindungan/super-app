@@ -98,6 +98,22 @@ class CompanySeeder extends Seeder
                 ],
             );
 
+            // users
+            foreach ($company_value['users'] as $user_key => $user_value) {
+                $user = User::updateOrCreate(
+                    [
+                        'email' => $user_value['email'],
+                    ],
+                    [
+                        'company_id' => $company->id,
+                        'name' => $user_value['name'],
+                        'email' => $user_value['email'],
+                        'password' => Hash::make(config('app.password')),
+                    ],
+                );
+                $user->assignRole($user_value['role_name']);
+            }
+
             // branches
             foreach ($company_value['branches'] as $branch_key => $branch_value) {
                 $branch = Branch::updateOrCreate(
@@ -120,22 +136,6 @@ class CompanySeeder extends Seeder
                         'user_id' => $user->id,
                     ]);
                 }
-            }
-
-            // users
-            foreach ($company_value['users'] as $user_key => $user_value) {
-                $user = User::updateOrCreate(
-                    [
-                        'email' => $user_value['email'],
-                    ],
-                    [
-                        'company_id' => $company->id,
-                        'name' => $user_value['name'],
-                        'email' => $user_value['email'],
-                        'password' => Hash::make(config('app.password')),
-                    ],
-                );
-                $user->assignRole($user_value['role_name']);
             }
         }
     }
