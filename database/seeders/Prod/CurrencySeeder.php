@@ -13,7 +13,7 @@ class CurrencySeeder extends Seeder
      */
     public function run(): void
     {
-        $currencies = [
+        $data = [
             [
                 'code' => 'IDR',
                 'name' => 'Indonesian Rupiah',
@@ -86,10 +86,10 @@ class CurrencySeeder extends Seeder
             ],
         ];
 
-        foreach ($currencies as $currency) {
-            Currency::updateOrCreate(
-                ['code' => $currency['code']],
-                $currency
+        foreach ($data as $key => $value) {
+            $currency = Currency::updateOrCreate(
+                ['code' => $value['code']],
+                $value
             );
         }
     }
