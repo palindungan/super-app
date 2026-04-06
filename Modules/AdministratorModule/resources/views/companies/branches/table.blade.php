@@ -53,7 +53,7 @@
                     },
                     {
                         data: 'branch_user_count',
-                        name: 'branch_user_counts.count',
+                        name: 'branch_user_count',
                         defaultContent: '-'
                     },
                     {

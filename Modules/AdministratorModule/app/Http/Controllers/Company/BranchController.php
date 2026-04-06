@@ -33,6 +33,13 @@ class BranchController extends Controller
 
                 $dataTable = DataTables::of($query);
 
+                $dataTable->filterColumn('branch_user_count', function ($query, $keyword) {
+                    $query->whereRaw(
+                        'CAST(COALESCE(branch_user_counts.count, 0) as TEXT) LIKE ?',
+                        ["%{$keyword}%"]
+                    );
+                });
+
                 $dataTable->editColumn('action', function ($row) {
                     $result = view('administratormodule::companies.branches.table_action', compact('row'))->render();
                     if ($result) {
