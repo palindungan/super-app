@@ -70,7 +70,15 @@ class BranchController extends Controller
      */
     public function store(Company $company, StoreBranchRequest $request)
     {
-        //
+        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator.companies.edit', [$company->id, 'tab' => 'branches']))
+            ->withInput()
+            ->with('error', $response);
+
+        $input = $request->all();
+        $input['company_id'] = $company->id;
+        $branch = Branch::create($input);
+
+        return redirect(route('administrator.companies.edit', [$company->id, 'tab' => 'branches']))->with('success', "Data berhasil dibuat");
     }
 
     /**
