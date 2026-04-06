@@ -5,8 +5,10 @@ namespace Modules\AdministratorModule\Http\Controllers\Company;
 use App\Http\Controllers\Controller;
 use App\Models\Branch;
 use App\Models\Company;
+use App\Repositories\BranchRepository;
 use Modules\AdministratorModule\Http\Requests\Company\StoreBranchRequest;
 use Modules\AdministratorModule\Http\Requests\Company\UpdateBranchRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class BranchController extends Controller
 {
@@ -15,6 +17,30 @@ class BranchController extends Controller
      */
     public function index(Company $company)
     {
+        $request = request();
+        if ($request->ajax()) {
+            if ($request->datatable == 'main') {
+                $query = BranchRepository::getQuery()
+                    ->select(
+                        'branches.*',
+                    );
+
+                $dataTable = DataTables::of($query);
+
+                $dataTable->editColumn('action', function ($row) {
+                    $result = view('administratormodule::companies.branches.table_action', compact('row'))->render();
+                    if ($result) {
+                        return $result;
+                    }
+                    return null;
+                });
+
+                $dataTable->rawColumns(['action']);
+
+                return $dataTable->make(true);
+            }
+        }
+
         return "companies.branches.index";
     }
 
