@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Branch;
 use App\Models\Company;
 use App\Repositories\BranchRepository;
+use Illuminate\Support\Facades\DB;
 use Modules\AdministratorModule\Http\Requests\Company\StoreBranchRequest;
 use Modules\AdministratorModule\Http\Requests\Company\UpdateBranchRequest;
 use Yajra\DataTables\Facades\DataTables;
@@ -23,6 +24,7 @@ class BranchController extends Controller
                 $query = BranchRepository::getQuery()
                     ->select(
                         'branches.*',
+                        DB::raw('COALESCE(branch_user_counts.count, 0) as branch_user_count'),
                     );
 
                 if (isset($request['get_by_company_id'])) {

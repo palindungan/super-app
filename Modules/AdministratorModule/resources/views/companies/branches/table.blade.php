@@ -52,8 +52,8 @@
                         defaultContent: '-'
                     },
                     {
-                        data: 'id',
-                        name: 'branches.id',
+                        data: 'branch_user_count',
+                        name: 'branch_user_counts.count',
                         defaultContent: '-'
                     },
                     {
