@@ -25,6 +25,10 @@ class BranchController extends Controller
                         'branches.*',
                     );
 
+                if (isset($request['get_by_company_id'])) {
+                    $query->where('branches.company_id', $request['get_by_company_id']);
+                }
+
                 $dataTable = DataTables::of($query);
 
                 $dataTable->editColumn('action', function ($row) {
