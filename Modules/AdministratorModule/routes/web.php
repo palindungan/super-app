@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\AdministratorModule\Http\Company\Controllers\BranchController;
+use Modules\AdministratorModule\Http\Controllers\Company\BranchController;
 use Modules\AdministratorModule\Http\Controllers\CompanyController;
 use Modules\AdministratorModule\Http\Controllers\CurrencyController;
 use Modules\AdministratorModule\Http\Controllers\RoleController;

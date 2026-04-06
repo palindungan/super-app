@@ -1,20 +1,21 @@
 <?php
 
-namespace Modules\AdministratorModule\Http\Company\Controllers;
+namespace Modules\AdministratorModule\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
 use App\Models\Branch;
-use Modules\AdministratorModule\Http\Company\Requests\StoreBranchRequest;
-use Modules\AdministratorModule\Http\Company\Requests\UpdateBranchRequest;
+use App\Models\Company;
+use Modules\AdministratorModule\Http\Requests\Company\StoreBranchRequest;
+use Modules\AdministratorModule\Http\Requests\Company\UpdateBranchRequest;
 
 class BranchController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Company $company)
     {
-        //
+        return "companies.branches.index";
     }
 
     /**

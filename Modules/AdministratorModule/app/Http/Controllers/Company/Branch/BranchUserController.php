@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\AdministratorModule\Http\Company\Branch\Controllers;
+namespace Modules\AdministratorModule\Http\Requests\Company\Branch;
 
 use App\Http\Controllers\Controller;
 use App\Models\BranchUser;
-use Modules\AdministratorModule\Http\Company\Branch\Requests\StoreBranchUserRequest;
-use Modules\AdministratorModule\Http\Company\Branch\Requests\UpdateBranchUserRequest;
+use Modules\AdministratorModule\Http\Requests\Company\Branch\StoreBranchUserRequest;
+use Modules\AdministratorModule\Http\Requests\Company\Branch\UpdateBranchUserRequest;
 
 class BranchUserController extends Controller
 {

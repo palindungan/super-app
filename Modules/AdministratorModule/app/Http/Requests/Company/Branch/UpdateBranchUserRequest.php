@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\AdministratorModule\Http\Company\Branch\Requests;
+namespace Modules\AdministratorModule\Http\Requests\Company\Branch;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
