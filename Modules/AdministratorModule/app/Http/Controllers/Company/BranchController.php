@@ -68,7 +68,7 @@ class BranchController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Company $company, StoreBranchRequest $request)
+    public function store(StoreBranchRequest $request, Company $company)
     {
         if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator.companies.edit', [$company->id, 'tab' => 'branches']))
             ->withInput()
@@ -84,7 +84,7 @@ class BranchController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Branch $branch)
+    public function show(Company $company, Branch $branch)
     {
         //
     }
@@ -92,7 +92,7 @@ class BranchController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Branch $branch)
+    public function edit(Company $company, Branch $branch)
     {
         //
     }
@@ -100,7 +100,7 @@ class BranchController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBranchRequest $request, Branch $branch)
+    public function update(UpdateBranchRequest $request, Company $company, Branch $branch)
     {
         //
     }
@@ -108,7 +108,7 @@ class BranchController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Branch $branch)
+    public function destroy(Company $company, Branch $branch)
     {
         //
     }
