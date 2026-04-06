@@ -60,9 +60,9 @@ class BranchController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Company $company)
     {
-        //
+        return view('administratormodule::companies.branches.create')->with('company', $company);
     }
 
     /**

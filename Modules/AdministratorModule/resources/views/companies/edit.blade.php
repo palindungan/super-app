@@ -8,6 +8,10 @@
         @include('components.layouts.master_1.breadcrumb.main', [
             'breadcrumbs' => [
                 ['label' => 'Perusahaan', 'url' => route('administrator.companies.index')],
+                [
+                    'label' => $company->name,
+                    'url' => route('administrator.companies.edit', [$company->id, 'tab' => request()->tab]),
+                ],
                 ['label' => 'Ubah'],
             ],
         ])
