@@ -127,9 +127,9 @@
                     </span>
                     <h4 class="text-section">Administrator</h4>
                 </li>
-                @can('administrator-companies.index')
+                @can('administrator.companies.index')
                     <li class="nav-item @yield('sidebar.administrator.companies.active')">
-                        <a href="{{ route('administrator-companies.index') }}">
+                        <a href="{{ route('administrator.companies.index') }}">
                             <i class="fas fa-building"></i>
                             <p>Perusahaan</p>
                         </a>
@@ -141,17 +141,17 @@
                         <p>Saldo</p>
                     </a>
                 </li>
-                @can('administrator-currencies.index')
+                @can('administrator.currencies.index')
                     <li class="nav-item @yield('sidebar.administrator.currencies.active')">
-                        <a href="{{ route('administrator-currencies.index') }}">
+                        <a href="{{ route('administrator.currencies.index') }}">
                             <i class="fas fa-money-bill-wave-alt"></i>
                             <p>Mata Uang</p>
                         </a>
                     </li>
                 @endcan
-                @can('administrator-roles.index')
+                @can('administrator.roles.index')
                     <li class="nav-item @yield('sidebar.administrator.roles.active')">
-                        <a href="{{ route('administrator-roles.index') }}">
+                        <a href="{{ route('administrator.roles.index') }}">
                             <i class="fas fa-user-shield"></i>
                             <p>Peran dan Izin</p>
                         </a>

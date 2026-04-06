@@ -13,7 +13,7 @@
         <h3 class="fw-bold mb-3">Mata Uang</h3>
         @include('components.layouts.master_1.breadcrumb.main', [
             'breadcrumbs' => [
-                ['label' => 'Mata Uang', 'url' => route('administrator-currencies.index')],
+                ['label' => 'Mata Uang', 'url' => route('administrator.currencies.index')],
                 ['label' => 'Daftar'],
             ],
         ])
@@ -25,7 +25,7 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Mata Uang</h4>
-                        @can('administrator-currencies.create')
+                        @can('administrator.currencies.create')
                             <button class="btn btn-primary btn-round ms-auto" onclick="createAction()">
                                 <i class="fa fa-plus"></i>
                                 Buat Mata Uang
@@ -44,7 +44,7 @@
 @endsection
 
 @include('components.resources.assets.simple_modal_create', [
-    'url' => route('administrator-currencies.store'),
+    'url' => route('administrator.currencies.store'),
 ])
 @include('components.resources.assets.simple_modal_edit')
 @include('components.resources.assets.simple_modal_show')

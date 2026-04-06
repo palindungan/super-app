@@ -13,11 +13,11 @@ class CompanyController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:administrator-companies.index')->only('index');
-        $this->middleware('can:administrator-companies.create')->only(['create', 'store']);
-        $this->middleware('can:administrator-companies.show')->only('show');
-        $this->middleware('can:administrator-companies.edit')->only(['edit', 'update']);
-        $this->middleware('can:administrator-companies.destroy')->only('destroy');
+        $this->middleware('can:administrator.companies.index')->only('index');
+        $this->middleware('can:administrator.companies.create')->only(['create', 'store']);
+        $this->middleware('can:administrator.companies.show')->only('show');
+        $this->middleware('can:administrator.companies.edit')->only(['edit', 'update']);
+        $this->middleware('can:administrator.companies.destroy')->only('destroy');
     }
 
     /**
@@ -66,14 +66,14 @@ class CompanyController extends Controller
      */
     public function store(StoreCompanyRequest $request)
     {
-        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator-companies.index'))
+        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator.companies.index'))
             ->withInput()
             ->with('error', $response);
 
         $input = $request->all();
         $company = Company::create($input);
 
-        return redirect(route('administrator-companies.index'))->with('success', "Data berhasil dibuat");
+        return redirect(route('administrator.companies.index'))->with('success', "Data berhasil dibuat");
     }
 
     /**
@@ -97,7 +97,7 @@ class CompanyController extends Controller
      */
     public function update(UpdateCompanyRequest $request, Company $company)
     {
-        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator-companies.index'))
+        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator.companies.index'))
             ->withInput()
             ->with('error', $response);
 
@@ -105,10 +105,10 @@ class CompanyController extends Controller
         $company->update($input);
 
         if (!$request->has('tab')) {
-            return redirect(route('administrator-companies.edit', $company->id))->with('success', "Data berhasil diubah");
+            return redirect(route('administrator.companies.edit', $company->id))->with('success', "Data berhasil diubah");
         }
 
-        return redirect(route('administrator-companies.edit', ['company' => $company->id, 'tab' => $request->tab]))->with('success', "Data berhasil diubah");
+        return redirect(route('administrator.companies.edit', ['company' => $company->id, 'tab' => $request->tab]))->with('success', "Data berhasil diubah");
     }
 
     /**

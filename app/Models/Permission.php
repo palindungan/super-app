@@ -30,27 +30,27 @@ class Permission extends Model
                     'permissions' => [
                         [
                             'label' => 'Lihat Apa Saja',
-                            'name' => 'administrator-companies.index',
+                            'name' => 'administrator.companies.index',
                             'guard_name' => 'web',
                         ],
                         [
                             'label' => 'Buat',
-                            'name' => 'administrator-companies.create',
+                            'name' => 'administrator.companies.create',
                             'guard_name' => 'web',
                         ],
                         [
                             'label' => 'Lihat',
-                            'name' => 'administrator-companies.show',
+                            'name' => 'administrator.companies.show',
                             'guard_name' => 'web',
                         ],
                         [
                             'label' => 'Perbarui',
-                            'name' => 'administrator-companies.edit',
+                            'name' => 'administrator.companies.edit',
                             'guard_name' => 'web',
                         ],
                         [
                             'label' => 'Hapus',
-                            'name' => 'administrator-companies.destroy',
+                            'name' => 'administrator.companies.destroy',
                             'guard_name' => 'web',
                         ],
                     ],
@@ -60,27 +60,27 @@ class Permission extends Model
                     'permissions' => [
                         [
                             'label' => 'Lihat Apa Saja',
-                            'name' => 'administrator-currencies.index',
+                            'name' => 'administrator.currencies.index',
                             'guard_name' => 'web',
                         ],
                         [
                             'label' => 'Buat',
-                            'name' => 'administrator-currencies.create',
+                            'name' => 'administrator.currencies.create',
                             'guard_name' => 'web',
                         ],
                         [
                             'label' => 'Lihat',
-                            'name' => 'administrator-currencies.show',
+                            'name' => 'administrator.currencies.show',
                             'guard_name' => 'web',
                         ],
                         [
                             'label' => 'Perbarui',
-                            'name' => 'administrator-currencies.edit',
+                            'name' => 'administrator.currencies.edit',
                             'guard_name' => 'web',
                         ],
                         [
                             'label' => 'Hapus',
-                            'name' => 'administrator-currencies.destroy',
+                            'name' => 'administrator.currencies.destroy',
                             'guard_name' => 'web',
                         ],
                     ],
@@ -90,27 +90,27 @@ class Permission extends Model
                     'permissions' => [
                         [
                             'label' => 'Lihat Apa Saja',
-                            'name' => 'administrator-roles.index',
+                            'name' => 'administrator.roles.index',
                             'guard_name' => 'web',
                         ],
                         [
                             'label' => 'Buat',
-                            'name' => 'administrator-roles.create',
+                            'name' => 'administrator.roles.create',
                             'guard_name' => 'web',
                         ],
                         [
                             'label' => 'Lihat',
-                            'name' => 'administrator-roles.show',
+                            'name' => 'administrator.roles.show',
                             'guard_name' => 'web',
                         ],
                         [
                             'label' => 'Perbarui',
-                            'name' => 'administrator-roles.edit',
+                            'name' => 'administrator.roles.edit',
                             'guard_name' => 'web',
                         ],
                         [
                             'label' => 'Hapus',
-                            'name' => 'administrator-roles.destroy',
+                            'name' => 'administrator.roles.destroy',
                             'guard_name' => 'web',
                         ],
                     ],

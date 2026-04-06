@@ -80,7 +80,7 @@
             placeholder: 'Cari Mata Uang...',
             // minimumInputLength: 1,
             ajax: {
-                url: `{{ route('administrator-currencies.select2') }}`,
+                url: `{{ route('administrator.currencies.select2') }}`,
                 dataType: 'json',
                 delay: 250,
                 data: function(params) {

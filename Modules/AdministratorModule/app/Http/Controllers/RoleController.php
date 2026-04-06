@@ -15,11 +15,11 @@ class RoleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:administrator-roles.index')->only('index');
-        $this->middleware('can:administrator-roles.create')->only(['create', 'store']);
-        $this->middleware('can:administrator-roles.show')->only('show');
-        $this->middleware('can:administrator-roles.edit')->only(['edit', 'update']);
-        $this->middleware('can:administrator-roles.destroy')->only('destroy');
+        $this->middleware('can:administrator.roles.index')->only('index');
+        $this->middleware('can:administrator.roles.create')->only(['create', 'store']);
+        $this->middleware('can:administrator.roles.show')->only('show');
+        $this->middleware('can:administrator.roles.edit')->only(['edit', 'update']);
+        $this->middleware('can:administrator.roles.destroy')->only('destroy');
     }
 
     /**
@@ -93,7 +93,7 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator-roles.index'))
+        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator.roles.index'))
             ->withInput()
             ->with('error', $response);
 
@@ -108,7 +108,7 @@ class RoleController extends Controller
         }
         $role->syncPermissions($permissions);
 
-        return redirect(route('administrator-roles.index'))->with('success', "Data berhasil dibuat");
+        return redirect(route('administrator.roles.index'))->with('success', "Data berhasil dibuat");
     }
 
     /**
@@ -142,7 +142,7 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator-roles.index'))
+        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator.roles.index'))
             ->withInput()
             ->with('error', $response);
 
@@ -157,7 +157,7 @@ class RoleController extends Controller
         }
         $role->syncPermissions($permissions);
 
-        return redirect(route('administrator-roles.index'))->with('success', "Data berhasil diubah");
+        return redirect(route('administrator.roles.index'))->with('success', "Data berhasil diubah");
     }
 
     /**

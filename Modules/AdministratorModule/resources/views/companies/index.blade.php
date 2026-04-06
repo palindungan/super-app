@@ -9,7 +9,7 @@
         <h3 class="fw-bold mb-3">Perusahaan</h3>
         @include('components.layouts.master_1.breadcrumb.main', [
             'breadcrumbs' => [
-                ['label' => 'Perusahaan', 'url' => route('administrator-companies.index')],
+                ['label' => 'Perusahaan', 'url' => route('administrator.companies.index')],
                 ['label' => 'Daftar'],
             ],
         ])
@@ -21,8 +21,8 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Perusahaan</h4>
-                        @can('administrator-companies.create')
-                            <a class="btn btn-primary btn-round ms-auto" href="{{ route('administrator-companies.create') }}">
+                        @can('administrator.companies.create')
+                            <a class="btn btn-primary btn-round ms-auto" href="{{ route('administrator.companies.create') }}">
                                 <i class="fa fa-plus"></i>
                                 Buat Perusahaan
                             </a>
