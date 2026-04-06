@@ -1,4 +1,14 @@
-@include('components.resources.assets.index')
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('assets/css/plugin/datatables/dataTables.bootstrap5.min.css') }}" />
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('assets/js/plugin/datatables/dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugin/datatables/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugin/sweetalert2/sweetalert2@11.js') }}"></script>
+
+    @include('components.popups.sweetalert2')
+@endpush
 
 <div class="row">
     <div class="col-md-12">
