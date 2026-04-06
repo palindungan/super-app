@@ -157,7 +157,7 @@ class RoleController extends Controller
         }
         $role->syncPermissions($permissions);
 
-        return redirect(route('administrator.roles.index'))->with('success', "Data berhasil diubah");
+        return redirect(route('administrator.roles.edit', $role->id))->with('success', "Data berhasil diubah");
     }
 
     /**
