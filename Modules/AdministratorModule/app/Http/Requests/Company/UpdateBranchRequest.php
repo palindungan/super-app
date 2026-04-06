@@ -4,6 +4,7 @@ namespace Modules\AdministratorModule\Http\Requests\Company;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateBranchRequest extends FormRequest
 {
@@ -23,7 +24,14 @@ class UpdateBranchRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'code' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('branches', 'code')->ignore($this->route('branch')),
+            ],
+            'name' => 'required|string|max:255',
+            'company_id' => 'required|exists:companies,id',
         ];
     }
 }
