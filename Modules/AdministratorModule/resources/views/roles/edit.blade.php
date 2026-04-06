@@ -8,6 +8,10 @@
         @include('components.layouts.master_1.breadcrumb.main', [
             'breadcrumbs' => [
                 ['label' => 'Peran', 'url' => route('administrator.roles.index')],
+                [
+                    'label' => $role->name,
+                    'url' => route('administrator.roles.edit', [$role->id]),
+                ],
                 ['label' => 'Ubah'],
             ],
         ])
