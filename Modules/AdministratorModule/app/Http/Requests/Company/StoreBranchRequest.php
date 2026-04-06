@@ -25,7 +25,7 @@ class StoreBranchRequest extends FormRequest
         return [
             'code' => 'required|string|max:255|unique:branches',
             'name' => 'required|string|max:255',
-            'company_id' => 'required|exists:companies,id',
+            // 'company_id' => 'required|exists:companies,id',
         ];
     }
 }

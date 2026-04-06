@@ -31,7 +31,7 @@ class UpdateBranchRequest extends FormRequest
                 Rule::unique('branches', 'code')->ignore($this->route('branch')),
             ],
             'name' => 'required|string|max:255',
-            'company_id' => 'required|exists:companies,id',
+            // 'company_id' => 'required|exists:companies,id',
         ];
     }
 }
