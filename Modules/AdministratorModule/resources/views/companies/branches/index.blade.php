@@ -16,7 +16,7 @@
             <div class="card-header">
                 <div class="d-flex align-items-center">
                     <h4 class="card-title">Cabang</h4>
-                    <a class="btn btn-primary btn-round ms-auto" href="">
+                    <a class="btn btn-primary btn-round ms-auto" href="{{ route('administrator.companies.branches.create', $company->id) }}">
                         <i class="fa fa-plus"></i>
                         Buat Cabang
                     </a>
