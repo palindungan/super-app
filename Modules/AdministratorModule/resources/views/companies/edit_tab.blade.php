@@ -74,3 +74,7 @@
         Saldo
     </div>
 </div> --}}
+
+@if ($tab == 'branches')
+    @include('administratormodule::companies.branches.index')
+@endif
