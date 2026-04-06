@@ -110,6 +110,17 @@ class BranchController extends Controller
      */
     public function destroy(Company $company, Branch $branch)
     {
-        //
+        $request = request();
+
+        if ($request->ajax()) {
+            $branch->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dihapus',
+                // 'data' => null,
+                // 'errors' => null,
+            ], 200);
+        }
     }
 }
