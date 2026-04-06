@@ -28,7 +28,7 @@
                     url: "{{ route('administrator.companies.branches.index', $company->id) }}",
                     data: function(d) {
                         d.datatable = 'main';
-                        d.get_by_company_id = '{{ $company->id }}';
+                        d.get_by_company_id = {{ $company->id }};
                     },
                     error: function(xhr) {
                         try {
