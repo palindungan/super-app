@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Branch;
 use App\Models\BranchUser;
 use App\Models\Company;
+use App\Repositories\BranchUserRepository;
 use Modules\AdministratorModule\Http\Requests\Company\Branch\StoreBranchUserRequest;
 use Modules\AdministratorModule\Http\Requests\Company\Branch\UpdateBranchUserRequest;
 use Yajra\DataTables\Facades\DataTables;
@@ -20,9 +21,11 @@ class BranchUserController extends Controller
         $request = request();
         if ($request->ajax()) {
             if ($request->datatable == 'main') {
-                $query = BranchUser::query()->select(
-                    'branch_users.*',
-                );
+                $query = BranchUserRepository::getQuery()
+                    ->select(
+                        'branch_users.*',
+                        'users.name as user_name'
+                    );
 
                 $query->where('branch_users.branch_id', $branch->id);
 

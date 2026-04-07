@@ -4,8 +4,7 @@
     <table id="datatable" class="display table table-striped table-hover">
         <thead>
             <tr>
-                <th>branch_id</th>
-                <th>user_id</th>
+                <th>Nama</th>
                 <th></th>
             </tr>
         </thead>
@@ -40,13 +39,8 @@
                     [0, 'asc']
                 ],
                 columns: [{
-                        data: 'branch_id',
-                        name: 'branch_users.branch_id',
-                        defaultContent: '-'
-                    },
-                    {
-                        data: 'user_id',
-                        name: 'branch_users.user_id',
+                        data: 'user_name',
+                        name: 'users.name',
                         defaultContent: '-'
                     },
                     {
