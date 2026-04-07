@@ -104,7 +104,16 @@ class BranchController extends Controller
      */
     public function update(UpdateBranchRequest $request, Company $company, Branch $branch)
     {
-        //
+        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('administrator.companies.edit', [$company->id, 'tab' => 'branches']))
+            ->withInput()
+            ->with('error', $response);
+
+        $branch->update([
+            "code" => $request->code,
+            "name" => $request->name,
+        ]);
+
+        return redirect(route('administrator.companies.branches.edit', [$branch->company_id, $branch->id]))->with('success', "Data berhasil diubah");
     }
 
     /**
