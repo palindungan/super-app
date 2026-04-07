@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Branch extends Model
 {
@@ -11,4 +12,9 @@ class Branch extends Model
         'code',
         'name',
     ];
+
+    public function branch_users(): HasMany
+    {
+        return $this->hasMany(BranchUser::class);
+    }
 }
