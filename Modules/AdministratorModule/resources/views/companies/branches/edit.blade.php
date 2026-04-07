@@ -25,16 +25,16 @@
         ])
     </div>
 
-    <form action="{{ route('administrator.companies.branches.update', [$branch->company_id, $branch->id]) }}" method="POST"
-        onsubmit="formOnSubmitButton(this)">
-        @include('components.forms.data', ['method' => 'PUT'])
-        <div class="row">
+    <div class="row">
+        <form action="{{ route('administrator.companies.branches.update', [$branch->company_id, $branch->id]) }}"
+            method="POST" onsubmit="formOnSubmitButton(this)">
+            @include('components.forms.data', ['method' => 'PUT'])
             @include('administratormodule::companies.branches.fields')
             <div class="col-md-12">
                 <button type="submit" class="btn btn-warning">Ubah</button>
                 <a class="btn btn-light"
                     href="{{ route('administrator.companies.edit', [$company->id, 'tab' => 'branches']) }}">Batal</a>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 @endsection
