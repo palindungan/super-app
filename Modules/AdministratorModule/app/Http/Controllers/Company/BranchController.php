@@ -27,9 +27,7 @@ class BranchController extends Controller
                         DB::raw('COALESCE(branch_user_counts.count, 0) as branch_user_count'),
                     );
 
-                if (isset($request['get_by_company_id'])) {
-                    $query->where('branches.company_id', $request['get_by_company_id']);
-                }
+                $query->where('branches.company_id', $company->id);
 
                 $dataTable = DataTables::of($query);
 
