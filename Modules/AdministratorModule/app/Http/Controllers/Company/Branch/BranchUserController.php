@@ -1,20 +1,46 @@
 <?php
 
-namespace Modules\AdministratorModule\Http\Requests\Company\Branch;
+namespace Modules\AdministratorModule\Http\Controllers\Company\Branch;
 
 use App\Http\Controllers\Controller;
+use App\Models\Branch;
 use App\Models\BranchUser;
+use App\Models\Company;
 use Modules\AdministratorModule\Http\Requests\Company\Branch\StoreBranchUserRequest;
 use Modules\AdministratorModule\Http\Requests\Company\Branch\UpdateBranchUserRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class BranchUserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Company $company, Branch $branch)
     {
-        //
+        $request = request();
+        if ($request->ajax()) {
+            if ($request->datatable == 'main') {
+                $query = BranchUser::query()->select(
+                    'branch_users.*',
+                );
+
+                $query->where('branch_users.branch_id', $branch->id);
+
+                $dataTable = DataTables::of($query);
+
+                $dataTable->editColumn('action', function ($row) {
+                    $result = view('administratormodule::companies.branches.branch_users.table_action', compact('row'))->render();
+                    if ($result) {
+                        return $result;
+                    }
+                    return null;
+                });
+
+                $dataTable->rawColumns(['action']);
+
+                return $dataTable->make(true);
+            }
+        }
     }
 
     /**
