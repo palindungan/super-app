@@ -17,7 +17,7 @@
                 <h4 class="card-title">Daftar Pengguna Cabang {{ $branch->name }}</h4>
                 <button class="btn btn-primary btn-round ms-auto" onclick="createAction()">
                     <i class="fa fa-plus"></i>
-                    Tambah Pengguna ke Cabang
+                    Daftarkan Pengguna ke Cabang
                 </button>
             </div>
         </div>
