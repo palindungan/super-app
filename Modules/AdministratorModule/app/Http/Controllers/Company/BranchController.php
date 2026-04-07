@@ -94,7 +94,9 @@ class BranchController extends Controller
      */
     public function edit(Company $company, Branch $branch)
     {
-        //
+        return view('administratormodule::companies.branches.edit')
+            ->with('company', $company)
+            ->with('branch', $branch);
     }
 
     /**

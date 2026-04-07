@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="page-header">
-        <h3 class="fw-bold mb-3">Buat Cabang</h3>
+        <h3 class="fw-bold mb-3">Ubah Cabang</h3>
         @include('components.layouts.master_1.breadcrumb.main', [
             'breadcrumbs' => [
                 ['label' => 'Perusahaan', 'url' => route('administrator.companies.index')],
@@ -16,18 +16,22 @@
                     'label' => 'Cabang',
                     'url' => route('administrator.companies.edit', [$company->id, 'tab' => 'branches']),
                 ],
-                ['label' => 'Buat'],
+                [
+                    'label' => $branch->name,
+                    'url' => route('administrator.companies.branches.edit', [$branch->company_id, $branch->id]),
+                ],
+                ['label' => 'Ubah'],
             ],
         ])
     </div>
 
-    <form action="{{ route('administrator.companies.branches.store', $company->id) }}" method="POST"
+    <form action="{{ route('administrator.companies.branches.update', [$branch->company_id, $branch->id]) }}" method="POST"
         onsubmit="formOnSubmitButton(this)">
-        @include('components.forms.data', ['method' => 'POST'])
+        @include('components.forms.data', ['method' => 'PUT'])
         <div class="row">
             @include('administratormodule::companies.branches.fields')
             <div class="col-md-12">
-                <button type="submit" class="btn btn-warning">Buat</button>
+                <button type="submit" class="btn btn-warning">Ubah</button>
                 <a class="btn btn-light"
                     href="{{ route('administrator.companies.edit', [$company->id, 'tab' => 'branches']) }}">Batal</a>
             </div>
