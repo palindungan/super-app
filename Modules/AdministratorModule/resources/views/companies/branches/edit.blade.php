@@ -30,7 +30,7 @@
             method="POST" onsubmit="formOnSubmitButton(this)">
             @include('components.forms.data', ['method' => 'PUT'])
             @include('administratormodule::companies.branches.fields')
-            <div class="col-md-12">
+            <div class="col-md-12" style="margin-bottom: 30px;">
                 <button type="submit" class="btn btn-warning">Ubah</button>
                 <a class="btn btn-light"
                     href="{{ route('administrator.companies.edit', [$company->id, 'tab' => 'branches']) }}">Batal</a>
