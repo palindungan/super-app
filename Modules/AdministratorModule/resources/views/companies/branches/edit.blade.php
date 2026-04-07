@@ -36,5 +36,6 @@
                     href="{{ route('administrator.companies.edit', [$company->id, 'tab' => 'branches']) }}">Batal</a>
             </div>
         </form>
+        @include('administratormodule::companies.branches.branch_users.index')
     </div>
 @endsection
