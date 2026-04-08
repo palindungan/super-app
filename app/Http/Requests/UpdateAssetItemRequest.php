@@ -31,6 +31,13 @@ class UpdateAssetItemRequest extends FormRequest
                 Rule::unique('asset_items', 'code')->ignore($this->route('asset_item')),
             ],
             'name' => 'required|string|max:255',
+            'purchase_date' => 'required|date',
+            'purchase_price' => 'required|numeric|min:0',
+            'quantity' => 'required|integer|min:0',
+            'photo' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+
+            'asset_category_id' => 'required|integer|exists:asset_categories,id',
+            'asset_status_id' => 'required|integer|exists:asset_statuses,id',
         ];
     }
 }
