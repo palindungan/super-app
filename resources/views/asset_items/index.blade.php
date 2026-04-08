@@ -10,10 +10,11 @@
 
 @section('content')
     <div class="page-header">
-        <h3 class="fw-bold mb-3">Aset Barang</h3>
+        <h3 class="fw-bold mb-3">Barang</h3>
         @include('components.layouts.master_1.breadcrumb.main', [
             'breadcrumbs' => [
-                ['label' => 'Aset Barang', 'url' => route('asset_items.index')],
+                ['label' => 'Aset'],
+                ['label' => 'Barang', 'url' => route('asset_items.index')],
                 ['label' => 'Daftar'],
             ],
         ])
@@ -24,10 +25,10 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Aset Barang</h4>
+                        <h4 class="card-title">Barang</h4>
                         <button class="btn btn-primary btn-round ms-auto" onclick="createAction()">
                             <i class="fa fa-plus"></i>
-                            Buat Aset Barang
+                            Buat Barang
                         </button>
                     </div>
                 </div>

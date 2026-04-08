@@ -42,7 +42,7 @@
                 <li class="nav-item @yield('sidebar.asset_items.active')">
                     <a href="{{ route('asset_items.index') }}">
                         <i class="fas fa-boxes"></i>
-                        <p>Aset</p>
+                        <p>Barang</p>
                     </a>
                 </li>
                 <li class="nav-item @yield('sidebar.categories.active')">
