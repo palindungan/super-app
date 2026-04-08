@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('purchase_date')->nullable();
             $table->decimal('purchase_price', 15, 2)->nullable();
             $table->unsignedInteger('quantity')->nullable();
-            $table->string('photo')->nullable();
+            $table->text('photo')->nullable();
 
             $table->timestamps();
         });
