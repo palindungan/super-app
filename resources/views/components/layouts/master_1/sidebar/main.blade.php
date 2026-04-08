@@ -40,19 +40,19 @@
                     <h4 class="text-section">Data Aset</h4>
                 </li>
                 <li class="nav-item @yield('sidebar.data_master.assets.active')">
-                    <a href="">
+                    <a href="{{ route('asset_items.index') }}">
                         <i class="fas fa-boxes"></i>
                         <p>Aset</p>
                     </a>
                 </li>
                 <li class="nav-item @yield('sidebar.data_master.categories.active')">
-                    <a href="">
+                    <a href="{{ route('asset_categories.index') }}">
                         <i class="fas fa-boxes"></i>
                         <p>Kategori</p>
                     </a>
                 </li>
                 <li class="nav-item @yield('sidebar.data_master.statuses.active')">
-                    <a href="">
+                    <a href="{{ route('asset_statuses.index') }}">
                         <i class="fas fa-boxes"></i>
                         <p>Status</p>
                     </a>
