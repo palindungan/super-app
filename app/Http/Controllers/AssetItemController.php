@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\AssetItem;
 use App\Http\Requests\StoreAssetItemRequest;
 use App\Http\Requests\UpdateAssetItemRequest;
+use App\Models\AssetCategory;
+use App\Models\AssetStatus;
 use App\Repositories\AssetItemRepository;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -44,7 +46,25 @@ class AssetItemController extends Controller
             }
         }
 
-        return view('asset_items.index');
+        $asset_categories = [null => 'Pilih Kategori'] + AssetCategory::query()
+            ->select('asset_categories.*')
+            ->orderBy('asset_categories.name', 'asc')
+            ->pluck('name', 'id')
+            ->toArray();
+
+        $asset_statuses = [null => 'Pilih Status'] + AssetStatus::query()
+            ->select('asset_statuses.*')
+            ->orderBy('asset_statuses.name', 'asc')
+            ->pluck('name', 'id')
+            ->toArray();
+
+        return view(
+            'asset_items.index',
+            compact(
+                'asset_categories',
+                'asset_statuses',
+            )
+        );
     }
 
     /**

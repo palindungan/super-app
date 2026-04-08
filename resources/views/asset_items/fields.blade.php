@@ -22,7 +22,7 @@
                         <div class="col-md-6">
                             <div class="form-group" id="code_group">
                                 <label for="code">Kode</label>
-                                <input type="text" class="form-control form-control" autocomplete="off"
+                                <input type="text" class="form-control" autocomplete="off"
                                     id="code" name="code" />
                                 <small class="form-text text-muted text-danger" id="code_error"></small>
                             </div>
@@ -30,7 +30,7 @@
                         <div class="col-md-6">
                             <div class="form-group" id="name_group">
                                 <label for="name">Nama</label>
-                                <input type="text" class="form-control form-control" autocomplete="off"
+                                <input type="text" class="form-control" autocomplete="off"
                                     id="name" name="name" />
                                 <small class="form-text text-muted text-danger" id="name_error"></small>
                             </div>
@@ -39,15 +39,18 @@
                         <div class="col-md-6">
                             <div class="form-group" id="asset_category_id_group">
                                 <label for="asset_category_id">Kategori</label>
-                                <input type="text" class="form-control form-control" autocomplete="off"
-                                    id="asset_category_id" name="asset_category_id" />
+                                <select class="form-control" id="asset_category_id" name="asset_category_id">
+                                    @foreach ($asset_categories as $id => $name)
+                                        <option value="{{ $id }}">{{ $name }}</option>
+                                    @endforeach
+                                </select>
                                 <small class="form-text text-muted text-danger" id="asset_category_id_error"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group" id="purchase_date_group">
                                 <label for="purchase_date">Tanggal Beli</label>
-                                <input type="text" class="form-control form-control" autocomplete="off"
+                                <input type="date" class="form-control" autocomplete="off"
                                     id="purchase_date" name="purchase_date" />
                                 <small class="form-text text-muted text-danger" id="purchase_date_error"></small>
                             </div>
@@ -56,7 +59,7 @@
                         <div class="col-md-6">
                             <div class="form-group" id="purchase_price_group">
                                 <label for="purchase_price">Harga Beli</label>
-                                <input type="text" class="form-control form-control" autocomplete="off"
+                                <input type="number" class="form-control" autocomplete="off"
                                     id="purchase_price" name="purchase_price" />
                                 <small class="form-text text-muted text-danger" id="purchase_price_error"></small>
                             </div>
@@ -64,7 +67,7 @@
                         <div class="col-md-6">
                             <div class="form-group" id="quantity_group">
                                 <label for="quantity">Jumlah</label>
-                                <input type="text" class="form-control form-control" autocomplete="off"
+                                <input type="number" class="form-control" autocomplete="off"
                                     id="quantity" name="quantity" />
                                 <small class="form-text text-muted text-danger" id="quantity_error"></small>
                             </div>
@@ -73,15 +76,18 @@
                         <div class="col-md-6">
                             <div class="form-group" id="asset_status_id_group">
                                 <label for="asset_status_id">Status</label>
-                                <input type="text" class="form-control form-control" autocomplete="off"
-                                    id="asset_status_id" name="asset_status_id" />
+                                <select class="form-control" id="asset_status_id" name="asset_status_id">
+                                    @foreach ($asset_statuses as $id => $name)
+                                        <option value="{{ $id }}">{{ $name }}</option>
+                                    @endforeach
+                                </select>
                                 <small class="form-text text-muted text-danger" id="asset_status_id_error"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group" id="photo_group">
                                 <label for="photo">Foto</label>
-                                <input type="text" class="form-control form-control" autocomplete="off"
+                                <input type="text" class="form-control" autocomplete="off"
                                     id="photo" name="photo" />
                                 <small class="form-text text-muted text-danger" id="photo_error"></small>
                             </div>
