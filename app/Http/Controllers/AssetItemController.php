@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateAssetItemRequest;
 use App\Models\AssetCategory;
 use App\Models\AssetStatus;
 use App\Repositories\AssetItemRepository;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class AssetItemController extends Controller
@@ -108,16 +109,17 @@ class AssetItemController extends Controller
                 $file = $request->file('photo');
                 $extension = $file->getClientOriginalExtension();
                 $filename = $asset_item->id . '.' . $extension;
-
                 $path = $file->storeAs(
                     'asset_items/photo',
                     $filename,
                     'public'
                 );
 
-                $asset_item->update([
-                    'photo' => $path
-                ]);
+                if ($path) {
+                    $asset_item->update([
+                        'photo' => $path
+                    ]);
+                }
             }
 
             return response()->json([
@@ -157,7 +159,50 @@ class AssetItemController extends Controller
      */
     public function update(UpdateAssetItemRequest $request, AssetItem $assetItem)
     {
-        //
+        if ($request->ajax()) {
+            if ($response = tokenFormCheck($request->_token_form)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $response,
+                    // 'data' => null,
+                    // 'errors' => null,
+                ], 422);
+            }
+
+            $input = $request->all();
+
+            // proses upload photo
+            if ($request->hasFile('photo')) {
+                // hapus photo lama jika ada
+                if ($assetItem->photo && Storage::disk('public')->exists($assetItem->photo)) {
+                    Storage::disk('public')->delete($assetItem->photo);
+                }
+
+                $file = $request->file('photo');
+                $extension = $file->getClientOriginalExtension();
+                $filename = $assetItem->id . '.' . $extension;
+                $path = $file->storeAs(
+                    'asset_items/photo',
+                    $filename,
+                    'public'
+                );
+
+                if ($path) {
+                    $input['photo'] = $path;
+                }
+            }
+
+            $assetItem->update($input);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil diubah',
+                'data' => [
+                    '_token_form' => tokenFormGenerate(),
+                ],
+                // 'errors' => null,
+            ], 200);
+        }
     }
 
     /**
