@@ -9,5 +9,49 @@
 @endpush
 
 @section('content')
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Aset Barang</h3>
+        @include('components.layouts.master_1.breadcrumb.main', [
+            'breadcrumbs' => [
+                ['label' => 'Aset Barang', 'url' => route('asset_items.index')],
+                ['label' => 'Daftar'],
+            ],
+        ])
+    </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h4 class="card-title">Aset Barang</h4>
+                        @can('asset_items.create')
+                            <button class="btn btn-primary btn-round ms-auto" onclick="createAction()">
+                                <i class="fa fa-plus"></i>
+                                Buat Aset Barang
+                            </button>
+                        @endcan
+                    </div>
+                </div>
+                <div class="card-body">
+                    @include('asset_items.table')
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @include('asset_items.fields')
 @endsection
+
+@include('components.resources.assets.simple_modal_create', [
+    'url' => route('asset_items.store'),
+])
+@include('components.resources.assets.simple_modal_edit')
+@include('components.resources.assets.simple_modal_show')
+@push('scripts')
+    <script>
+        function editTitleData(data) {
+            $('#edit_title_data').text(data.name);
+        }
+    </script>
+@endpush
