@@ -18,6 +18,13 @@
             </tr>
         </thead>
         <tbody></tbody>
+        <tfoot>
+            <tr>
+                <th colspan="6" class="text-end">Total:</th>
+                <th id="footer-asset-value">-</th>
+                <th colspan="4"></th>
+            </tr>
+        </tfoot>
     </table>
 </div>
 
@@ -109,7 +116,14 @@
                     }
                 ],
                 stateSave: true,
-                searchDelay: 500
+                searchDelay: 500,
+
+                footerCallback: function(row, data, start, end, display) {
+                    let json = this.api().ajax.json();
+                    if (json && json.totals) {
+                        $('#footer-asset-value').text(json.totals.total_asset_value);
+                    }
+                },
             });
         });
     </script>

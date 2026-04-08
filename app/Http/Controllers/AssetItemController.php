@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateAssetItemRequest;
 use App\Models\AssetCategory;
 use App\Models\AssetStatus;
 use App\Repositories\AssetItemRepository;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -48,6 +49,33 @@ class AssetItemController extends Controller
                         return $result;
                     }
                     return null;
+                });
+
+                $dataTable->with('totals', function () use ($query, $request) {
+                    $filteredQuery = clone $query;
+
+                    if ($search = $request->input('search.value')) {
+                        $filteredQuery->where(function ($q) use ($search) {
+                            $q->where('asset_items.code', 'ilike', "%$search%")
+                                ->orWhere('asset_items.name', 'ilike', "%$search%")
+                                ->orWhere('asset_categories.name', 'ilike', "%$search%")
+                                ->orWhereRaw("CAST(asset_items.purchase_date AS text) ILIKE ?", ["%$search%"])
+                                ->orWhereRaw("CAST(asset_items.purchase_price AS text) ILIKE ?", ["%$search%"])
+                                ->orWhereRaw("CAST(asset_items.quantity AS text) ILIKE ?", ["%$search%"])
+                                ->orWhereRaw("CAST(asset_item_values.value AS text) ILIKE ?", ["%$search%"])
+                                ->orWhere('asset_statuses.name', 'ilike', "%$search%")
+                                ->orWhereRaw("CAST(asset_items.updated_at AS text) ILIKE ?", ["%$search%"]);
+                        });
+                    }
+
+                    $totals = DB::table(DB::raw("({$filteredQuery->toSql()}) as sub"))
+                        ->mergeBindings($filteredQuery->getQuery())
+                        ->selectRaw('SUM(CAST(purchase_price AS numeric) * CAST(quantity AS numeric)) as total_asset_value')
+                        ->first();
+
+                    return [
+                        'total_asset_value' => $totals->total_asset_value ?? 0,
+                    ];
                 });
 
                 $dataTable->rawColumns(['photo', 'action']);
