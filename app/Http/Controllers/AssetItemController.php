@@ -28,6 +28,14 @@ class AssetItemController extends Controller
 
                 $dataTable = DataTables::of($query);
 
+                $dataTable->editColumn('photo', function ($row) {
+                    if (!$row->photo) {
+                        return null;
+                    }
+                    $url = asset('storage/' . $row->photo);
+                    return '<img src="' . $url . '" width="60">';
+                });
+
                 $dataTable->editColumn('updated_at', function ($row) {
                     return !empty($row->updated_at) ? $row->updated_at->format('Y-m-d H:i:s') : null;
                 });
@@ -40,7 +48,7 @@ class AssetItemController extends Controller
                     return null;
                 });
 
-                $dataTable->rawColumns(['action']);
+                $dataTable->rawColumns(['photo', 'action']);
 
                 return $dataTable->make(true);
             }
