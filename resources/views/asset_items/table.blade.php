@@ -79,7 +79,7 @@
                     },
                     {
                         data: 'asset_value',
-                        name: 'asset_value_sub.value',
+                        name: 'asset_item_values.value',
                         defaultContent: '-'
                     },
                     {

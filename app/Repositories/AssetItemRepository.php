@@ -17,8 +17,8 @@ class AssetItemRepository
         $nilaiAset = DB::table('asset_items')
             ->select('id', DB::raw('(quantity * purchase_price) AS value'));
 
-        $query->leftJoinSub($nilaiAset, 'asset_value_sub', function ($join) {
-            $join->on('asset_items.id', '=', 'asset_value_sub.id');
+        $query->leftJoinSub($nilaiAset, 'asset_item_values', function ($join) {
+            $join->on('asset_items.id', '=', 'asset_item_values.id');
         });
         return $query;
     }
