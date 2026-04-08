@@ -27,7 +27,7 @@
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
                 <li class="nav-item @yield('sidebar.home.active')">
-                    <a href="">
+                    <a href="{{ route('home') }}">
                         <i class="fas fa-home"></i>
                         <p>Beranda</p>
                     </a>
