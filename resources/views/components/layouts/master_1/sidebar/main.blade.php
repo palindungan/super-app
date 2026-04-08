@@ -32,92 +32,29 @@
                         <p>Beranda</p>
                     </a>
                 </li>
-                <li class="nav-item @yield('sidebar.cashier.active')">
-                    <a href="">
-                        <i class="fas fa-tv"></i>
-                        <p>Kasir</p>
-                    </a>
-                </li>
 
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
-                    <h4 class="text-section">Laporan</h4>
+                    <h4 class="text-section">Data Aset</h4>
                 </li>
-                <li class="nav-item @yield('sidebar.report.transactions.active')">
+                <li class="nav-item @yield('sidebar.data_master.assets.active')">
                     <a href="">
-                        <i class="fas fa-clipboard-list"></i>
-                        <p>Transaksi</p>
+                        <i class="fas fa-boxes"></i>
+                        <p>Aset</p>
                     </a>
                 </li>
-
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">Data Produk</h4>
-                </li>
-                <li class="nav-item @yield('sidebar.data_product.products.active')">
+                <li class="nav-item @yield('sidebar.data_master.categories.active')">
                     <a href="">
-                        <i class="fas fa-shopping-basket"></i>
-                        <p>Produk</p>
-                    </a>
-                </li>
-                <li class="nav-item @yield('sidebar.data_product.product_units.active')">
-                    <a href="">
-                        <i class="fas fa-balance-scale"></i>
-                        <p>Satuan</p>
-                    </a>
-                </li>
-                <li class="nav-item @yield('sidebar.data_product.product_categories.active')">
-                    <a href="">
-                        <i class="fas fa-th-large"></i>
+                        <i class="fas fa-boxes"></i>
                         <p>Kategori</p>
                     </a>
                 </li>
-
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">Data Master</h4>
-                </li>
-                <li class="nav-item @yield('sidebar.data_master.branches.active')">
+                <li class="nav-item @yield('sidebar.data_master.statuses.active')">
                     <a href="">
-                        <i class="fas fa-store-alt"></i>
-                        <p>Cabang</p>
-                    </a>
-                </li>
-                <li class="nav-item @yield('sidebar.data_master.users.active')">
-                    <a href="">
-                        <i class="fas fa-user-friends"></i>
-                        <p>Pengguna</p>
-                    </a>
-                </li>
-                <li class="nav-item @yield('sidebar.data_master.customers.active')">
-                    <a href="">
-                        <i class="fas fa-address-card"></i>
-                        <p>Pelanggan</p>
-                    </a>
-                </li>
-                <li class="nav-item @yield('sidebar.data_master.currency_exchange_rates.active')">
-                    <a href="">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <p>Kurs Mata Uang</p>
-                    </a>
-                </li>
-
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">Lain-Lain</h4>
-                </li>
-                <li class="nav-item @yield('sidebar.data_master.balances.active')">
-                    <a href="">
-                        <i class="fas fa-money-check-alt"></i>
-                        <p>Saldo</p>
+                        <i class="fas fa-boxes"></i>
+                        <p>Status</p>
                     </a>
                 </li>
 
