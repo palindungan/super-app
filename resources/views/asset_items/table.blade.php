@@ -77,16 +77,19 @@
                     {
                         data: 'purchase_price',
                         name: 'asset_items.purchase_price',
+                        className: 'text-end',
                         defaultContent: '-'
                     },
                     {
                         data: 'quantity',
                         name: 'asset_items.quantity',
+                        className: 'text-end',
                         defaultContent: '-'
                     },
                     {
                         data: 'asset_value',
                         name: 'asset_item_values.value',
+                        className: 'text-end',
                         defaultContent: '-'
                     },
                     {

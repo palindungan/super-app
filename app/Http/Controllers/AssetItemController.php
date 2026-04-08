@@ -31,6 +31,18 @@ class AssetItemController extends Controller
 
                 $dataTable = DataTables::of($query);
 
+                $dataTable->editColumn('purchase_price', function ($row) {
+                    return number_format($row->purchase_price, 0, ',', '.');
+                });
+
+                $dataTable->editColumn('quantity', function ($row) {
+                    return number_format($row->quantity, 0, ',', '.');
+                });
+
+                $dataTable->editColumn('asset_value', function ($row) {
+                    return number_format($row->asset_value, 0, ',', '.');
+                });
+
                 $dataTable->editColumn('photo', function ($row) {
                     if (!$row->photo) {
                         return null;
@@ -74,7 +86,7 @@ class AssetItemController extends Controller
                         ->first();
 
                     return [
-                        'total_asset_value' => $totals->total_asset_value ?? 0,
+                        'total_asset_value' => number_format($totals->total_asset_value ?? 0, 0, ',', '.'),
                     ];
                 });
 
