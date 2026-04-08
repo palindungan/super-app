@@ -91,7 +91,26 @@ class AssetItemController extends Controller
             }
 
             $input = $request->all();
+
+            // buat asset dulu
             $asset_item = AssetItem::create($input);
+
+            // proses upload photo
+            if ($request->hasFile('photo')) {
+                $file = $request->file('photo');
+                $extension = $file->getClientOriginalExtension();
+                $filename = $asset_item->id . '.' . $extension;
+
+                $path = $file->storeAs(
+                    'asset_items/photo',
+                    $filename,
+                    'public'
+                );
+
+                $asset_item->update([
+                    'photo' => $path
+                ]);
+            }
 
             return response()->json([
                 'success' => true,
