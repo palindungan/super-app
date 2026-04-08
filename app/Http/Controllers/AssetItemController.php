@@ -60,7 +60,28 @@ class AssetItemController extends Controller
      */
     public function store(StoreAssetItemRequest $request)
     {
-        //
+        if ($request->ajax()) {
+            if ($response = tokenFormCheck($request->_token_form)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $response,
+                    // 'data' => null,
+                    // 'errors' => null,
+                ], 422);
+            }
+
+            $input = $request->all();
+            $asset_item = AssetItem::create($input);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dibuat',
+                'data' => [
+                    '_token_form' => tokenFormGenerate(),
+                ],
+                // 'errors' => null,
+            ], 200);
+        }
     }
 
     /**

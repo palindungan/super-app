@@ -12,7 +12,7 @@ class StoreAssetItemRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,8 @@ class StoreAssetItemRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'code' => 'required|string|max:255|unique:asset_items',
+            'name' => 'required|string|max:255',
         ];
     }
 }
