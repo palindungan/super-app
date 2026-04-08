@@ -213,6 +213,11 @@ class AssetItemController extends Controller
         $request = request();
 
         if ($request->ajax()) {
+            // hapus photo jika ada
+            if ($assetItem->photo && Storage::disk('public')->exists($assetItem->photo)) {
+                Storage::disk('public')->delete($assetItem->photo);
+            }
+
             $assetItem->delete();
 
             return response()->json([
