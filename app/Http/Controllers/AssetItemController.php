@@ -25,6 +25,7 @@ class AssetItemController extends Controller
                     'asset_items.*',
                     'asset_categories.name AS asset_category_name',
                     'asset_statuses.name AS asset_status_name',
+                    'asset_value_sub.value AS asset_value',
                 );
 
                 $dataTable = DataTables::of($query);

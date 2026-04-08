@@ -10,6 +10,7 @@
                 <th>Tanggal Beli</th>
                 <th>Harga Beli</th>
                 <th>Jumlah</th>
+                <th>Nilai Aset</th>
                 <th>Status</th>
                 <th>Foto</th>
                 <th>Tanggal Update</th>
@@ -74,6 +75,11 @@
                     {
                         data: 'quantity',
                         name: 'asset_items.quantity',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'asset_value',
+                        name: 'asset_value_sub.value',
                         defaultContent: '-'
                     },
                     {
