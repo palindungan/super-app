@@ -22,16 +22,16 @@
                         <div class="col-md-6">
                             <div class="form-group" id="code_group">
                                 <label for="code">Kode</label>
-                                <input type="text" class="form-control" autocomplete="off"
-                                    id="code" name="code" />
+                                <input type="text" class="form-control" autocomplete="off" id="code"
+                                    name="code" />
                                 <small class="form-text text-muted text-danger" id="code_error"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group" id="name_group">
                                 <label for="name">Nama</label>
-                                <input type="text" class="form-control" autocomplete="off"
-                                    id="name" name="name" />
+                                <input type="text" class="form-control" autocomplete="off" id="name"
+                                    name="name" />
                                 <small class="form-text text-muted text-danger" id="name_error"></small>
                             </div>
                         </div>
@@ -50,8 +50,8 @@
                         <div class="col-md-6">
                             <div class="form-group" id="purchase_date_group">
                                 <label for="purchase_date">Tanggal Beli</label>
-                                <input type="date" class="form-control" autocomplete="off"
-                                    id="purchase_date" name="purchase_date" />
+                                <input type="date" class="form-control" autocomplete="off" id="purchase_date"
+                                    name="purchase_date" />
                                 <small class="form-text text-muted text-danger" id="purchase_date_error"></small>
                             </div>
                         </div>
@@ -59,16 +59,16 @@
                         <div class="col-md-6">
                             <div class="form-group" id="purchase_price_group">
                                 <label for="purchase_price">Harga Beli</label>
-                                <input type="number" class="form-control" autocomplete="off"
-                                    id="purchase_price" name="purchase_price" />
+                                <input type="number" class="form-control" autocomplete="off" id="purchase_price"
+                                    name="purchase_price" />
                                 <small class="form-text text-muted text-danger" id="purchase_price_error"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group" id="quantity_group">
                                 <label for="quantity">Jumlah</label>
-                                <input type="number" class="form-control" autocomplete="off"
-                                    id="quantity" name="quantity" />
+                                <input type="number" class="form-control" autocomplete="off" id="quantity"
+                                    name="quantity" />
                                 <small class="form-text text-muted text-danger" id="quantity_error"></small>
                             </div>
                         </div>
@@ -87,8 +87,8 @@
                         <div class="col-md-6">
                             <div class="form-group" id="photo_group">
                                 <label for="photo">Foto</label>
-                                <input type="text" class="form-control" autocomplete="off"
-                                    id="photo" name="photo" />
+                                <input type="text" class="form-control" autocomplete="off" id="photo"
+                                    name="photo" />
                                 <small class="form-text text-muted text-danger" id="photo_error"></small>
                             </div>
                         </div>
