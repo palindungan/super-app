@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
                 \Database\Seeders\Prod\RoleSeeder::class,
                 \Database\Seeders\Prod\CurrencySeeder::class,
                 \Database\Seeders\Prod\CompanySeeder::class,
+                \Database\Seeders\Prod\TestSeeder::class,
             ]);
         }
         if (App::environment(['production'])) {
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
                 \Database\Seeders\Prod\RoleSeeder::class,
                 \Database\Seeders\Prod\CurrencySeeder::class,
                 \Database\Seeders\Prod\CompanySeeder::class,
+                \Database\Seeders\Prod\TestSeeder::class,
             ]);
         }
     }

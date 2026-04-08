@@ -34,11 +34,16 @@
         function storeApi() {
             swalShowLoading("Membuat data...", "Mohon tunggu");
 
+            let form = $('#fields_form')[0];
+            let formData = new FormData(form);
+
             const url = `{{ $url }}`;
             $.ajax({
                 url: url,
                 type: "POST",
-                data: $('#fields_form').serialize(),
+                data: formData,
+                processData: false,
+                contentType: false,
                 success: function(response) {
                     $('#fields_modal').modal('hide');
 
