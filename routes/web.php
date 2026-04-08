@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('', [HomeController::class, 'index'])->name('home');
-});
 
-Route::resource('asset_items', AssetItemController::class);
-Route::resource('asset_categories', AssetCategoryController::class);
-Route::resource('asset_statuses', AssetStatusController::class);
+    Route::resource('asset_items', AssetItemController::class);
+    Route::resource('asset_categories', AssetCategoryController::class);
+    Route::resource('asset_statuses', AssetStatusController::class);
+});
