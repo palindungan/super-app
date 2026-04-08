@@ -160,6 +160,17 @@ class AssetItemController extends Controller
      */
     public function destroy(AssetItem $assetItem)
     {
-        //
+        $request = request();
+
+        if ($request->ajax()) {
+            $assetItem->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dihapus',
+                // 'data' => null,
+                // 'errors' => null,
+            ], 200);
+        }
     }
 }
