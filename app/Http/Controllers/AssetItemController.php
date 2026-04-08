@@ -136,7 +136,12 @@ class AssetItemController extends Controller
      */
     public function show(AssetItem $assetItem)
     {
-        //
+        return response()->json([
+            'success' => true,
+            'message' => 'Data berhasil ditemukan',
+            'data' => $assetItem,
+            // 'errors' => null,
+        ], 200);
     }
 
     /**

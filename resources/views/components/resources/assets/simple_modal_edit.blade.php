@@ -98,11 +98,19 @@
         function editInput(response) {
             const data = response.data;
             $.each(data, function(key, value) {
-                const $checkbox = $('input[type="checkbox"][name="' + key + '"]');
-                if ($checkbox.length) {
-                    $checkbox.prop('checked', value == 1 || value === true);
+                const $field = $('[name="' + key + '"]');
+
+                if (!$field.length) return;
+
+                // jika input type file jangan diisi
+                if ($field.attr('type') === 'file') {
+                    return;
+                }
+
+                if ($field.attr('type') === 'checkbox') {
+                    $field.prop('checked', value == 1 || value === true);
                 } else {
-                    $('[name="' + key + '"]').val(value);
+                    $field.val(value);
                 }
             });
 
