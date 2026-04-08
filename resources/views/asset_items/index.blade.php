@@ -25,12 +25,10 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Aset Barang</h4>
-                        @can('asset_items.create')
-                            <button class="btn btn-primary btn-round ms-auto" onclick="createAction()">
-                                <i class="fa fa-plus"></i>
-                                Buat Aset Barang
-                            </button>
-                        @endcan
+                        <button class="btn btn-primary btn-round ms-auto" onclick="createAction()">
+                            <i class="fa fa-plus"></i>
+                            Buat Aset Barang
+                        </button>
                     </div>
                 </div>
                 <div class="card-body">
