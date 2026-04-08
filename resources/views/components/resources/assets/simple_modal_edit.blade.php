@@ -53,10 +53,15 @@
         function updateApi(url) {
             swalShowLoading("Mengubah data...", "Mohon tunggu");
 
+            let form = $('#fields_form')[0];
+            let formData = new FormData(form);
+
             $.ajax({
                 url: url,
                 type: "PUT",
-                data: $('#fields_form').serialize(),
+                data: formData,
+                processData: false,
+                contentType: false,
                 success: function(response) {
                     $('#fields_modal').modal('hide');
 
