@@ -87,8 +87,8 @@
                         <div class="col-md-6">
                             <div class="form-group" id="photo_group">
                                 <label for="photo">Foto</label>
-                                <input type="text" class="form-control" autocomplete="off" id="photo"
-                                    name="photo" />
+                                <input type="file" class="form-control" id="photo" name="photo"
+                                    accept="image/*">
                                 <small class="form-text text-muted text-danger" id="photo_error"></small>
                             </div>
                         </div>
