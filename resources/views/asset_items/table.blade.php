@@ -84,7 +84,9 @@
                     {
                         data: 'photo',
                         name: 'asset_items.photo',
-                        defaultContent: '-'
+                        defaultContent: '-',
+                        orderable: false,
+                        searchable: false
                     },
                     {
                         data: 'updated_at',

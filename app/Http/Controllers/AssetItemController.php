@@ -26,6 +26,10 @@ class AssetItemController extends Controller
 
                 $dataTable = DataTables::of($query);
 
+                $dataTable->editColumn('updated_at', function ($row) {
+                    return !empty($row->updated_at) ? $row->updated_at->format('Y-m-d H:i:s') : null;
+                });
+
                 $dataTable->editColumn('action', function ($row) {
                     $result = view('asset_items.table_action', compact('row'))->render();
                     if ($result) {
