@@ -15,7 +15,7 @@
         <div class="card-header">
             <div class="d-flex align-items-center">
                 <h4 class="card-title">Daftar Pengguna Cabang {{ $branch->name }}</h4>
-                <button class="btn btn-primary btn-round ms-auto" onclick="createAction()">
+                <button class="btn btn-primary btn-round ms-auto" onclick="">
                     <i class="fa fa-plus"></i>
                     Daftarkan Pengguna ke Cabang
                 </button>
