@@ -7,7 +7,7 @@
                 <div class="col-md-6">
                     <div class="form-group {{ $errors->has('code') ? 'has-error has-feedback' : '' }}">
                         <label for="code">Kode</label>
-                        <input type="text" class="form-control form-control" id="code" name="code"
+                        <input type="text" class="form-control" id="code" name="code"
                             value="{{ old('code', $company->code ?? '') }}" />
                         @error('code')
                             <small class="form-text text-muted text-danger">
@@ -19,7 +19,7 @@
                 <div class="col-md-6">
                     <div class="form-group {{ $errors->has('name') ? 'has-error has-feedback' : '' }}">
                         <label for="name">Nama</label>
-                        <input type="text" class="form-control form-control" id="name" name="name"
+                        <input type="text" class="form-control" id="name" name="name"
                             value="{{ old('name', $company->name ?? '') }}" />
                         @error('name')
                             <small class="form-text text-muted text-danger">
