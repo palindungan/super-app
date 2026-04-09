@@ -2,4 +2,4 @@
     @method($method)
 @endisset
 @csrf
-<input type="hidden" name="_token_form" value="{{ tokenFormGenerate() }}" autocomplete="off">
+<input type="hidden" name="_token_form" value="{{ tokenFormGenerate() }}">

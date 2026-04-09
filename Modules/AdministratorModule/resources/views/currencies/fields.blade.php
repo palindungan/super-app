@@ -22,32 +22,29 @@
                         <div class="col-md-6">
                             <div class="form-group" id="code_group">
                                 <label for="code">Kode</label>
-                                <input type="text" class="form-control form-control" autocomplete="off"
-                                    id="code" name="code" />
+                                <input type="text" class="form-control form-control" id="code" name="code" />
                                 <small class="form-text text-muted text-danger" id="code_error"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group" id="name_group">
                                 <label for="name">Nama</label>
-                                <input type="text" class="form-control form-control" autocomplete="off"
-                                    id="name" name="name" />
+                                <input type="text" class="form-control form-control" id="name" name="name" />
                                 <small class="form-text text-muted text-danger" id="name_error"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group" id="symbol_group">
                                 <label for="symbol">Simbol</label>
-                                <input type="text" class="form-control form-control" autocomplete="off"
-                                    id="symbol" name="symbol" />
+                                <input type="text" class="form-control form-control" id="symbol" name="symbol" />
                                 <small class="form-text text-muted text-danger" id="symbol_error"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group" id="minor_unit_group">
                                 <label for="minor_unit">Satuan Pecahan</label>
-                                <input type="number" class="form-control form-control" autocomplete="off"
-                                    id="minor_unit" name="minor_unit" />
+                                <input type="number" class="form-control form-control" id="minor_unit"
+                                    name="minor_unit" />
                                 <small class="form-text text-muted text-danger" id="minor_unit_error"></small>
                             </div>
                         </div>
