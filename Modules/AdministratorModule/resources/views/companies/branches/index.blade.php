@@ -28,3 +28,5 @@
         </div>
     </div>
 </div>
+
+@include('components.resources.assets.v1.simple_modal_destroy')
