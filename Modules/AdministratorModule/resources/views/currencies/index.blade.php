@@ -26,7 +26,7 @@
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Mata Uang</h4>
                         @can('administrator.currencies.create')
-                            <button class="btn btn-primary btn-round ms-auto" onclick="createAction()">
+                            <button class="btn btn-primary btn-round ms-auto" onclick="createAction($('#fields_form'), $('#fields_modal'))">
                                 <i class="fa fa-plus"></i>
                                 Buat Mata Uang
                             </button>

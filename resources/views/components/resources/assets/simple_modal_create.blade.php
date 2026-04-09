@@ -1,41 +1,47 @@
 @push('scripts')
     <script>
-        function createAction() {
-            createShow();
-            editHide();
+        function createAction($form, $modal) {
+            createShow($form);
 
-            const $form = $('#fields_form');
+            editHide($form);
+
             formReset($form);
 
-            validationErrorsReset();
+            validationErrorsReset($form);
 
-            $('#fields_modal').modal('show');
+            $modal.modal('show');
         }
 
-        function createOnSubmit() {
-            const $btn = $('#store_button');
+        function createOnSubmit($form, $modal) {
+            const $btn = $form.find('#store_button');
             buttonLoading($btn);
 
-            storeApi();
+            storeApi($form, $modal);
         }
 
-        function createHide() {
-            $('#create_title').hide();
-            $('#store_button').hide();
+        function createHide($form) {
+            let $createTitle = $form.find('#create_title');
+            let $storeButton = $form.find('#store_button');
+
+            $createTitle.hide();
+            $storeButton.hide();
         }
 
-        function createShow() {
-            $('#create_title').show();
-            $('#store_button').show();
+        function createShow($form) {
+            let $createTitle = $form.find('#create_title');
+            let $storeButton = $form.find('#store_button');
+
+            $createTitle.show();
+            $storeButton.show();
         }
     </script>
 
     <script>
-        function storeApi() {
+        function storeApi($form, $modal) {
             swalShowLoading("Membuat data...", "Mohon tunggu");
 
-            let form = $('#fields_form')[0];
-            let formData = new FormData(form);
+            let form0 = $form[0];
+            let formData = new FormData(form0);
 
             const url = `{{ $url }}`;
             $.ajax({
@@ -45,12 +51,11 @@
                 processData: false,
                 contentType: false,
                 success: function(response) {
-                    $('#fields_modal').modal('hide');
+                    $modal.modal('hide');
 
-                    const $form = $('#fields_form');
                     formReset($form);
 
-                    $('[name="_token_form"]').val(response.data._token_form);
+                    $form.find('[name="_token_form"]').val(response.data._token_form);
 
                     notifyOnSuccess(response);
 
@@ -61,11 +66,11 @@
                     notifyOnError(xhr);
 
                     if (xhr?.responseJSON?.errors) {
-                        validationErrorsShow(xhr?.responseJSON?.errors);
+                        validationErrorsShow($form, xhr?.responseJSON?.errors);
                     }
                 },
                 complete: function() {
-                    const $btn = $('#store_button');
+                    const $btn = $form.find('#store_button');
                     buttonReset($btn, 'Buat');
 
                     setTimeout(function() {

@@ -4,12 +4,12 @@
             swalShowLoading("Memuat data...", "Mohon tunggu");
 
             editShow(url);
-            createHide();
+            createHide($form);
 
             const $form = $('#fields_form');
             formReset($form);
 
-            validationErrorsReset();
+            validationErrorsReset($form);
 
             try {
                 const response = await showApi(url);
@@ -34,11 +34,14 @@
             updateApi(url);
         }
 
-        function editHide() {
-            $('#edit_title').hide();
-            $('#update_button').hide();
+        function editHide($form) {
+            let $editTitle = $form.find('#edit_title');
+            let $updateButton = $form.find('#update_button');
 
-            $('#update_button').attr('data-url', '');
+            $editTitle.hide();
+            $updateButton.hide();
+
+            $updateButton.attr('data-url', '');
         }
 
         function editShow(url) {
@@ -79,7 +82,7 @@
                     notifyOnError(xhr);
 
                     if (xhr?.responseJSON?.errors) {
-                        validationErrorsShow(xhr?.responseJSON?.errors);
+                        validationErrorsShow($form, xhr?.responseJSON?.errors);
                     }
                 },
                 complete: function() {

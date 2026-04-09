@@ -71,7 +71,7 @@
                 </div>
                 <div class="modal-footer border-0">
                     <button type="button" class="btn btn-warning" id="store_button"
-                        onclick="createOnSubmit()">Buat</button>
+                        onclick="createOnSubmit($('#fields_form'), $('#fields_modal'))">Buat</button>
                     <button type="button" class="btn btn-warning" id="update_button" onclick="editOnSubmit(this)"
                         data-url="">Ubah</button>
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
