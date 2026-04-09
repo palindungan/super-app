@@ -55,7 +55,7 @@
         function editInput($form, response) {
             const data = response.data;
             $.each(data, function(key, value) {
-                const $field = $form.find('[name="' + key + '"]');
+                const $field = $form.find('[id="' + key + '"]');
 
                 if (!$field.length) return;
 
