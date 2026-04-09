@@ -26,7 +26,8 @@
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Mata Uang</h4>
                         @can('administrator.currencies.create')
-                            <button class="btn btn-primary btn-round ms-auto" onclick="createAction($('#fields_form'), $('#fields_modal'))">
+                            <button class="btn btn-primary btn-round ms-auto"
+                                onclick="createAction($('#fields_form'), $('#fields_modal'))">
                                 <i class="fa fa-plus"></i>
                                 Buat Mata Uang
                             </button>
@@ -46,9 +47,33 @@
 @include('components.resources.assets.simple_modal_create', [
     'url' => route('administrator.currencies.store'),
 ])
+@include('components.resources.assets.simple_modal_destroy')
 @include('components.resources.assets.simple_modal_edit')
 @include('components.resources.assets.simple_modal_show')
 @push('scripts')
+    <script>
+        function editInput($form, response) {
+            const data = response.data;
+            $.each(data, function(key, value) {
+                const $field = $form.find('[name="' + key + '"]');
+
+                if (!$field.length) return;
+
+                // jika input type file jangan diisi
+                if ($field.attr('type') === 'file') {
+                    return;
+                }
+
+                if ($field.attr('type') === 'checkbox') {
+                    $field.prop('checked', value == 1 || value === true);
+                } else {
+                    $field.val(value);
+                }
+            });
+
+            editTitleData(data);
+        }
+    </script>
     <script>
         function editTitleData(data) {
             $('#edit_title_data').text(data.name);

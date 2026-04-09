@@ -2,6 +2,7 @@
     @can('administrator.currencies.edit')
         <button type="button" class="btn btn-link btn-primary btn-lg"
             onclick="editAction(
+            $('#fields_form'), $('#fields_modal'),
             '{{ route('administrator.currencies.update', $row->id) }}'
         )">
             <i class="fa fa-edit"></i>

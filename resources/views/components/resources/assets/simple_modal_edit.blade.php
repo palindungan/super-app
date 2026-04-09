@@ -1,21 +1,21 @@
 @push('scripts')
     <script>
-        async function editAction(url) {
+        async function editAction($form, $modal, url) {
             swalShowLoading("Memuat data...", "Mohon tunggu");
 
-            editShow(url);
+            editShow($form, url);
+
             createHide($form);
 
-            const $form = $('#fields_form');
             formReset($form);
 
             validationErrorsReset($form);
 
             try {
                 const response = await showApi(url);
-                editInput(response);
+                editInput($form, response);
 
-                $('#fields_modal').modal('show');
+                $modal.modal('show');
             } catch (error) {
                 notifyOnError(error);
             }
@@ -25,13 +25,12 @@
             }, 500);
         }
 
-        function editOnSubmit(button) {
-            let url = $(button).attr('data-url');
-
-            const $btn = $('#update_button');
+        function editOnSubmit($form, $modal, button) {
+            const $btn = $form.find('#update_button');
             buttonLoading($btn);
 
-            updateApi(url);
+            let url = $(button).attr('data-url');
+            updateApi($form, $modal, url);
         }
 
         function editHide($form) {
@@ -44,20 +43,23 @@
             $updateButton.attr('data-url', '');
         }
 
-        function editShow(url) {
-            $('#edit_title').show();
-            $('#update_button').show();
+        function editShow($form, url) {
+            let $editTitle = $form.find('#edit_title');
+            let $updateButton = $form.find('#update_button');
 
-            $('#update_button').attr('data-url', url);
+            $editTitle.show();
+            $updateButton.show();
+
+            $updateButton.attr('data-url', url);
         }
     </script>
 
     <script>
-        function updateApi(url) {
+        function updateApi($form, $modal, url) {
             swalShowLoading("Mengubah data...", "Mohon tunggu");
 
-            let form = $('#fields_form')[0];
-            let formData = new FormData(form);
+            let form0 = $form[0];
+            let formData = new FormData(form0);
 
             $.ajax({
                 url: url,
@@ -66,12 +68,11 @@
                 processData: false,
                 contentType: false,
                 success: function(response) {
-                    $('#fields_modal').modal('hide');
+                    $modal.modal('hide');
 
-                    const $form = $('#fields_form');
                     formReset($form);
 
-                    $('[name="_token_form"]').val(response.data._token_form);
+                    $form.find('[name="_token_form"]').val(response.data._token_form);
 
                     notifyOnSuccess(response);
 
@@ -86,7 +87,7 @@
                     }
                 },
                 complete: function() {
-                    const $btn = $('#update_button');
+                    const $btn = $form.find('#update_button');
                     buttonReset($btn, 'Ubah');
 
                     setTimeout(function() {
@@ -94,30 +95,6 @@
                     }, 500);
                 }
             });
-        }
-    </script>
-
-    <script>
-        function editInput(response) {
-            const data = response.data;
-            $.each(data, function(key, value) {
-                const $field = $('[name="' + key + '"]');
-
-                if (!$field.length) return;
-
-                // jika input type file jangan diisi
-                if ($field.attr('type') === 'file') {
-                    return;
-                }
-
-                if ($field.attr('type') === 'checkbox') {
-                    $field.prop('checked', value == 1 || value === true);
-                } else {
-                    $field.val(value);
-                }
-            });
-
-            editTitleData(data);
         }
     </script>
 @endpush
