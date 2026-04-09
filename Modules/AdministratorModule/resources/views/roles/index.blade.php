@@ -36,3 +36,5 @@
         </div>
     </div>
 @endsection
+
+@include('components.resources.assets.v1.simple_modal_destroy')
