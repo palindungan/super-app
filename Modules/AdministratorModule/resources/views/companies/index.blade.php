@@ -2,7 +2,7 @@
 
 @section('sidebar.administrator.companies.active', 'active')
 
-@include('components.resources.assets.index')
+@include('components.resources.assets.v1.index')
 
 @section('content')
     <div class="page-header">

@@ -1,4 +1,4 @@
-@include('components.resources.assets.fields')
+@include('components.resources.assets.v1.fields')
 
 <div class="col-md-8">
     <div class="card">

@@ -2,7 +2,7 @@
 
 @section('sidebar.administrator.currencies.active', 'active')
 
-@include('components.resources.assets.index')
+@include('components.resources.assets.v1.index')
 
 @push('scripts')
     @include('components.validation.script')
@@ -44,12 +44,12 @@
     @include('administratormodule::currencies.fields')
 @endsection
 
-@include('components.resources.assets.simple_modal_create', [
+@include('components.resources.assets.v1.simple_modal_create', [
     'url' => route('administrator.currencies.store'),
 ])
-@include('components.resources.assets.simple_modal_destroy')
-@include('components.resources.assets.simple_modal_edit')
-@include('components.resources.assets.simple_modal_show')
+@include('components.resources.assets.v1.simple_modal_destroy')
+@include('components.resources.assets.v1.simple_modal_edit')
+@include('components.resources.assets.v1.simple_modal_show')
 @push('scripts')
     <script>
         function editInput($form, response) {

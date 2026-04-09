@@ -1,4 +1,4 @@
-@include('components.resources.assets.simple_modal_destroy')
+@include('components.resources.assets.v1.simple_modal_destroy')
 
 <div class="table-responsive">
     <table id="datatable" class="display table table-striped table-hover">
