@@ -12,7 +12,11 @@
     <div class="page-header">
         <h3 class="fw-bold mb-3">Barang</h3>
         @include('components.layouts.master_1.breadcrumb.main', [
-            'breadcrumbs' => [['label' => 'Barang', 'url' => route('asset_items.index')], ['label' => 'Daftar']],
+            'breadcrumbs' => [
+                ['label' => 'Data Aset'],
+                ['label' => 'Barang', 'url' => route('asset_items.index')],
+                ['label' => 'Daftar'],
+            ],
         ])
     </div>
 
