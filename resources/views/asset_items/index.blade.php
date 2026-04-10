@@ -34,13 +34,13 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    @include('administratormodule::currencies.table')
+                    @include('asset_items.table')
                 </div>
             </div>
         </div>
     </div>
 
-    @include('administratormodule::currencies.fields')
+    @include('asset_items.fields')
 @endsection
 
 @include('components.resources.assets.v1.simple_modal_create', [
