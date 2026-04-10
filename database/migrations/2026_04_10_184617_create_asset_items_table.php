@@ -14,6 +14,13 @@ return new class extends Migration
         Schema::create('asset_items', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('asset_category_id')->nullable();
+            $table->foreignId('asset_status_id')->nullable();
+
+            $table->string('code')->nullable();
+            $table->string('name')->nullable();
+            $table->text('photo')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
         });

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('asset_categories', function (Blueprint $table) {
             $table->id();
 
+            $table->string('name')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
         });

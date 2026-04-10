@@ -14,6 +14,19 @@ return new class extends Migration
         Schema::create('asset_transaction_items', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('asset_transaction_id')->nullable();
+            $table->foreignId('asset_item_id')->nullable();
+            $table->foreignId('asset_item_inventory_id')->nullable();
+
+            $table->date('purchase_date')->nullable();
+            $table->decimal('purchase_price', 15, 2)->nullable();
+            $table->unsignedInteger('quantity')->nullable();
+            $table->decimal('asset_value', 15, 2)->nullable();
+
+            $table->text('condition_before')->nullable();
+            $table->text('condition_after')->nullable();
+            $table->text('notes')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
         });
