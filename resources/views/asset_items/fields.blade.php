@@ -57,6 +57,15 @@
                                 <small class="form-text text-muted text-danger" id="asset_status_id_error"></small>
                             </div>
                         </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group" id="photo_group">
+                                <label for="photo">Foto</label>
+                                <input type="file" class="form-control" id="photo" name="photo"
+                                    accept="image/*" />
+                                <small class="form-text text-muted text-danger" id="photo_error"></small>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer border-0">
