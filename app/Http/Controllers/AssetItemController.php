@@ -7,6 +7,7 @@ use App\Http\Requests\StoreAssetItemRequest;
 use App\Http\Requests\UpdateAssetItemRequest;
 use App\Models\AssetCategory;
 use App\Models\AssetStatus;
+use Yajra\DataTables\Facades\DataTables;
 
 class AssetItemController extends Controller
 {
@@ -15,6 +16,29 @@ class AssetItemController extends Controller
      */
     public function index()
     {
+        $request = request();
+        if ($request->ajax()) {
+            if ($request->datatable == 'main') {
+                $query = AssetItem::query()->select(
+                    'asset_items.*',
+                );
+
+                $dataTable = DataTables::of($query);
+
+                $dataTable->editColumn('action', function ($row) {
+                    $result = view('asset_items.table_action', compact('row'))->render();
+                    if ($result) {
+                        return $result;
+                    }
+                    return null;
+                });
+
+                $dataTable->rawColumns(['action']);
+
+                return $dataTable->make(true);
+            }
+        }
+
         $asset_categories = [null => 'Pilih Kategori'] + AssetCategory::query()
             ->select('asset_categories.*')
             ->orderBy('asset_categories.name', 'asc')
