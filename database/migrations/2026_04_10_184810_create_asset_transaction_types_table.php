@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('asset_transaction_types', function (Blueprint $table) {
             $table->id();
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
