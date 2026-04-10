@@ -70,8 +70,8 @@
                     {
                         data: 'action',
                         name: 'asset_items.id',
-                        defaultContent: '-',
                         className: 'text-end',
+                        defaultContent: '-',
                         orderable: false,
                         searchable: false
                     }
