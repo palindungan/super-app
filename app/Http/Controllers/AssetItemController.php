@@ -7,6 +7,7 @@ use App\Http\Requests\StoreAssetItemRequest;
 use App\Http\Requests\UpdateAssetItemRequest;
 use App\Models\AssetCategory;
 use App\Models\AssetStatus;
+use App\Repositories\AssetItemRepository;
 use Yajra\DataTables\Facades\DataTables;
 
 class AssetItemController extends Controller
@@ -19,8 +20,10 @@ class AssetItemController extends Controller
         $request = request();
         if ($request->ajax()) {
             if ($request->datatable == 'main') {
-                $query = AssetItem::query()->select(
+                $query = AssetItemRepository::getQuery()->select(
                     'asset_items.*',
+                    'asset_categories.name AS asset_category_name',
+                    'asset_statuses.name AS asset_status_name',
                 );
 
                 $dataTable = DataTables::of($query);

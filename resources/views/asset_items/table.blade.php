@@ -51,13 +51,13 @@
                         defaultContent: '-'
                     },
                     {
-                        data: 'asset_category_id',
-                        name: 'asset_items.asset_category_id',
+                        data: 'asset_category_name',
+                        name: 'asset_categories.name',
                         defaultContent: '-'
                     },
                     {
-                        data: 'asset_status_id',
-                        name: 'asset_items.asset_status_id',
+                        data: 'asset_status_name',
+                        name: 'asset_statuses.name',
                         defaultContent: '-'
                     },
                     {
