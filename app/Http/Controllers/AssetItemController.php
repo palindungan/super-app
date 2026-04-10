@@ -29,6 +29,14 @@ class AssetItemController extends Controller
 
                 $dataTable = DataTables::of($query);
 
+                $dataTable->editColumn('photo', function ($row) {
+                    if (!$row->photo) {
+                        return null;
+                    }
+                    $url = asset('storage/' . $row->photo);
+                    return '<img src="' . $url . '" width="60">';
+                });
+
                 $dataTable->editColumn('action', function ($row) {
                     $result = view('asset_items.table_action', compact('row'))->render();
                     if ($result) {
@@ -37,7 +45,7 @@ class AssetItemController extends Controller
                     return null;
                 });
 
-                $dataTable->rawColumns(['action']);
+                $dataTable->rawColumns(['photo', 'action']);
 
                 return $dataTable->make(true);
             }
