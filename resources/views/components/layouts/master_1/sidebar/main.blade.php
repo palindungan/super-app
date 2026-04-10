@@ -40,7 +40,7 @@
                     <h4 class="text-section">Data Aset</h4>
                 </li>
                 <li class="nav-item @yield('sidebar.asset_items.active')">
-                    <a href="">
+                    <a href="{{ route('asset_items.index') }}">
                         <i class="fas fa-boxes"></i>
                         <p>Barang</p>
                     </a>
