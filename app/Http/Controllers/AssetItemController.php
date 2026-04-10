@@ -34,7 +34,8 @@ class AssetItemController extends Controller
                         return null;
                     }
                     $url = asset('storage/' . $row->photo);
-                    return '<img src="' . $url . '" width="60">';
+                    $time = time();
+                    return "<img src='$url?time=$time' width='60'>";
                 });
 
                 $dataTable->editColumn('action', function ($row) {
