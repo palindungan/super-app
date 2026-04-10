@@ -37,7 +37,7 @@
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
-                    <h4 class="text-section">Data Aset</h4>
+                    <h4 class="text-section">Data Master</h4>
                 </li>
                 <li class="nav-item @yield('sidebar.asset_items.active')">
                     <a href="{{ route('asset_items.index') }}">
