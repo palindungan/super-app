@@ -1,6 +1,6 @@
 @extends('components.layouts.master_1.main')
 
-@section('sidebar.administrator.currencies.active', 'active')
+@section('sidebar.asset_items.active', 'active')
 
 @include('components.resources.assets.v1.index')
 
@@ -10,12 +10,9 @@
 
 @section('content')
     <div class="page-header">
-        <h3 class="fw-bold mb-3">Mata Uang</h3>
+        <h3 class="fw-bold mb-3">Barang</h3>
         @include('components.layouts.master_1.breadcrumb.main', [
-            'breadcrumbs' => [
-                ['label' => 'Mata Uang', 'url' => route('administrator.currencies.index')],
-                ['label' => 'Daftar'],
-            ],
+            'breadcrumbs' => [['label' => 'Barang', 'url' => route('asset_items.index')], ['label' => 'Daftar']],
         ])
     </div>
 
@@ -24,14 +21,12 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Mata Uang</h4>
-                        @can('administrator.currencies.create')
-                            <button class="btn btn-primary btn-round ms-auto"
-                                onclick="createAction($('#fields_form'), $('#fields_modal'))">
-                                <i class="fa fa-plus"></i>
-                                Buat Mata Uang
-                            </button>
-                        @endcan
+                        <h4 class="card-title">Barang</h4>
+                        <button class="btn btn-primary btn-round ms-auto"
+                            onclick="createAction($('#fields_form'), $('#fields_modal'))">
+                            <i class="fa fa-plus"></i>
+                            Buat Barang
+                        </button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -45,7 +40,7 @@
 @endsection
 
 @include('components.resources.assets.v1.simple_modal_create', [
-    'url' => route('administrator.currencies.store'),
+    'url' => route('asset_items.store'),
 ])
 @include('components.resources.assets.v1.simple_modal_destroy')
 @include('components.resources.assets.v1.simple_modal_edit')
