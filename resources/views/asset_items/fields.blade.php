@@ -33,6 +33,30 @@
                                 <small class="form-text text-muted text-danger" id="name_error"></small>
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group" id="asset_category_id_group">
+                                <label for="asset_category_id">Kategori</label>
+                                <select class="form-select form-control" id="asset_category_id"
+                                    name="asset_category_id">
+                                    @foreach ($asset_categories as $id => $name)
+                                        <option value="{{ $id }}">{{ $name }}</option>
+                                    @endforeach
+                                </select>
+                                <small class="form-text text-muted text-danger" id="asset_category_id_error"></small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" id="asset_status_id_group">
+                                <label for="asset_status_id">Status</label>
+                                <select class="form-select form-control" id="asset_status_id" name="asset_status_id">
+                                    @foreach ($asset_statuses as $id => $name)
+                                        <option value="{{ $id }}">{{ $name }}</option>
+                                    @endforeach
+                                </select>
+                                <small class="form-text text-muted text-danger" id="asset_status_id_error"></small>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer border-0">
