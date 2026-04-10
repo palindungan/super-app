@@ -4,9 +4,9 @@
             <tr>
                 <th>Kode</th>
                 <th>Nama</th>
-                <th>Simbol</th>
-                <th>Satuan Pecahan</th>
-                <th>Status Aktif</th>
+                <th>Kategori</th>
+                <th>Status</th>
+                <th>Foto</th>
                 <th></th>
             </tr>
         </thead>
@@ -42,35 +42,36 @@
                 ],
                 columns: [{
                         data: 'code',
-                        name: 'currencies.code',
+                        name: 'asset_items.code',
                         defaultContent: '-'
                     },
                     {
                         data: 'name',
-                        name: 'currencies.name',
+                        name: 'asset_items.name',
                         defaultContent: '-'
                     },
                     {
-                        data: 'symbol',
-                        name: 'currencies.symbol',
+                        data: 'asset_category_id',
+                        name: 'asset_items.asset_category_id',
                         defaultContent: '-'
                     },
                     {
-                        data: 'minor_unit',
-                        name: 'currencies.minor_unit',
+                        data: 'asset_status_id',
+                        name: 'asset_items.asset_status_id',
                         defaultContent: '-'
                     },
                     {
-                        data: 'is_active',
-                        name: 'currencies.is_active',
+                        data: 'photo',
+                        name: 'asset_items.photo',
                         defaultContent: '-',
+                        orderable: false,
                         searchable: false
                     },
                     {
                         data: 'action',
-                        name: 'currencies.id',
-                        className: 'text-end',
+                        name: 'asset_items.id',
                         defaultContent: '-',
+                        className: 'text-end',
                         orderable: false,
                         searchable: false
                     }
