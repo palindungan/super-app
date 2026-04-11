@@ -32,6 +32,12 @@
                         <p>Beranda</p>
                     </a>
                 </li>
+                <li class="nav-item @yield('sidebar.asset_transactions.active')">
+                    <a href="{{ route('asset_transactions.index') }}">
+                        <i class="fas fa-boxes"></i>
+                        <p>Transaksi Aset</p>
+                    </a>
+                </li>
 
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
