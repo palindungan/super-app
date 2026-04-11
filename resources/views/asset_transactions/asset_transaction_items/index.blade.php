@@ -24,6 +24,8 @@
     </div>
 </div>
 
+@include('asset_transactions.asset_transaction_items.fields')
+
 @include('components.resources.assets.v1.simple_modal_create', [
     'url' => route('asset_transactions.asset_transaction_items.store', $asset_transaction->id),
 ])

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AssetTransaction;
 use App\Http\Requests\StoreAssetTransactionRequest;
 use App\Http\Requests\UpdateAssetTransactionRequest;
+use App\Models\AssetItem;
 use App\Models\Location;
 use App\Repositories\AssetTransactionRepository;
 use Yajra\DataTables\Facades\DataTables;
@@ -97,10 +98,16 @@ class AssetTransactionController extends Controller
             ->pluck('name', 'id')
             ->toArray();
 
+        $asset_items = AssetItem::query()
+            ->select('asset_items.*')
+            ->orderBy('asset_items.name', 'asc')
+            ->get();
+
         return view(
             'asset_transactions.edit',
             compact(
                 'locations',
+                'asset_items',
             )
         )->with('asset_transaction', $assetTransaction);
     }
