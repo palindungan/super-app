@@ -27,10 +27,10 @@
                 </button>
                 <ul class="dropdown-menu" role="menu">
                     <li>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="{{ route('asset_items.exportExcel') }}">Excel</a>
+                        {{-- <a class="dropdown-item" href="#">Another action</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Something else here</a> --}}
                     </li>
                 </ul>
             </div>
