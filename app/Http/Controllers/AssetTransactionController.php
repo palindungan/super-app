@@ -45,7 +45,7 @@ class AssetTransactionController extends Controller
      */
     public function create()
     {
-        //
+        return view('asset_transactions.create');
     }
 
     /**
