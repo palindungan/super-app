@@ -19,7 +19,7 @@
                 <div class="modal-body">
                     {{-- <p class="small">Create a new row using this form, make sure you fill them all</p> --}}
                     <div class="row m-0">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group" id="asset_item_id_group">
                                 <label for="asset_item_id">Aset</label>
                                 <select class="form-select form-control" id="asset_item_id" name="asset_item_id">
@@ -36,7 +36,23 @@
                                 <small class="form-text text-muted text-danger" id="asset_item_id_error"></small>
                             </div>
                         </div>
+
                         <div class="col-md-6">
+                            <div class="form-group" id="purchase_date_group">
+                                <label for="purchase_date">Tanggal Beli</label>
+                                <input type="text" class="form-control" id="purchase_date" name="purchase_date" readonly/>
+                                <small class="form-text text-muted text-danger" id="purchase_date_error"></small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" id="purchase_price_group">
+                                <label for="purchase_price">Harga Beli</label>
+                                <input type="text" class="form-control" id="purchase_price" name="purchase_price" readonly />
+                                <small class="form-text text-muted text-danger" id="purchase_price_error"></small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
                             <div class="form-group" id="quantity_group">
                                 <label for="quantity">Jumlah</label>
                                 <input type="text" class="form-control" id="quantity" name="quantity" />
