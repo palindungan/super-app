@@ -13,7 +13,7 @@ class AssetTransactionController extends Controller
      */
     public function index()
     {
-        //
+        return view('asset_transactions.index');
     }
 
     /**
