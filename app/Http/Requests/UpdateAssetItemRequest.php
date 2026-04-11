@@ -35,6 +35,10 @@ class UpdateAssetItemRequest extends FormRequest
 
             'asset_category_id' => 'nullable|integer|exists:asset_categories,id',
             'asset_status_id' => 'nullable|integer|exists:asset_statuses,id',
+
+            'latitude'          => 'nullable|numeric|between:-90,90',
+            'longitude'         => 'nullable|numeric|between:-180,180',
+            'accuracy'          => 'nullable|numeric|min:0',
         ];
     }
 }
