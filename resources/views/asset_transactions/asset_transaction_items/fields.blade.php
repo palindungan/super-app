@@ -40,7 +40,7 @@
                         <div class="col-md-6">
                             <div class="form-group" id="purchase_date_group">
                                 <label for="purchase_date">Tanggal Beli</label>
-                                <input type="date" class="form-control" id="purchase_date" name="purchase_date"
+                                <input type="text" class="form-control" id="purchase_date" name="purchase_date"
                                     readonly />
                                 <small class="form-text text-muted text-danger" id="purchase_date_error"></small>
                             </div>

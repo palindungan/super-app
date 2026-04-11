@@ -20,8 +20,10 @@ class AssetTransactionItemController extends Controller
         if ($request->ajax()) {
             if ($request->datatable == 'main') {
                 $query = AssetTransactionItem::getQuery()
+                    ->leftJoin('asset_items', 'asset_items.id', '=', 'asset_transaction_items.asset_item_id')
                     ->select(
                         'asset_transaction_items.*',
+                        'asset_items.name AS asset_item_name',
                     );
 
                 $query->where('asset_transaction_items.asset_transaction_id', $assetTransaction->id);
@@ -119,6 +121,8 @@ class AssetTransactionItemController extends Controller
             }
 
             $input = $request->all();
+            $input['asset_transaction_id'] = $assetTransaction->id;
+            $input['asset_value'] = $request->purchase_price * $request->quantity;
             $assetTransactionItem->update($input);
 
             return response()->json([

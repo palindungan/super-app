@@ -2,10 +2,10 @@
     <table id="datatable" class="display table table-striped table-hover">
         <thead>
             <tr>
-                <th>asset_item_id</th>
-                <th>purchase_price</th>
-                <th>quantity</th>
-                <th>asset_value</th>
+                <th>Aset</th>
+                <th>Harga Beli</th>
+                <th>Jumlah</th>
+                <th>Nilai Aset</th>
                 <th></th>
             </tr>
         </thead>
@@ -40,8 +40,8 @@
                     [0, 'asc']
                 ],
                 columns: [{
-                        data: 'asset_item_id',
-                        name: 'asset_transaction_items.asset_item_id',
+                        data: 'asset_item_name',
+                        name: 'asset_items.name',
                         defaultContent: '-'
                     },
                     {

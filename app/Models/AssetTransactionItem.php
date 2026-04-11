@@ -9,6 +9,7 @@ class AssetTransactionItem extends Model
     protected $fillable = [
         'asset_transaction_id',
         'asset_item_id',
+        'purchase_date',
         'purchase_price',
         'quantity',
         'asset_value',
