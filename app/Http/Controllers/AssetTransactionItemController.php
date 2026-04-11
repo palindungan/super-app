@@ -19,9 +19,16 @@ class AssetTransactionItemController extends Controller
             if ($request->datatable == 'main') {
                 $query = AssetTransactionItem::getQuery()
                     ->leftJoin('asset_items', 'asset_items.id', '=', 'asset_transaction_items.asset_item_id')
+                    ->leftJoin('asset_transactions', 'asset_transactions.id', '=', 'asset_transaction_items.asset_transaction_id')
+                    ->leftJoin('locations AS origin_locations', 'origin_locations.id', '=', 'asset_transactions.origin_location_id')
+                    ->leftJoin('locations AS destination_locations', 'destination_locations.id', '=', 'asset_transactions.destination_location_id')
                     ->select(
                         'asset_transaction_items.*',
                         'asset_items.name AS asset_item_name',
+                        'asset_transactions.code AS asset_transaction_code',
+                        'asset_transactions.date AS asset_transaction_date',
+                        'origin_locations.name AS origin_location_name',
+                        'destination_locations.name AS destination_location_name',
                     );
 
                 $dataTable = DataTables::of($query);

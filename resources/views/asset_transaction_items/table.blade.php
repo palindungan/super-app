@@ -2,6 +2,11 @@
     <table id="datatable" class="display table table-striped table-hover">
         <thead>
             <tr>
+                <th>Kode Transaksi</th>
+                <th>Tanggal</th>
+                <th>Lokasi Awal</th>
+                <th>Lokasi Tujuan</th>
+
                 <th>Aset</th>
                 <th>Harga Beli</th>
                 <th>Jumlah</th>
@@ -39,6 +44,27 @@
                     [0, 'asc']
                 ],
                 columns: [{
+                        data: 'asset_transaction_code',
+                        name: 'asset_transactions.code',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'asset_transaction_date',
+                        name: 'asset_transactions.date',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'origin_location_name',
+                        name: 'origin_locations.name',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'destination_location_name',
+                        name: 'destination_locations.name',
+                        defaultContent: '-'
+                    },
+
+                    {
                         data: 'asset_item_name',
                         name: 'asset_items.name',
                         defaultContent: '-'
