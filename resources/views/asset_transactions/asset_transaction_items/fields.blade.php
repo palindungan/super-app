@@ -40,14 +40,16 @@
                         <div class="col-md-6">
                             <div class="form-group" id="purchase_date_group">
                                 <label for="purchase_date">Tanggal Beli</label>
-                                <input type="text" class="form-control" id="purchase_date" name="purchase_date" readonly/>
+                                <input type="date" class="form-control" id="purchase_date" name="purchase_date"
+                                    readonly />
                                 <small class="form-text text-muted text-danger" id="purchase_date_error"></small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group" id="purchase_price_group">
                                 <label for="purchase_price">Harga Beli</label>
-                                <input type="text" class="form-control" id="purchase_price" name="purchase_price" readonly />
+                                <input type="number" class="form-control" id="purchase_price" name="purchase_price"
+                                    readonly />
                                 <small class="form-text text-muted text-danger" id="purchase_price_error"></small>
                             </div>
                         </div>
@@ -72,3 +74,20 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $('#asset_item_id').on('change', function() {
+            const selected = $(this).find('option:selected');
+
+            const purchaseDate = selected.data('purchase-date');
+            const purchasePrice = selected.data('purchase-price');
+
+            console.log('Purchase Date:', purchaseDate); // "2026-04-01"
+            console.log('Purchase Price:', purchasePrice); // "10000000.00"
+
+            $('#purchase_date').val(purchaseDate);
+            $('#purchase_price').val(purchasePrice);
+        });
+    </script>
+@endpush

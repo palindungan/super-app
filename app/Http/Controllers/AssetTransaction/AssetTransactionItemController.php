@@ -68,6 +68,7 @@ class AssetTransactionItemController extends Controller
 
             $input = $request->all();
             $input['asset_transaction_id'] = $assetTransaction->id;
+            $input['asset_value'] = $request->purchase_price * $request->quantity;
             $asset_item = AssetTransactionItem::create($input);
 
             return response()->json([
