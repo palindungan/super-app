@@ -28,4 +28,6 @@
             </div>
         </div>
     </form>
+
+    @include('asset_transactions.asset_transaction_items.index')
 @endsection
