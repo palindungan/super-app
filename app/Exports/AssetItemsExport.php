@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\AssetItem;
+use App\Repositories\AssetItemRepository;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
@@ -51,8 +52,12 @@ class AssetItemsExport
         $sheet->getRowDimension(1)->setRowHeight(20);
 
         // ── Data ─────────────────────────────────────────────────
-        $items = AssetItem::with(['assetCategory', 'assetStatus'])
-            ->orderBy('id')
+        $items = AssetItemRepository::getQuery()->select(
+            'asset_items.*',
+            'asset_categories.name AS asset_category_name',
+            'asset_statuses.name AS asset_status_name',
+        )
+            ->orderBy('asset_items.code')
             ->get();
 
         foreach ($items as $index => $item) {
@@ -61,8 +66,8 @@ class AssetItemsExport
             $sheet->setCellValue("A{$row}", $index + 1);
             $sheet->setCellValue("B{$row}", $item->code ?? '-');
             $sheet->setCellValue("C{$row}", $item->name ?? '-');
-            $sheet->setCellValue("D{$row}", $item->assetCategory?->name ?? '-');
-            $sheet->setCellValue("E{$row}", $item->assetStatus?->name ?? '-');
+            $sheet->setCellValue("D{$row}", $item->asset_category_name ?? '-');
+            $sheet->setCellValue("E{$row}", $item->asset_status_name ?? '-');
 
             // Zebra striping
             $fillColor = ($index % 2 === 0) ? 'FFEAF3FB' : 'FFFFFFFF';

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AssetItemsExport;
 use App\Exports\UsersExport;
 use App\Models\AssetItem;
 use App\Http\Requests\StoreAssetItemRequest;
@@ -229,6 +230,6 @@ class AssetItemController extends Controller
 
     public function exportExcel()
     {
-        return (new UsersExport())->download();
+        return (new AssetItemsExport())->download();
     }
 }
