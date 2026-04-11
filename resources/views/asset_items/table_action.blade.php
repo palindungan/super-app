@@ -9,7 +9,7 @@
     <button type="button" class="btn btn-link btn-danger"
         onclick="destroyAction(
             '{{ route('asset_items.destroy', $row->id) }}', 
-            'Barang {{ $row->name }}'
+            'Aset {{ $row->name }}'
         )">
         <i class="fa fa-times"></i>
     </button>

@@ -16,7 +16,7 @@
         @include('components.layouts.master_1.breadcrumb.main2', [
             'breadcrumbs' => [
                 ['label' => 'Data Master'],
-                ['label' => 'Barang', 'url' => route('asset_items.index')],
+                ['label' => 'Aset', 'url' => route('asset_items.index')],
                 ['label' => 'Daftar'],
             ],
         ])
@@ -43,11 +43,11 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Barang</h4>
+                        <h4 class="card-title">Aset</h4>
                         <button class="btn btn-primary btn-round ms-auto"
                             onclick="createAction($('#fields_form'), $('#fields_modal'))">
                             <i class="fa fa-plus"></i>
-                            Buat Barang
+                            Buat Aset
                         </button>
                     </div>
                 </div>
