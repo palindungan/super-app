@@ -65,7 +65,14 @@ class AssetTransactionController extends Controller
      */
     public function store(StoreAssetTransactionRequest $request)
     {
-        //
+        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('asset_transactions.index'))
+            ->withInput()
+            ->with('error', $response);
+
+        $input = $request->all();
+        $asset_transaction = AssetTransaction::create($input);
+
+        return redirect(route('asset_transactions.edit', $asset_transaction->id))->with('success', "Data berhasil dibuat");
     }
 
     /**
@@ -81,7 +88,18 @@ class AssetTransactionController extends Controller
      */
     public function edit(AssetTransaction $assetTransaction)
     {
-        //
+        $locations = [null => 'Pilih Lokasi'] + Location::query()
+            ->select('locations.*')
+            ->orderBy('locations.name', 'asc')
+            ->pluck('name', 'id')
+            ->toArray();
+
+        return view(
+            'asset_transactions.edit',
+            compact(
+                'locations',
+            )
+        )->with('asset_transaction', $assetTransaction);
     }
 
     /**
