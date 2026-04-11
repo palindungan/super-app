@@ -12,7 +12,7 @@ class StoreAssetTransactionRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,12 @@ class StoreAssetTransactionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'code' => 'required|unique:asset_transactions',
+            'date' => 'required',
+            'notes' => 'required',
+
+            'origin_location_id' => 'required',
+            'destination_location_id' => 'required',
         ];
     }
 }

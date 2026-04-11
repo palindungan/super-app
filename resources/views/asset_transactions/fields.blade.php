@@ -1,3 +1,5 @@
+@include('components.resources.assets.v1.fields')
+
 <div class="col-md-12">
     <div class="card">
         <div class="card-body">
@@ -17,7 +19,7 @@
                 <div class="col-md-6">
                     <div class="form-group {{ $errors->has('date') ? 'has-error has-feedback' : '' }}">
                         <label for="date">Tanggal</label>
-                        <input type="text" class="form-control" id="date" name="date"
+                        <input type="date" class="form-control" id="date" name="date"
                             value="{{ old('date', $asset_transaction->date ?? '') }}" />
                         @error('date')
                             <small class="form-text text-muted text-danger">
