@@ -73,20 +73,7 @@ class AssetTransactionItemController extends Controller
      */
     public function show(AssetTransactionItem $assetTransactionItem)
     {
-        $data = [
-            'nama'    => 'Budi Santoso',
-            'nomor'   => 'INV-001',
-            'tanggal' => now()->format('d/m/Y'),
-            'items'   => [
-                ['nama' => 'Produk A', 'qty' => 2, 'harga' => 50000],
-                ['nama' => 'Produk B', 'qty' => 1, 'harga' => 75000],
-            ],
-        ];
-
-        $pdf = Pdf::loadView('asset_transaction_items.export_pdf', $data);
-
-        // Tampil di browser
-        return $pdf->stream('file.pdf');
+        //
     }
 
     /**

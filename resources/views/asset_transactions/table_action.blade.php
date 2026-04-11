@@ -1,4 +1,7 @@
 <div class="form-button-action">
+    <a class="btn btn-link btn-primary btn-lg" href="{{ route('asset_transactions.show', $row->id) }}" target="_blank">
+        <i class="fa fa-print"></i>
+    </a>
     <a class="btn btn-link btn-primary btn-lg" href="{{ route('asset_transactions.edit', $row->id) }}">
         <i class="fa fa-edit"></i>
     </a>
