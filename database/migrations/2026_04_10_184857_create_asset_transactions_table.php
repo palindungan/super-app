@@ -20,7 +20,6 @@ return new class extends Migration
 
             $table->string('code')->nullable();
             $table->date('date')->nullable();
-            $table->text('description')->nullable();
             $table->text('notes')->nullable();
 
             $table->timestamps();

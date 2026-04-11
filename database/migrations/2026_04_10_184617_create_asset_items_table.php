@@ -21,6 +21,11 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->text('photo')->nullable();
 
+            $table->date('purchase_date')->nullable();
+            $table->decimal('purchase_price', 15, 2)->nullable();
+            $table->unsignedInteger('quantity')->nullable();
+            $table->decimal('asset_value', 15, 2)->nullable();
+
             $table->timestamps();
             $table->softDeletes();
         });
