@@ -7,9 +7,6 @@
                 <th>Keterangan</th>
                 <th>Lokasi Asal</th>
                 <th>Lokasi Tujuan</th>
-                <th>Tanggal Beli</th>
-                <th>Harga Beli</th>
-                <th>Foto</th>
                 <th></th>
             </tr>
         </thead>
