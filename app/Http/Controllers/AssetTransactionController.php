@@ -85,6 +85,14 @@ class AssetTransactionController extends Controller
      */
     public function show(AssetTransaction $assetTransaction)
     {
+        $main_data = AssetTransactionRepository::getQuery()->select(
+            'asset_transactions.*',
+            'origin_locations.name AS origin_location_name',
+            'destination_locations.name AS destination_location_name',
+        )->where('asset_transactions.id', $assetTransaction->id)->first();
+
+        return $main_data;
+
         $data = [
             'nama'    => 'Budi Santoso',
             'nomor'   => 'INV-001',
