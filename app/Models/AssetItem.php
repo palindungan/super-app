@@ -12,5 +12,9 @@ class AssetItem extends Model
         'code',
         'name',
         'photo',
+        'purchase_date',
+        'purchase_price',
+        'quantity',
+        'asset_value',
     ];
 }

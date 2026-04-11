@@ -6,6 +6,8 @@
                 <th>Nama</th>
                 <th>Kategori</th>
                 <th>Status</th>
+                <th>Tanggal Beli</th>
+                <th>Harga Beli</th>
                 <th>Foto</th>
                 <th></th>
             </tr>
@@ -59,6 +61,20 @@
                         data: 'asset_status_name',
                         name: 'asset_statuses.name',
                         defaultContent: '-'
+                    },
+                    {
+                        data: 'purchase_date',
+                        name: 'asset_items.purchase_date',
+                        defaultContent: '-',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'purchase_price',
+                        name: 'asset_items.purchase_price',
+                        defaultContent: '-',
+                        orderable: false,
+                        searchable: false
                     },
                     {
                         data: 'photo',

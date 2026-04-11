@@ -58,6 +58,21 @@
                             </div>
                         </div>
 
+                        <div class="col-md-6">
+                            <div class="form-group" id="purchase_date_group">
+                                <label for="purchase_date">Tanggal Beli</label>
+                                <input type="date" class="form-control" id="purchase_date" name="purchase_date" />
+                                <small class="form-text text-muted text-danger" id="purchase_date_error"></small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" id="purchase_price_group">
+                                <label for="purchase_price">Harga Beli</label>
+                                <input type="number" class="form-control" id="purchase_price" name="purchase_price" />
+                                <small class="form-text text-muted text-danger" id="purchase_price_error"></small>
+                            </div>
+                        </div>
+
                         <div class="col-md-12">
                             <div class="form-group" id="photo_group">
                                 <label for="photo">Foto</label>
@@ -72,7 +87,8 @@
                     <button type="button" class="btn btn-warning" id="store_button"
                         onclick="createOnSubmit($('#fields_form'), $('#fields_modal'))">Buat</button>
                     <button type="button" class="btn btn-warning" id="update_button"
-                        onclick="editOnSubmit($('#fields_form'), $('#fields_modal'), this)" data-url="">Ubah</button>
+                        onclick="editOnSubmit($('#fields_form'), $('#fields_modal'), this)"
+                        data-url="">Ubah</button>
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
                 </div>
             </form>

@@ -31,6 +31,11 @@ class AssetItemController extends Controller
 
                 $dataTable = DataTables::of($query);
 
+
+                $dataTable->editColumn('purchase_price', function ($row) {
+                    return number_format($row->purchase_price, 0, ',', '.');
+                });
+
                 $dataTable->editColumn('photo', function ($row) {
                     if (!$row->photo) {
                         return null;
