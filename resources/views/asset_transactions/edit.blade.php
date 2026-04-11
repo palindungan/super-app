@@ -18,7 +18,7 @@
     </div>
 
     <form action="{{ route('asset_transactions.update', $asset_transaction->id) }}" method="POST"
-        onsubmit="formOnSubmitButton(this)">
+        onsubmit="formOnSubmitButton(this)" style="margin-bottom: 30px;">
         @include('components.forms.data', ['method' => 'PUT'])
         <div class="row">
             @include('asset_transactions.fields')
