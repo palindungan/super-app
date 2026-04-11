@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AssetTransactionItem;
 use App\Http\Requests\StoreAssetTransactionItemRequest;
 use App\Http\Requests\UpdateAssetTransactionItemRequest;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Yajra\DataTables\Facades\DataTables;
 
 class AssetTransactionItemController extends Controller
@@ -72,7 +73,20 @@ class AssetTransactionItemController extends Controller
      */
     public function show(AssetTransactionItem $assetTransactionItem)
     {
-      return view('asset_transaction_items.show');
+        $data = [
+            'nama'    => 'Budi Santoso',
+            'nomor'   => 'INV-001',
+            'tanggal' => now()->format('d/m/Y'),
+            'items'   => [
+                ['nama' => 'Produk A', 'qty' => 2, 'harga' => 50000],
+                ['nama' => 'Produk B', 'qty' => 1, 'harga' => 75000],
+            ],
+        ];
+
+        $pdf = Pdf::loadView('asset_transaction_items.export_pdf', $data);
+
+        // Tampil di browser
+        return $pdf->stream('file.pdf');
     }
 
     /**
