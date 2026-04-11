@@ -72,7 +72,7 @@ class AssetTransactionItemController extends Controller
      */
     public function show(AssetTransactionItem $assetTransactionItem)
     {
-        //
+      return view('asset_transaction_items.show');
     }
 
     /**
