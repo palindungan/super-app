@@ -13,3 +13,70 @@
         <tbody></tbody>
     </table>
 </div>
+
+@push('scripts')
+    <script>
+        let datatable;
+        $(document).ready(function() {
+            datatable = new DataTable('#datatable', {
+                language: {
+                    url: "{{ asset('assets/json/plugin/datatables/id.json') }}"
+                },
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ url()->current() }}",
+                    data: function(d) {
+                        d.datatable = 'main';
+                    },
+                    error: function(xhr) {
+                        try {
+                            console.error(JSON.parse(xhr.responseText));
+                        } catch (e) {
+                            console.error(xhr.responseText);
+                        }
+                    }
+                },
+                order: [
+                    [0, 'asc']
+                ],
+                columns: [{
+                        data: 'code',
+                        name: 'asset_transactions.code',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'date',
+                        name: 'asset_transactions.date',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'notes',
+                        name: 'asset_transactions.notes',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'origin_location_id',
+                        name: 'asset_transactions.origin_location_id',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'destination_location_id',
+                        name: 'asset_transactions.destination_location_id',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'action',
+                        name: 'asset_transactions.id',
+                        className: 'text-end',
+                        defaultContent: '-',
+                        orderable: false,
+                        searchable: false
+                    }
+                ],
+                stateSave: true,
+                searchDelay: 500
+            });
+        });
+    </script>
+@endpush
