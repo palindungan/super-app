@@ -16,5 +16,8 @@ class AssetItem extends Model
         'purchase_price',
         'quantity',
         'asset_value',
+        'latitude',
+        'longitude',
+        'accuracy',
     ];
 }

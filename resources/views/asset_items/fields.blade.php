@@ -73,13 +73,39 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group" id="photo_group">
                                 <label for="photo">Foto</label>
                                 <input type="file" class="form-control" id="photo" name="photo"
                                     accept="image/*" />
                                 <small class="form-text text-muted text-danger" id="photo_error"></small>
                             </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group" id="latitude_group">
+                                <label for="latitude">Latitude</label>
+                                <input type="text" class="form-control" id="latitude" name="latitude" />
+                                <small class="form-text text-muted text-danger" id="latitude_error"></small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" id="longitude_group">
+                                <label for="longitude">Longitude</label>
+                                <input type="text" class="form-control" id="longitude" name="longitude" />
+                                <small class="form-text text-muted text-danger" id="longitude_error"></small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" id="accuracy_group">
+                                <label for="accuracy">Accuracy</label>
+                                <input type="text" class="form-control" id="accuracy" name="accuracy" />
+                                <small class="form-text text-muted text-danger" id="accuracy_error"></small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-warning" onclick="getCurrentPosition()">Ambil
+                                Lokasi</button>
                         </div>
                     </div>
                 </div>
@@ -95,3 +121,24 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        function getCurrentPosition() {
+            navigator.geolocation.getCurrentPosition(
+                ({
+                    coords
+                }) => {
+                    console.log("Lat:", coords.latitude);
+                    console.log("Lng:", coords.longitude);
+                    console.log("Akurasi:", coords.accuracy, "meter");
+
+                    $('#latitude').val(coords.latitude);
+                    $('#longitude').val(coords.longitude);
+                    $('#accuracy').val(coords.accuracy);
+                },
+                (err) => console.error("Error:", err.message)
+            );
+        }
+    </script>
+@endpush
