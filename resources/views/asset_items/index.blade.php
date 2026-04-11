@@ -9,15 +9,33 @@
 @endpush
 
 @section('content')
-    <div class="page-header">
-        <h3 class="fw-bold mb-3">Barang</h3>
-        @include('components.layouts.master_1.breadcrumb.main', [
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row" style="padding-bottom: 20px;">
+        <div>
+            <h3 class="fw-bold mb-3">Peran</h3>
+        </div>
+        @include('components.layouts.master_1.breadcrumb.main2', [
             'breadcrumbs' => [
                 ['label' => 'Data Master'],
                 ['label' => 'Barang', 'url' => route('asset_items.index')],
                 ['label' => 'Daftar'],
             ],
         ])
+        <div class="ms-md-auto py-2 py-md-0 mb-3">
+            <div class="btn-group dropdown">
+                <button class="btn btn-label-info btn-round me-2 dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    Export
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                </ul>
+            </div>
+            {{-- <a href="#" class="btn btn-primary btn-round">Button</a> --}}
+        </div>
     </div>
 
     <div class="row">
