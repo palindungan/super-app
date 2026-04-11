@@ -5,7 +5,7 @@
     <button type="button" class="btn btn-link btn-danger"
         onclick="destroyAction(
             '{{ route('asset_transactions.destroy', $row->id) }}', 
-            'Aset Transaksi {{ $row->name }}'
+            'Aset Transaksi {{ $row->code }}'
         )">
         <i class="fa fa-times"></i>
     </button>
