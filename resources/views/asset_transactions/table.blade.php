@@ -56,13 +56,13 @@
                         defaultContent: '-'
                     },
                     {
-                        data: 'origin_location_id',
-                        name: 'asset_transactions.origin_location_id',
+                        data: 'origin_location_name',
+                        name: 'origin_locations.name',
                         defaultContent: '-'
                     },
                     {
-                        data: 'destination_location_id',
-                        name: 'asset_transactions.destination_location_id',
+                        data: 'destination_location_name',
+                        name: 'destination_locations.name',
                         defaultContent: '-'
                     },
                     {

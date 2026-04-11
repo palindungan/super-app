@@ -6,6 +6,7 @@ use App\Models\AssetTransaction;
 use App\Http\Requests\StoreAssetTransactionRequest;
 use App\Http\Requests\UpdateAssetTransactionRequest;
 use App\Models\Location;
+use App\Repositories\AssetTransactionRepository;
 use Yajra\DataTables\Facades\DataTables;
 
 class AssetTransactionController extends Controller
@@ -18,8 +19,10 @@ class AssetTransactionController extends Controller
         $request = request();
         if ($request->ajax()) {
             if ($request->datatable == 'main') {
-                $query = AssetTransaction::select(
+                $query = AssetTransactionRepository::getQuery()->select(
                     'asset_transactions.*',
+                    'origin_locations.name AS origin_location_name',
+                    'destination_locations.name AS destination_location_name',
                 );
 
                 $dataTable = DataTables::of($query);
