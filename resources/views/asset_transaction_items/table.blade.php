@@ -12,6 +12,8 @@
                 <th>Harga Beli</th>
                 <th>Jumlah</th>
                 <th>Nilai Aset</th>
+
+                <th></th>
             </tr>
         </thead>
         <tbody></tbody>
@@ -89,6 +91,14 @@
                         data: 'asset_value',
                         name: 'asset_transaction_items.asset_value',
                         defaultContent: '-'
+                    },
+                    {
+                        data: 'action',
+                        name: 'asset_transaction_items.id',
+                        className: 'text-end',
+                        defaultContent: '-',
+                        orderable: false,
+                        searchable: false
                     }
                 ],
                 stateSave: true,
