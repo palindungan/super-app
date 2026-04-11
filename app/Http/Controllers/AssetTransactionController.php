@@ -107,7 +107,14 @@ class AssetTransactionController extends Controller
      */
     public function update(UpdateAssetTransactionRequest $request, AssetTransaction $assetTransaction)
     {
-        //
+        if ($response = tokenFormCheck($request->_token_form)) return redirect(route('asset_transactions.index'))
+            ->withInput()
+            ->with('error', $response);
+
+        $input = $request->all();
+        $assetTransaction->update($input);
+
+        return redirect(route('asset_transactions.edit', $assetTransaction->id))->with('success', "Data berhasil diubah");
     }
 
     /**
