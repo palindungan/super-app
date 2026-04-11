@@ -21,12 +21,10 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Transaksi Aset</h4>
-                        @can('asset_transactions.create')
-                            <a class="btn btn-primary btn-round ms-auto" href="{{ route('asset_transactions.create') }}">
-                                <i class="fa fa-plus"></i>
-                                Buat Transaksi Aset
-                            </a>
-                        @endcan
+                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('asset_transactions.create') }}">
+                            <i class="fa fa-plus"></i>
+                            Buat Transaksi Aset
+                        </a>
                     </div>
                 </div>
                 <div class="card-body">
