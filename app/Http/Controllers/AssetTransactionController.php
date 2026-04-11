@@ -122,6 +122,17 @@ class AssetTransactionController extends Controller
      */
     public function destroy(AssetTransaction $assetTransaction)
     {
-        //
+        $request = request();
+
+        if ($request->ajax()) {
+            $assetTransaction->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil dihapus',
+                // 'data' => null,
+                // 'errors' => null,
+            ], 200);
+        }
     }
 }
