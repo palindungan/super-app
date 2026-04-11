@@ -6,6 +6,7 @@ use App\Models\AssetTransaction;
 use App\Http\Requests\StoreAssetTransactionRequest;
 use App\Http\Requests\UpdateAssetTransactionRequest;
 use App\Models\AssetItem;
+use App\Models\AssetTransactionItem;
 use App\Models\Location;
 use App\Repositories\AssetTransactionRepository;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -91,7 +92,22 @@ class AssetTransactionController extends Controller
             'destination_locations.name AS destination_location_name',
         )->where('asset_transactions.id', $assetTransaction->id)->first();
 
-        return $main_data;
+        $details_data = AssetTransactionItem::getQuery()
+            ->leftJoin('asset_items', 'asset_items.id', '=', 'asset_transaction_items.asset_item_id')
+            ->leftJoin('asset_transactions', 'asset_transactions.id', '=', 'asset_transaction_items.asset_transaction_id')
+            ->leftJoin('locations AS origin_locations', 'origin_locations.id', '=', 'asset_transactions.origin_location_id')
+            ->leftJoin('locations AS destination_locations', 'destination_locations.id', '=', 'asset_transactions.destination_location_id')
+            ->select(
+                'asset_transaction_items.*',
+                'asset_items.code AS asset_item_code',
+                'asset_items.name AS asset_item_name',
+                'asset_transactions.code AS asset_transaction_code',
+                'asset_transactions.date AS asset_transaction_date',
+                'origin_locations.name AS origin_location_name',
+                'destination_locations.name AS destination_location_name',
+            )->where('asset_transaction_items.asset_transaction_id', $assetTransaction->id)->get();
+
+        // return $details_data;
 
         $data = [
             'nama'    => 'Budi Santoso',
@@ -101,6 +117,8 @@ class AssetTransactionController extends Controller
                 ['nama' => 'Produk A', 'qty' => 2, 'harga' => 50000],
                 ['nama' => 'Produk B', 'qty' => 1, 'harga' => 75000],
             ],
+            'main_data'    => $main_data,
+            'details_data'    => $details_data,
         ];
 
         $pdf = Pdf::loadView('asset_transactions.export_pdf', $data);

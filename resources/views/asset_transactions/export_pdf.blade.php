@@ -39,38 +39,36 @@
 </head>
 
 <body>
-    <h2>INVOICE</h2>
-    <p><strong>No:</strong> {{ $nomor }}</p>
-    <p><strong>Kepada:</strong> {{ $nama }}</p>
-    <p><strong>Tanggal:</strong> {{ $tanggal }}</p>
+    <h2>Bukti</h2>
+    <p><strong>Kode:</strong> {{ $main_data->code }}</p>
+    <p><strong>Tanggal:</strong> {{ $main_data->date }}</p>
+    <p><strong>Lokasi Awal:</strong> {{ $main_data->origin_location_name }}</p>
+    <p><strong>Lokasi Tujuan:</strong> {{ $main_data->destination_location_name }}</p>
+    <p><strong>Keterangan:</strong> {{ $main_data->notes }}</p>
 
     <table>
         <thead>
             <tr>
-                <th>Nama Produk</th>
-                <th>Qty</th>
-                <th>Harga</th>
-                <th>Subtotal</th>
+                <th>Aset</th>
+                <th>Harga Beli</th>
+                <th>Jumlah</th>
+                <th>Nilai Aset</th>
             </tr>
         </thead>
         <tbody>
             @php $total = 0 @endphp
-            @foreach ($items as $item)
-                @php
-                    $subtotal = $item['qty'] * $item['harga'];
-                    $total += $subtotal;
-                @endphp
+            @foreach ($details_data as $item)
                 <tr>
-                    <td>{{ $item['nama'] }}</td>
-                    <td>{{ $item['qty'] }}</td>
-                    <td>Rp {{ number_format($item['harga'], 0, ',', '.') }}</td>
-                    <td>Rp {{ number_format($subtotal, 0, ',', '.') }}</td>
+                    <td>{{ $item->asset_item_name }}</td>
+                    <td>Rp {{ number_format($item->purchase_price, 0, ',', '.') }}</td>
+                    <td>{{ number_format($item->quantity, 0, ',', '.') }}</td>
+                    <td>Rp {{ number_format($item->asset_value, 0, ',', '.') }}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-    <p class="total">Total: Rp {{ number_format($total, 0, ',', '.') }}</p>
+    {{-- <p class="total">Total: Rp {{ number_format($total, 0, ',', '.') }}</p> --}}
 </body>
 
 </html>
