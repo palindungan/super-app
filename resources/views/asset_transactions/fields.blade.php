@@ -44,8 +44,14 @@
                 <div class="col-md-6">
                     <div class="form-group {{ $errors->has('origin_location_id') ? 'has-error has-feedback' : '' }}">
                         <label for="origin_location_id">Lokasi Awal</label>
-                        <input type="text" class="form-control" id="origin_location_id" name="origin_location_id"
-                            value="{{ old('origin_location_id', $asset_transaction->origin_location_id ?? '') }}" />
+                        <select class="form-control" id="origin_location_id" name="origin_location_id">
+                            @foreach ($locations as $id => $name)
+                                <option value="{{ $id }}"
+                                    {{ old('origin_location_id', $asset_transaction->origin_location_id ?? '') == $id ? 'selected' : '' }}>
+                                    {{ $name }}
+                                </option>
+                            @endforeach
+                        </select>
                         @error('origin_location_id')
                             <small class="form-text text-muted text-danger">
                                 {{ $message }}
@@ -57,9 +63,14 @@
                     <div
                         class="form-group {{ $errors->has('destination_location_id') ? 'has-error has-feedback' : '' }}">
                         <label for="destination_location_id">Lokasi Tujuan</label>
-                        <input type="text" class="form-control" id="destination_location_id"
-                            name="destination_location_id"
-                            value="{{ old('destination_location_id', $asset_transaction->destination_location_id ?? '') }}" />
+                        <select class="form-control" id="destination_location_id" name="destination_location_id">
+                            @foreach ($locations as $id => $name)
+                                <option value="{{ $id }}"
+                                    {{ old('destination_location_id', $asset_transaction->destination_location_id ?? '') == $id ? 'selected' : '' }}>
+                                    {{ $name }}
+                                </option>
+                            @endforeach
+                        </select>
                         @error('destination_location_id')
                             <small class="form-text text-muted text-danger">
                                 {{ $message }}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AssetTransaction;
 use App\Http\Requests\StoreAssetTransactionRequest;
 use App\Http\Requests\UpdateAssetTransactionRequest;
+use App\Models\Location;
 use Yajra\DataTables\Facades\DataTables;
 
 class AssetTransactionController extends Controller
@@ -45,7 +46,18 @@ class AssetTransactionController extends Controller
      */
     public function create()
     {
-        return view('asset_transactions.create');
+        $locations = [null => 'Pilih Lokasi'] + Location::query()
+            ->select('locations.*')
+            ->orderBy('locations.name', 'asc')
+            ->pluck('name', 'id')
+            ->toArray();
+
+        return view(
+            'asset_transactions.create',
+            compact(
+                'locations',
+            )
+        );
     }
 
     /**
