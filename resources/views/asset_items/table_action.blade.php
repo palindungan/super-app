@@ -1,6 +1,6 @@
 <div class="form-button-action">
     <a href="https://www.google.com/maps?q={{ $row->latitude }},{{ $row->longitude }}&z=16"
-        class="btn btn-link btn-primary btn-lg">
+        class="btn btn-link btn-primary btn-lg" target="_blank">
         <i class="fa fa-eye"></i>
     </a>
     <button type="button" class="btn btn-link btn-primary btn-lg"
