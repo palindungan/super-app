@@ -7,7 +7,8 @@
                 <th>Lokasi Awal</th>
                 <th>Lokasi Tujuan</th>
 
-                <th>Aset</th>
+                <th>Kode Aset</th>
+                <th>Nama Aset</th>
                 <th>Harga Beli</th>
                 <th>Jumlah</th>
                 <th>Nilai Aset</th>
@@ -64,6 +65,11 @@
                         defaultContent: '-'
                     },
 
+                    {
+                        data: 'asset_item_code',
+                        name: 'asset_items.code',
+                        defaultContent: '-'
+                    },
                     {
                         data: 'asset_item_name',
                         name: 'asset_items.name',

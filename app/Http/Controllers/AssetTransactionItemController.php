@@ -24,6 +24,7 @@ class AssetTransactionItemController extends Controller
                     ->leftJoin('locations AS destination_locations', 'destination_locations.id', '=', 'asset_transactions.destination_location_id')
                     ->select(
                         'asset_transaction_items.*',
+                        'asset_items.code AS asset_item_code',
                         'asset_items.name AS asset_item_name',
                         'asset_transactions.code AS asset_transaction_code',
                         'asset_transactions.date AS asset_transaction_date',
